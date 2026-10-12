@@ -106,7 +106,7 @@ async function main() {
   r = await post(`/api/matches/${m1.id}/generate`);
   check("regenerate after points entered → locked (409)", r.status === 409, `${r.status}`);
   const page1b = await page(`/match/${m1.id}`);
-  check("match 1 page now reveals the result and the gap column", /Result:/.test(page1b.text) && /Team total with captain bonuses/.test(page1b.text));
+  check("match 1 page now reveals the result and the gap column", /Result:/.test(page1b.text) && page1b.text.includes("Team total (with C / VC bonus)"));
 
   // ---------- match 2 ----------
   r = await post(`/api/matches/${m2.id}/generate`);
