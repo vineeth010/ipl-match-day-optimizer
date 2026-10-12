@@ -80,7 +80,7 @@ async function callModel(prompt: string): Promise<{ text: string; model: string 
   const timer = setTimeout(() => ctrl.abort(), 40_000);
   try {
     if (process.env.GEMINI_API_KEY) {
-      const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
+      const model = process.env.GEMINI_MODEL || "gemini-3.6-flash";
       const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
         method: "POST",
         headers: { "content-type": "application/json", "x-goog-api-key": process.env.GEMINI_API_KEY },
@@ -92,11 +92,11 @@ async function callModel(prompt: string): Promise<{ text: string; model: string 
       return { text: j.candidates?.[0]?.content?.parts?.[0]?.text ?? "", model };
     }
     if (process.env.OPENROUTER_API_KEY) {
-      const model = process.env.OPENROUTER_MODEL || "google/gemini-2.5-flash";
+      const model = process.env.OPENROUTER_MODEL || "google/gemini-3.6-flash";
       const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: { "content-type": "application/json", authorization: `Bearer ${process.env.OPENROUTER_API_KEY}` },
-        body: JSON.stringify({ model, temperature: 0.3, response_format: { type: "json_object" }, messages: [{ role: "user", content: prompt }] }),
+        body: JSON.stringify({ model, temperature: 0.3, reasoning: { effort: "low" }, response_format: { type: "json_object" }, messages: [{ role: "user", content: prompt }] }),
         signal: ctrl.signal,
       });
       if (!res.ok) throw new Error(`OpenRouter HTTP ${res.status}`);

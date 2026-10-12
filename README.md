@@ -47,7 +47,7 @@ npm run classify-roles             # optional: Gemini classifies debutant roles
 npm run dev
 ```
 
-Environment: `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (server only), and either `GEMINI_API_KEY` (+ `GEMINI_MODEL`) or `OPENROUTER_API_KEY` (+ `OPENROUTER_MODEL`, default `google/gemini-2.5-flash`).
+Environment: `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (server only), and either `GEMINI_API_KEY` (+ `GEMINI_MODEL`) or `OPENROUTER_API_KEY` (+ `OPENROUTER_MODEL`, default `google/gemini-3.6-flash`).
 
 ### Actual Points Document
 After a match, `npm run points-doc -- <match number>` (or without a number for all 74) writes a CSV in `docs/actual-points/` with every player's Dream11 points and a line-by-line breakdown, worked out from the scorecard. It is an outside-the-app convenience for the replayed season; Aryan reads his players' numbers from it and types them in. A copy for all matches is already in the repo.
