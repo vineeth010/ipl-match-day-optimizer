@@ -68,9 +68,8 @@ export async function generateForMatch(matchId: string) {
     is_vice: p.playerId === team.viceCaptain.playerId,
     history_matches: p.matchesOfHistory,
   }));
-  const del = await db().from("md_predictions").delete().eq("match_id", matchId);
-  if (del.error) throw new Error(del.error.message);
-  const ins = await db().from("md_predictions").insert(predRows);
+  // upsert (not delete + insert) so two simultaneous requests can never leave the match with an empty or half-written set
+  const ins = await db().from("md_predictions").upsert(predRows, { onConflict: "match_id,player_id" });
   if (ins.error) throw new Error(`save predictions: ${ins.error.message}`);
 
   const rec = await db().from("md_recommendations").upsert(
