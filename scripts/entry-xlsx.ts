@@ -244,6 +244,8 @@ async function main() {
   }
   ap.autoFilter = { from: "A1", to: `K${sorted.length + 1}` };
 
+  await db().from("md_meta").upsert({ key: "prediction_range", value: { poolMin: Math.min(...poolPreds), poolMax: Math.max(...poolPreds), teamMin: Math.min(...teamTotals), teamMax: Math.max(...teamTotals), teamMean: teamTotals.reduce((x, y) => x + y, 0) / teamTotals.length } }, { onConflict: "key" });
+
   const outDir = path.resolve("docs", "entry-sheets");
   fs.mkdirSync(outDir, { recursive: true });
   const file = path.join(outDir, "IPL2026_entry_workbook.xlsx");

@@ -1,5 +1,6 @@
 import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 import { DEFAULT_WEIGHTS } from "./config";
+import { FALLBACK_RANGE, FALLBACK_SCALE, type PointsScale, type PredictionRange } from "./scale";
 import type { EvidenceInput } from "./engine";
 import type { Observation } from "./learning";
 import type { MatchRow, PlayerMatchStat, PlayerRow, Role, WeightsConfig } from "./types";
@@ -221,4 +222,14 @@ export async function learningBefore(seq: number) {
   if (!eligible.length) return null;
   const latest = eligible[0];
   return { ...latest, from: info.get(latest.after_match_id) };
+}
+
+export async function getPointsScale(): Promise<PointsScale> {
+  const { data } = await db().from("md_meta").select("value").eq("key", "points_scale").maybeSingle();
+  return ((data as any)?.value as PointsScale) ?? FALLBACK_SCALE;
+}
+
+export async function getPredictionRange(): Promise<PredictionRange> {
+  const { data } = await db().from("md_meta").select("value").eq("key", "prediction_range").maybeSingle();
+  return ((data as any)?.value as PredictionRange) ?? FALLBACK_RANGE;
 }

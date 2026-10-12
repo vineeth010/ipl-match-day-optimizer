@@ -13,14 +13,18 @@ export default async function LearningPage() {
 
   return (
     <div className="space-y-5">
-      <div>
-        <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">What the agent has learned</h1>
-        <p className="mt-1 max-w-3xl text-sm text-muted">
-          After each match, Aryan&apos;s real points are compared with the agent&apos;s predictions. The agent only changes its weights when the evidence is strong enough, and only by small, capped steps.
-        </p>
-      </div>
+      <section className="hero relative overflow-hidden rounded-3xl px-5 py-8 text-white shadow-lg sm:px-10">
+        <div className="pitch-lines absolute inset-0" />
+        <div className="relative">
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gold">The learning loop</p>
+          <h1 className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">What the agent has learned</h1>
+          <p className="mt-3 max-w-3xl text-sm text-white/80">
+            After each match, Aryan&apos;s real points are compared with the agent&apos;s predictions. The agent only changes its weights when the evidence is strong enough, and only by small, capped steps.
+          </p>
+        </div>
+      </section>
 
-      <section className="rounded-2xl border border-line bg-surface p-5">
+      <section className="card p-5">
         <h2 className="text-sm font-semibold">Current scoring weights (version {weights.version})</h2>
         <div className="mt-3 grid gap-3 sm:grid-cols-5">
           {Object.keys(f).map((k) => {
@@ -42,7 +46,7 @@ export default async function LearningPage() {
         </div>
       </section>
 
-      <section className="rounded-2xl border border-line bg-surface p-5">
+      <section className="card p-5">
         <h2 className="text-sm font-semibold">Average gap between predicted and actual points (per player), by match</h2>
         <p className="mt-1 text-xs text-muted">Lower is better. The dashed line is a naive baseline: &quot;each player scores his career average.&quot; The agent should beat it over time, but T20 points are very noisy, so expect wobble.</p>
         {trend.length === 0 ? (
@@ -56,7 +60,7 @@ export default async function LearningPage() {
                 <tbody className="divide-y divide-line">
                   {trend.map((t) => (
                     <tr key={t.matchId}>
-                      <td className="py-1.5"><Link className="text-brand hover:underline" href={`/match/${t.matchId}`}>#{t.matchNumber ?? "–"} {t.label}</Link></td>
+                      <td className="py-1.5"><Link className="text-brand font-semibold hover:underline" href={`/match/${t.matchId}`}>#{t.matchNumber ?? "–"} {t.label}</Link></td>
                       <td className="py-1.5 text-right">{t.n}</td>
                       <td className="py-1.5 text-right font-medium">{t.modelMae.toFixed(1)}</td>
                       <td className="py-1.5 text-right">{t.baselineMae.toFixed(1)}</td>
@@ -70,7 +74,7 @@ export default async function LearningPage() {
         )}
       </section>
 
-      <section className="rounded-2xl border border-line bg-surface">
+      <section className="card">
         <div className="border-b border-line px-5 py-3 text-sm font-semibold">Learning log</div>
         {logs.length === 0 ? (
           <p className="px-5 py-4 text-sm text-muted">Nothing logged yet.</p>
@@ -79,9 +83,9 @@ export default async function LearningPage() {
             {logs.map((l: any) => (
               <li key={l.id} className="px-5 py-3 text-sm">
                 <div className="flex flex-wrap items-center gap-2">
-                  <Link className="font-medium text-brand hover:underline" href={`/match/${l.after_match_id}`}>After match</Link>
+                  <Link className="font-medium text-brand font-semibold hover:underline" href={`/match/${l.after_match_id}`}>After match</Link>
                   <span className="text-xs text-muted">{l.observations} entries across {l.matches} match(es) · gap {Number(l.model_mae).toFixed(1)} vs baseline {Number(l.baseline_mae).toFixed(1)}</span>
-                  <span className={`rounded-full px-2 py-0.5 text-xs ${l.changed ? "bg-brand-soft text-brand" : "bg-bg text-muted ring-1 ring-line"}`}>{l.changed ? `weights v${l.weights_before} → v${l.weights_after}` : "no change"}</span>
+                  <span className={`rounded-full px-2 py-0.5 text-xs ${l.changed ? "bg-good-soft text-good" : "bg-bg text-muted ring-1 ring-line"}`}>{l.changed ? `weights v${l.weights_before} → v${l.weights_after}` : "no change"}</span>
                 </div>
                 <ul className="mt-1.5 list-disc space-y-0.5 pl-5 text-muted">{(l.notes as string[]).map((n, i) => <li key={i}>{n}</li>)}</ul>
               </li>

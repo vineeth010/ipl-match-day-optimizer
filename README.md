@@ -2,7 +2,7 @@
 
 A Dream11 match-day agent for Aryan. Given an IPL 2026 match it builds the highest-scoring **legal** Dream11 XI, names a captain and vice-captain with reasoning specific to that match and venue, then **learns from Aryan's real points** after the match.
 
-Built for the Mesa C4 AI Final (Hard). Case: *Fantasy Cricket Match Day Optimizer*.
+Built for the Mesa C4 AI Final (Hard). Live: https://ipl-match-day-optimizer.vercel.app. Case: *Fantasy Cricket Match Day Optimizer*.
 
 ![Components Map](docs/components_map.png)
 
@@ -18,6 +18,32 @@ Built for the Mesa C4 AI Final (Hard). Case: *Fantasy Cricket Match Day Optimize
 | 6. Store predictions | Every pool player's predicted score (selected or not), its factor values and the weights version are saved. | `md_predictions`, `md_recommendations` |
 | 7. Aryan plays, enters actuals | After the match he types each of his 11 players' actual Dream11 points (plain points; the app applies the multipliers). | `md_actuals`, `src/components/ActualsForm.tsx` |
 | 8. Learn | Compares predicted vs actual, against a naive "career average" baseline, finds recurring errors by factor, player type and ground type, and updates the weights in **small, capped steps**, and only with enough evidence (at least 22 entries overall, at least 6 per bucket). Each change is versioned and explained in plain language. | `src/lib/learning.ts`, `md_weights`, `md_learning_log` |
+
+## Understanding the points (and their ceiling)
+
+Every number in the app is **Dream11 points for one player in one match**. The app shows this scale on the home page, on every match page and on the **Points guide** page, so a score like "68" always has context.
+
+| | Dream11 points |
+|---|---|
+| Lowest ever (IPL 2008-2026) | -4 |
+| Typical player-match (median) | 30 |
+| Top 10% start at | 86 |
+| Top 1% start at | 143 |
+| **Highest ever** | **306** (Chris Gayle, 175 off 66 balls and 2 wickets, 2013) |
+
+Measured over all 27,909 IPL player-matches, scored with the T20 table in `src/lib/dream11.ts`. Only about 0.7% of player-matches ever pass 150.
+
+**Is there a ceiling?**
+1. **Actual points: no cap in the rules**, but a practical limit: nobody has passed 306. A captain counts 2x, a vice-captain 1.5x.
+2. **Predicted points: an average, so far below the peaks.** A prediction is a weighted average of a player's past points (form, career, this ground, this opponent, role) times small multipliers capped at 0.8 to 1.2. It cannot reach peak scores. Over the 74-match replay the agent's predictions ran about **14 to 76 per player**.
+3. **A whole XI** (11 predictions plus the captain's extra 1x and the vice-captain's extra 0.5x) came to about **441 to 623**, averaging about 520.
+
+The agent is judged by how the gap between predicted and actual points behaves match after match, next to a simple "career average" baseline, not by whether it predicts peak days. Each predicted score in the app is also drawn as a bar against the IPL record.
+
+`npm run points-scale` recomputes the scale and the record holders into the database; `npm run entry-sheets` rebuilds the Excel entry workbook and the prediction range.
+
+### Record-holder photos
+The hall of fame on the home page shows the record holders' photos if you add them. Put portrait or square images (about 600px or larger) in `public/players/` named `gayle.jpg`, `tanvir.jpg`, `yuvraj.jpg`, `mccullum.jpg`. Until a file exists the card shows an icon placeholder. Make sure you have the right to use any photo you add.
 
 ### The evidence / weights split
 - **Evidence** (form, venue, opponent records, earlier results) is anything dated before the match. This is how a match-8 prediction knows about match 1-7.

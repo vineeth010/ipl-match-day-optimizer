@@ -81,14 +81,14 @@ export default function ActualsForm({ matchId, rows }: { matchId: string; rows: 
         ))}
       </ul>
       <div className="flex flex-wrap items-center gap-3">
-        <button disabled={busy} className="rounded-xl bg-brand px-5 py-2.5 text-sm font-medium text-white hover:opacity-90 disabled:opacity-60">
+        <button disabled={busy} className="rounded-xl bg-navy px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-60">
           {busy ? "Saving and learning…" : "Save points and let the agent learn"}
         </button>
         <span className="text-xs text-muted">{filled} of {rows.length} entered</span>
       </div>
       {error && <p className="rounded-lg bg-bad-soft px-3 py-2 text-sm text-bad">{error}</p>}
       {outcome && (
-        <div className="rounded-xl border border-line bg-brand-soft p-4 text-sm">
+        <div className="rounded-xl border border-good/30 bg-good-soft p-4 text-sm">
           <p className="font-medium">Saved. Here&apos;s what the agent concluded (weights v{outcome.weightsVersion}):</p>
           <ul className="mt-2 list-disc space-y-1 pl-5">{outcome.notes.map((n, i) => <li key={i}>{n}</li>)}</ul>
         </div>
@@ -98,5 +98,5 @@ export default function ActualsForm({ matchId, rows }: { matchId: string; rows: 
 }
 
 function Badge({ children }: { children: React.ReactNode }) {
-  return <span className="ml-1 rounded bg-brand px-1.5 py-0.5 text-[10px] font-semibold text-white">{children}</span>;
+  return <span className="ml-1 rounded bg-navy px-1.5 py-0.5 text-[10px] font-semibold text-white">{children}</span>;
 }

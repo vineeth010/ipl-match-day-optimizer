@@ -30,8 +30,8 @@ export default function GenerateButton({ matchId, regenerate = false }: { matchI
         disabled={busy}
         className={
           regenerate
-            ? "rounded-lg border border-line bg-surface px-3 py-1.5 text-sm hover:bg-bg disabled:opacity-60"
-            : "rounded-xl bg-brand px-5 py-3 text-sm font-medium text-white hover:opacity-90 disabled:opacity-60"
+            ? "rounded-lg bg-white px-3 py-1.5 text-sm font-semibold text-navy shadow-sm hover:bg-gold disabled:opacity-60"
+            : "rounded-xl bg-navy px-5 py-3 text-sm font-semibold text-white shadow hover:opacity-90 disabled:opacity-60"
         }
       >
         {busy ? "Analysing players, venue and history…" : regenerate ? "Regenerate" : "Generate team"}

@@ -1,81 +1,122 @@
 import Link from "next/link";
+import HallOfFame from "@/components/HallOfFame";
+import { BallIcon, StumpsIcon } from "@/components/Icons";
+import ScaleStrip from "@/components/ScaleStrip";
+import TeamBadge from "@/components/TeamBadge";
+import { getPointsScale, getPredictionRange, listIplMatches, matchStatusMap } from "@/lib/db";
 import { learningOverview } from "@/lib/service";
-import { listIplMatches, matchStatusMap } from "@/lib/db";
+import { teamStyle } from "@/lib/teams";
 
 export const dynamic = "force-dynamic";
 
-function fmtDate(d: string) {
-  return new Date(d + "T00:00:00Z").toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short", timeZone: "UTC" });
+function fmtDay(d: string) {
+  return new Date(d + "T00:00:00Z").toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" });
 }
 
 export default async function Home() {
-  const [matches, status, overview] = await Promise.all([listIplMatches(), matchStatusMap(), learningOverview()]);
+  const [matches, status, overview, scale, range] = await Promise.all([listIplMatches(), matchStatusMap(), learningOverview(), getPointsScale(), getPredictionRange()]);
   const entered = matches.filter((m) => status.get(m.id)?.entered).length;
   const next = matches.find((m) => !status.get(m.id)?.entered);
   const last = overview.trend[overview.trend.length - 1];
+  const days = new Map<string, typeof matches>();
+  for (const m of matches) (days.get(m.date) ?? days.set(m.date, []).get(m.date)!).push(m);
 
   return (
-    <div className="space-y-6">
-      <section className="rounded-2xl border border-line bg-surface p-5 sm:p-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h1 className="text-xl font-semibold tracking-tight sm:text-2xl">Your match day, done in a minute</h1>
-            <p className="mt-1 max-w-2xl text-sm text-muted">
-              Pick a match, get a legal Dream11 XI with captain and vice-captain reasoning, then enter the real points afterwards. The agent compares its
-              predictions with what actually happened and adjusts its scoring weights.
-            </p>
+    <div className="space-y-8">
+      <section className="hero relative overflow-hidden rounded-3xl text-white shadow-lg">
+        <div className="pitch-lines absolute inset-0" />
+        <div className="absolute -right-10 -top-10 opacity-20"><BallIcon className="h-72 w-72 rotate-12" /></div>
+        <div className="absolute bottom-0 right-6 hidden opacity-25 sm:block"><StumpsIcon className="h-40 w-40" /></div>
+        <div className="relative px-5 py-8 sm:px-10 sm:py-12">
+          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-medium ring-1 ring-white/20">
+            <span className="h-1.5 w-1.5 rounded-full bg-gold" /> IPL 2026 · 74 matches · replayed match by match
+          </p>
+          <h1 className="mt-4 max-w-2xl text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+            Your match day, <span className="text-gold">done in a minute.</span>
+          </h1>
+          <p className="mt-3 max-w-2xl text-sm text-white/80 sm:text-base">
+            Pick a match and get a legal Dream11 XI with captain and vice-captain reasoning. After the match, enter the real points and watch the agent compare its predictions with what actually happened, then adjust its scoring weights.
+          </p>
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            {next && (
+              <Link href={`/match/${next.id}`} className="inline-flex items-center gap-3 rounded-xl bg-gold px-4 py-3 text-sm font-bold text-navy shadow hover:brightness-105">
+                <TeamBadge name={next.team1} size="sm" /> v <TeamBadge name={next.team2} size="sm" />
+                <span>Next up: {teamStyle(next.team1).code} v {teamStyle(next.team2).code} →</span>
+              </Link>
+            )}
+            <Link href="/points" className="rounded-xl bg-white/10 px-4 py-3 text-sm font-semibold ring-1 ring-white/25 hover:bg-white/15">How points work</Link>
           </div>
-          {next && (
-            <Link href={`/match/${next.id}`} className="shrink-0 rounded-xl bg-brand px-4 py-2.5 text-center text-sm font-medium text-white hover:opacity-90">
-              Next up: {next.team1} v {next.team2} →
-            </Link>
-          )}
+          <dl className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {[
+              ["Matches played with the agent", `${entered} of ${matches.length}`, ""],
+              ["Scoring weights version", `v${overview.weights.version}`, "learned from your entries"],
+              ["Avg gap, latest match", last ? `${last.modelMae.toFixed(1)} pts` : "—", last ? `baseline ${last.baselineMae.toFixed(1)}` : "no entries yet"],
+              ["Learning entries", String(overview.logs.length), ""],
+            ].map(([k, v, h]) => (
+              <div key={k} className="rounded-2xl bg-white/10 px-4 py-3 ring-1 ring-white/15 backdrop-blur">
+                <dt className="text-[11px] uppercase tracking-wide text-white/65">{k}</dt>
+                <dd className="mt-0.5 text-2xl font-extrabold">{v}</dd>
+                {h && <div className="text-xs text-white/65">{h}</div>}
+              </div>
+            ))}
+          </dl>
         </div>
-        <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <Stat label="Matches played with the agent" value={`${entered} of ${matches.length}`} />
-          <Stat label="Scoring weights version" value={`v${overview.weights.version}`} />
-          <Stat label="Avg gap, latest match" value={last ? `${last.modelMae.toFixed(1)} pts` : "—"} hint={last ? `baseline ${last.baselineMae.toFixed(1)}` : "no entries yet"} />
-          <Stat label="Learning entries" value={String(overview.logs.length)} />
-        </dl>
       </section>
 
-      <section className="rounded-2xl border border-line bg-surface">
-        <div className="border-b border-line px-5 py-3 text-sm font-medium">IPL 2026 fixtures</div>
-        <ul className="divide-y divide-line">
-          {matches.map((m) => {
-            const s = status.get(m.id);
-            return (
-              <li key={m.id}>
-                <Link href={`/match/${m.id}`} className="grid grid-cols-[2.5rem_1fr_auto] items-center gap-3 px-5 py-3 hover:bg-bg sm:grid-cols-[3rem_9rem_1fr_auto]">
-                  <span className="text-sm font-medium text-muted">#{m.matchNumber ?? "–"}</span>
-                  <span className="hidden text-sm text-muted sm:block">{fmtDate(m.date)}</span>
-                  <span className="min-w-0">
-                    <span className="block truncate text-sm font-medium">{m.team1} v {m.team2}</span>
-                    <span className="block truncate text-xs text-muted">{m.venue}</span>
-                  </span>
-                  <Chip s={s} />
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+      <section className="card p-5 sm:p-6">
+        <ScaleStrip scale={scale} range={range} />
       </section>
-    </div>
-  );
-}
 
-function Stat({ label, value, hint }: { label: string; value: string; hint?: string }) {
-  return (
-    <div className="rounded-xl bg-bg px-3 py-2.5">
-      <dt className="text-xs text-muted">{label}</dt>
-      <dd className="text-lg font-semibold">{value}</dd>
-      {hint && <div className="text-xs text-muted">{hint}</div>}
+      <HallOfFame scale={scale} />
+
+      <section>
+        <div className="mb-3 flex items-end justify-between">
+          <h2 className="text-lg font-semibold tracking-tight">IPL 2026 fixtures</h2>
+          <span className="text-xs text-muted">{entered} played · {matches.length - entered} to go</span>
+        </div>
+        <div className="space-y-5">
+          {[...days.entries()].map(([day, list]) => (
+            <div key={day}>
+              <div className="mb-2 flex items-center gap-3">
+                <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">{fmtDay(day)}</h3>
+                <div className="h-px flex-1 bg-line" />
+              </div>
+              <div className="grid gap-3 md:grid-cols-2">
+                {list.map((m) => {
+                  const s = status.get(m.id);
+                  return (
+                    <Link key={m.id} href={`/match/${m.id}`} className="card lift group relative block overflow-hidden p-4">
+                      <div className="absolute inset-y-0 left-0 w-1.5" style={{ background: `linear-gradient(${teamStyle(m.team1).bg}, ${teamStyle(m.team2).bg})` }} />
+                      <div className="flex items-center justify-between pl-2">
+                        <span className="text-xs font-semibold text-muted">MATCH {m.matchNumber ?? "–"}</span>
+                        <Chip s={s} />
+                      </div>
+                      <div className="mt-3 flex items-center justify-between gap-2 pl-2">
+                        <div className="flex min-w-0 items-center gap-2.5">
+                          <TeamBadge name={m.team1} />
+                          <span className="truncate text-sm font-semibold">{teamStyle(m.team1).short}</span>
+                        </div>
+                        <span className="text-xs font-bold text-muted">VS</span>
+                        <div className="flex min-w-0 flex-row-reverse items-center gap-2.5">
+                          <TeamBadge name={m.team2} />
+                          <span className="truncate text-sm font-semibold">{teamStyle(m.team2).short}</span>
+                        </div>
+                      </div>
+                      <p className="mt-3 truncate pl-2 text-xs text-muted">{m.venue}</p>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }
 
 function Chip({ s }: { s?: { generated: boolean; entered: boolean } }) {
-  if (s?.entered) return <span className="rounded-full bg-brand-soft px-2.5 py-1 text-xs font-medium text-brand">Points entered</span>;
-  if (s?.generated) return <span className="rounded-full bg-warn-soft px-2.5 py-1 text-xs font-medium text-warn">Team ready</span>;
-  return <span className="rounded-full bg-bg px-2.5 py-1 text-xs font-medium text-muted ring-1 ring-line">Not generated</span>;
+  if (s?.entered) return <span className="rounded-full bg-good-soft px-2.5 py-1 text-[11px] font-semibold text-good">Points entered</span>;
+  if (s?.generated) return <span className="rounded-full bg-gold-soft px-2.5 py-1 text-[11px] font-semibold text-warn">Team ready</span>;
+  return <span className="rounded-full bg-bg px-2.5 py-1 text-[11px] font-medium text-muted ring-1 ring-line">Not generated</span>;
 }

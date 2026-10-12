@@ -1,16 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f6f7f4;
+  --bg: #f4f1ea;
   --surface: #ffffff;
-  --ink: #15201b;
-  --muted: #5d6b64;
-  --line: #e2e7e1;
-  --brand: #0b6b4f;
-  --brand-soft: #e3f3ec;
+  --ink: #0f1b33;
+  --muted: #5b6678;
+  --line: #e4e0d6;
+  --navy: #0a1f44;
+  --navy-2: #123068;
+  --brand: #1347b3;
+  --brand-soft: #e7eefc;
+  --gold: #f5a623;
+  --gold-soft: #fff3d6;
+  --good: #15803d;
+  --good-soft: #e3f4e8;
+  --pitch: #1f7a4d;
   --warn: #8a5a00;
   --warn-soft: #fff4d6;
-  --bad: #a3262a;
+  --bad: #b3202a;
   --bad-soft: #fde8e8;
 }
 
@@ -20,8 +27,15 @@
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-line: var(--line);
+  --color-navy: var(--navy);
+  --color-navy-2: var(--navy-2);
   --color-brand: var(--brand);
   --color-brand-soft: var(--brand-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-good: var(--good);
+  --color-good-soft: var(--good-soft);
+  --color-pitch: var(--pitch);
   --color-warn: var(--warn);
   --color-warn-soft: var(--warn-soft);
   --color-bad: var(--bad);
@@ -32,4 +46,38 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* stadium-floodlight hero: navy with a faint pitch and crease pattern */
+.hero {
+  background:
+    radial-gradient(1200px 400px at 85% -10%, rgba(245, 166, 35, 0.22), transparent 60%),
+    radial-gradient(800px 500px at 0% 120%, rgba(31, 122, 77, 0.35), transparent 60%),
+    linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+}
+
+.pitch-lines {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.seam {
+  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.55) 0 6px, transparent 6px 14px);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(10, 31, 68, 0.04);
+}
+
+.lift {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(10, 31, 68, 0.12);
 }
