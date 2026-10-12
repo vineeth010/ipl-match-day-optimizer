@@ -46,9 +46,18 @@ async function main() {
   // ---------- basic pages ----------
   const home = await page("/");
   check("home page loads", home.status === 200);
-  check("home lists all 74 fixtures", ms.length === 74 && (home.text.match(/Not generated/g) ?? []).length === 74, `${(home.text.match(/Not generated/g) ?? []).length} chips`);
+  check("home lists all 74 fixtures, with only match 1 open", ms.length === 74 && (home.text.match(/Not generated/g) ?? []).length === 1 && (home.text.match(/Locked/g) ?? []).length === 73, `${(home.text.match(/Not generated/g) ?? []).length} open, ${(home.text.match(/Locked/g) ?? []).length} locked`);
   check("unknown match page → 404", (await page("/match/does-not-exist")).status === 404);
   check("learning page loads (empty state)", (await page("/learning")).status === 200);
+
+  // ---------- the season is played in order ----------
+  let lk = await post(`/api/matches/${m2.id}/generate`);
+  check("generating match 2 before match 1 is played → 423 Locked", lk.status === 423, `${lk.status}`);
+  lk = await post(`/api/matches/${ms[16].id}/generate`);
+  check("generating match 17 directly → 423 Locked", lk.status === 423, `${lk.status}`);
+  const lockedPage = await page(`/match/${ms[16].id}`);
+  check("a locked match page explains the lock and offers no Generate button", /This match is locked/.test(lockedPage.text) && !/Generate team/.test(lockedPage.text));
+  check("nothing was saved by the blocked attempts", ((await db().from("md_predictions").select("*", { count: "exact", head: true })).count ?? 0) === 0);
 
   // ---------- guard rails before anything is generated ----------
   let r = await post("/api/matches/does-not-exist/generate");
@@ -107,6 +116,11 @@ async function main() {
   check("regenerate after points entered → locked (409)", r.status === 409, `${r.status}`);
   const page1b = await page(`/match/${m1.id}`);
   check("match 1 page now reveals the result and the gap column", /Result:/.test(page1b.text) && page1b.text.includes("Team total (with C / VC bonus)"));
+
+  const lock3 = await post(`/api/matches/${m3.id}/generate`);
+  check("match 3 stays locked while match 2 is unplayed → 423", lock3.status === 423, `${lock3.status}`);
+  const homeMid = await page("/");
+  check("home shows match 2 open and match 3 locked after match 1", (homeMid.text.match(/Locked/g) ?? []).length === 72, `${(homeMid.text.match(/Locked/g) ?? []).length} locked`);
 
   // ---------- match 2 ----------
   r = await post(`/api/matches/${m2.id}/generate`);

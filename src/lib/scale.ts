@@ -24,6 +24,8 @@ export interface PointsScale {
   max: Performance;
   /** record performance in each kind of contribution, chosen by what the player did (not by a fragile role label) */
   records: { batter: Performance; bowler: Performance; allRounder: Performance; keeper: Performance };
+  /** the best single-match days of the most recent completed season (the "stars" of that season) */
+  stars: { season: string; batter: Performance; bowler: Performance; allRounder: Performance; keeper: Performance };
   top5: Performance[];
   share: { above100: number; above150: number; above200: number };
 }
@@ -40,7 +42,7 @@ export interface PredictionRange {
 export const FALLBACK_SCALE: PointsScale = {
   rows: 27909,
   firstSeason: "2008",
-  lastSeason: "2026",
+  lastSeason: "2025",
   min: -4,
   median: 30,
   p90: 86,
@@ -51,6 +53,13 @@ export const FALLBACK_SCALE: PointsScale = {
     bowler: { player: "", playerId: "", role: "BOWL", team: "", opponent: "", date: "", points: 0, summary: "" },
     allRounder: { player: "", playerId: "", role: "AR", team: "", opponent: "", date: "", points: 0, summary: "" },
     keeper: { player: "", playerId: "", role: "WK", team: "", opponent: "", date: "", points: 0, summary: "" },
+  },
+  stars: {
+    season: "2025",
+    batter: { player: "Abhishek Sharma", playerId: "", role: "AR", team: "Sunrisers Hyderabad", opponent: "Punjab Kings", date: "2025-04-12", points: 201, summary: "141 off 55 balls" },
+    bowler: { player: "MA Starc", playerId: "", role: "BOWL", team: "Delhi Capitals", opponent: "Sunrisers Hyderabad", date: "2025-03-30", points: 145, summary: "5 wkts" },
+    allRounder: { player: "SP Narine", playerId: "", role: "AR", team: "Kolkata Knight Riders", opponent: "Chennai Super Kings", date: "2025-04-11", points: 171, summary: "44 off 18 balls, 3 wkts" },
+    keeper: { player: "RR Pant", playerId: "", role: "WK", team: "Lucknow Super Giants", opponent: "Royal Challengers Bengaluru", date: "2025-05-27", points: 171, summary: "118 off 61 balls" },
   },
   top5: [],
   share: { above100: 0.057, above150: 0.0073, above200: 0.0008 },

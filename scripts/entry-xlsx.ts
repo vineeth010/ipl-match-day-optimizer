@@ -81,13 +81,15 @@ async function main() {
     all.push(...(data ?? []));
     if ((data ?? []).length < 1000) break;
   }
-  const vals = all.map((r) => Number(r.d11)).sort((a, b) => a - b);
+  // the scale only uses seasons already played in the app's timeline (up to 2025); 2026 is the season being replayed
+  const hist = all.filter((r) => String(r.match_date) < "2026-01-01");
+  const vals = hist.map((r) => Number(r.d11)).sort((a, b) => a - b);
   const q = (p: number) => vals[Math.min(vals.length - 1, Math.floor(p * vals.length))];
-  const best = all.reduce((a, b) => (Number(b.d11) > Number(a.d11) ? b : a));
+  const best = hist.reduce((a, b) => (Number(b.d11) > Number(a.d11) ? b : a));
   const { data: bestName } = await db().from("md_players").select("name").eq("id", best.player_id).single();
   const firstSeq2026 = matches[0].seq;
   const byPlayer = new Map<string, number[]>();
-  for (const r of all) if (r.seq < firstSeq2026) (byPlayer.get(r.player_id) ?? byPlayer.set(r.player_id, []).get(r.player_id)!).push(Number(r.d11));
+  for (const r of hist) if (r.seq < firstSeq2026) (byPlayer.get(r.player_id) ?? byPlayer.set(r.player_id, []).get(r.player_id)!).push(Number(r.d11));
   let topAvg = { id: "", avg: 0, n: 0 };
   for (const [id, a] of byPlayer) if (a.length >= 30) { const avg = a.reduce((x, y) => x + y, 0) / a.length; if (avg > topAvg.avg) topAvg = { id, avg, n: a.length }; }
   const { data: topAvgName } = await db().from("md_players").select("name").eq("id", topAvg.id).single();
@@ -193,7 +195,7 @@ async function main() {
   r++;
   title("A. ACTUAL points (what a player really scores in one match)");
   line("Is there a hard cap in the rules?", "No", "Dream11 does not cap runs, wickets or catches, so there is no formal maximum.");
-  line("Lowest ever (IPL 2008-2026)", vals[0], `Across ${vals.length.toLocaleString()} player appearances, scored with our Dream11 table. Source: Cricsheet scorecards.`);
+  line("Lowest ever (IPL 2008-2025)", vals[0], `Across ${vals.length.toLocaleString()} player appearances, scored with our Dream11 table. Source: Cricsheet scorecards.`);
   line("Typical (median)", q(0.5), "Half of all appearances score this or less.");
   line("Top 10% start at", q(0.9), "");
   line("Top 1% start at", q(0.99), "");
@@ -221,7 +223,7 @@ async function main() {
   line("How much evidence before it changes anything", LEARNING.minObsForAnyChange, "Entries needed (two matches) before any weight moves; one match is mostly luck.");
   r++;
   title("Say this in the viva");
-  pc.getCell(r, 2).value = "\"Dream11 has no cap on points. In 17 IPL seasons the highest single score was " + Number(best.d11) + ". Our agent predicts expected points, a weighted average, so its predictions run about " + Math.round(Math.min(...poolPreds)) + " to " + Math.round(Math.max(...poolPreds)) + " per player. We judge it by how its prediction error behaves match after match, not by whether it predicts peaks.\"";
+  pc.getCell(r, 2).value = "\"Dream11 has no cap on points. In 18 IPL seasons (2008 to 2025) the highest single score was " + Number(best.d11) + ". Our agent predicts expected points, a weighted average, so its predictions run about " + Math.round(Math.min(...poolPreds)) + " to " + Math.round(Math.max(...poolPreds)) + " per player. We judge it by how its prediction error behaves match after match, not by whether it predicts peaks.\"";
   pc.mergeCells(r, 2, r, 4);
   style(pc.getCell(r, 2), { alignment: { wrapText: true, vertical: "top" }, font: { name: FONT, size: 11, italic: true } });
   pc.getRow(r).height = 62;

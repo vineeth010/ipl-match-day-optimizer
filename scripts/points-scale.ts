@@ -10,9 +10,12 @@ dotenv.config({ path: ".env.local", quiet: true });
 /* eslint-disable @typescript-eslint/no-explicit-any */
 async function main() {
   const { db } = await import("../src/lib/db");
+  // The app lives at the start of IPL 2026: nothing from the 2026 season may appear in any statistic.
+  const CUTOFF = "2026-01-01";
+  const STAR_SEASON = "2025";
   const rows: any[] = [];
   for (let from = 0; ; from += 1000) {
-    const { data, error } = await db().from("md_player_stats").select("match_id,player_id,team,opponent,match_date,d11,runs,balls,wickets,catches,stumpings").order("match_id").order("player_id").range(from, from + 999);
+    const { data, error } = await db().from("md_player_stats").select("match_id,player_id,team,opponent,match_date,d11,runs,balls,wickets,catches,stumpings").lt("match_date", CUTOFF).order("match_id").order("player_id").range(from, from + 999);
     if (error) throw new Error(error.message);
     rows.push(...(data ?? []));
     if ((data ?? []).length < 1000) break;
@@ -29,6 +32,8 @@ async function main() {
   const q = (p: number) => vals[Math.min(vals.length - 1, Math.floor(p * vals.length))];
   const first = (f: (r: any) => boolean) => perf(sorted.find(f)!);
   const batterRow = sorted.find((r) => r.runs >= 50 && r.wickets <= 2)!;
+  const season = sorted.filter((r) => String(r.match_date).startsWith(STAR_SEASON));
+  const star = (f: (r: any) => boolean) => perf(season.find(f)!);
   const share = (x: number) => vals.filter((v) => v > x).length / vals.length;
   const seasons = rows.map((r) => String(r.match_date).slice(0, 4)).sort();
   const scale: PointsScale = {
@@ -46,12 +51,20 @@ async function main() {
       allRounder: first((r) => r.runs >= 30 && r.wickets >= 3 && r.player_id !== batterRow.player_id),
       keeper: first((r) => players.get(r.player_id)?.role === "WK"),
     },
+    stars: {
+      season: STAR_SEASON,
+      batter: star((r) => r.runs >= 50 && r.wickets <= 2),
+      bowler: star((r) => r.runs <= 20 && r.wickets >= 3),
+      allRounder: star((r) => r.runs >= 30 && r.wickets >= 3),
+      keeper: star((r) => players.get(r.player_id)?.role === "WK"),
+    },
     top5: sorted.slice(0, 5).map(perf),
     share: { above100: share(100), above150: share(150), above200: share(200) },
   };
   const { error } = await db().from("md_meta").upsert({ key: "points_scale", value: scale }, { onConflict: "key" });
   if (error) throw new Error(error.message);
   console.log(`saved points scale from ${rows.length} player-matches`);
+  for (const k of ["batter", "bowler", "allRounder", "keeper"] as const) console.log("star", k.padEnd(11), scale.stars[k].player.padEnd(18), scale.stars[k].points, scale.stars[k].summary, scale.stars[k].date);
   console.log("overall:", scale.max.player, scale.max.points, scale.max.summary, scale.max.date);
   for (const k of ["batter", "bowler", "allRounder", "keeper"] as const) console.log(k.padEnd(11), scale.records[k].player.padEnd(18), String(scale.records[k].points).padStart(4), scale.records[k].summary, "|", scale.records[k].date, scale.records[k].team);
 }

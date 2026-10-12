@@ -2,13 +2,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ActualsForm from "@/components/ActualsForm";
 import GenerateButton from "@/components/GenerateButton";
-import { ROLE_LABEL, RoleIcon } from "@/components/Icons";
+import { LockIcon, ROLE_LABEL, RoleIcon } from "@/components/Icons";
 import ScaleStrip from "@/components/ScaleStrip";
 import TeamBadge from "@/components/TeamBadge";
 import XIOnField from "@/components/XIOnField";
 import { RULES } from "@/lib/config";
 import { getPointsScale, getPredictionRange } from "@/lib/db";
-import { matchView } from "@/lib/service";
+import { lockStatus, matchView } from "@/lib/service";
 import { teamStyle } from "@/lib/teams";
 
 export const dynamic = "force-dynamic";
@@ -17,7 +17,7 @@ export const dynamic = "force-dynamic";
 
 export default async function MatchPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const [v, scale, range] = await Promise.all([matchView(id), getPointsScale(), getPredictionRange()]);
+  const [v, scale, range, lock] = await Promise.all([matchView(id), getPointsScale(), getPredictionRange(), lockStatus(id)]);
   if (!v) notFound();
   const { match, rec, xi, byId, previousLearning, currentWeights, hasActuals } = v;
   const record = scale.max.points;
@@ -55,12 +55,12 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           <h1 className="sr-only">{match.team1} v {match.team2}</h1>
           <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6">
             <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:gap-4 sm:text-left">
-              <TeamBadge name={match.team1} size="lg" />
+              <TeamBadge name={match.team1} size="xl" />
               <div className="text-base font-extrabold leading-tight sm:text-2xl">{match.team1}</div>
             </div>
             <div className="text-center text-xs font-bold tracking-widest text-white/60">VS</div>
             <div className="flex flex-col items-center gap-2 text-center sm:flex-row-reverse sm:gap-4 sm:text-right">
-              <TeamBadge name={match.team2} size="lg" />
+              <TeamBadge name={match.team2} size="xl" />
               <div className="text-base font-extrabold leading-tight sm:text-2xl">{match.team2}</div>
             </div>
           </div>
@@ -98,7 +98,16 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         )}
       </section>
 
-      {!rec ? (
+      {!rec && lock.locked && lock.blockedBy ? (
+        <section className="card border-dashed p-8 text-center">
+          <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-bg ring-1 ring-line"><LockIcon className="h-8 w-8" /></div>
+          <h2 className="mt-3 text-lg font-semibold">This match is locked</h2>
+          <p className="mx-auto mt-1 max-w-lg text-sm text-muted">
+            The season is played in order. The agent learns from each match before it predicts the next one, so Match {match.matchNumber} opens once Match {lock.blockedBy.matchNumber} ({lock.blockedBy.team1} v {lock.blockedBy.team2}) has been played through the app: generate it, then enter its real points.
+          </p>
+          <Link href={`/match/${lock.blockedBy.id}`} className="mt-5 inline-block rounded-xl bg-navy px-5 py-3 text-sm font-semibold text-white shadow hover:opacity-90">Go to Match {lock.blockedBy.matchNumber} →</Link>
+        </section>
+      ) : !rec ? (
         <section className="card border-dashed p-8 text-center">
           <h2 className="text-lg font-semibold">Ready when you are</h2>
           <p className="mx-auto mt-1 max-w-lg text-sm text-muted">

@@ -71,3 +71,13 @@ export function RoleIcon({ role, className = "h-4 w-4" }: { role: string; classN
 }
 
 export const ROLE_LABEL: Record<string, string> = { WK: "Wicketkeeper", BAT: "Batter", AR: "All-rounder", BOWL: "Bowler" };
+
+export function LockIcon({ className = "h-5 w-5" }: P) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+      <rect x="5" y="10.5" width="14" height="10" rx="2.2" fill="#64748B" />
+      <path d="M8.2 10.5V8a3.8 3.8 0 017.6 0v2.5" fill="none" stroke="#64748B" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="12" cy="15.4" r="1.5" fill="#fff" />
+    </svg>
+  );
+}

@@ -6,6 +6,7 @@ import {
   getMatch,
   getPredictions,
   getRecommendation,
+  listIplMatches,
   learningBefore,
   listLearningLog,
   loadEvidence,
@@ -30,12 +31,30 @@ export class HttpError extends Error {
   }
 }
 
+/**
+ * The season is played in order. A match opens only once the match before it has been played through the app,
+ * meaning its real points were entered, because the agent needs what it learned from that match.
+ */
+export async function lockStatus(matchId: string): Promise<{ locked: boolean; blockedBy: { id: string; matchNumber: number | null; team1: string; team2: string } | null }> {
+  const matches = await listIplMatches();
+  const i = matches.findIndex((m) => m.id === matchId);
+  if (i <= 0) return { locked: false, blockedBy: null };
+  const prev = matches[i - 1];
+  const entered = (await getActuals(prev.id)).length > 0;
+  return { locked: !entered, blockedBy: entered ? null : { id: prev.id, matchNumber: prev.matchNumber, team1: prev.team1, team2: prev.team2 } };
+}
+
 /** Evidence -> prediction -> legal team -> Gemini reasoning -> saved predictions. */
 export async function generateForMatch(matchId: string) {
   const match = await getMatch(matchId);
   if (!match) throw new HttpError(404, "Match not found");
   if (!match.isIpl2026) throw new HttpError(400, "Only IPL 2026 matches can be generated");
   if ((await getActuals(matchId)).length) throw new HttpError(409, "Actual points are already entered for this match, so its recommendation is locked.");
+
+  const lock = await lockStatus(matchId);
+  if (lock.locked && lock.blockedBy) {
+    throw new HttpError(423, `Match ${match.matchNumber} is locked. Finish Match ${lock.blockedBy.matchNumber} (${lock.blockedBy.team1} v ${lock.blockedBy.team2}) first: generate it and enter its real points.`);
+  }
 
   const weights = await getLatestWeights();
   const evidence = await loadEvidence(match, weights); // date-gated inside

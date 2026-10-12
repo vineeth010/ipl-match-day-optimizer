@@ -3,22 +3,22 @@ import { BallIcon, BatIcon, GlovesIcon, StumpsIcon } from "./Icons";
 import PlayerPhoto from "./PlayerPhoto";
 import TeamBadge from "./TeamBadge";
 
-const SLUG: Record<string, string> = { "CH Gayle": "gayle", "Sohail Tanvir": "tanvir", "Yuvraj Singh": "yuvraj", "BB McCullum": "mccullum" };
-const FULL: Record<string, string> = { "CH Gayle": "Chris Gayle", "BB McCullum": "Brendon McCullum" };
+const SLUG: Record<string, string> = { "Abhishek Sharma": "abhishek-sharma", "MA Starc": "starc", "SP Narine": "narine", "RR Pant": "pant" };
+const FULL: Record<string, string> = { "MA Starc": "Mitchell Starc", "SP Narine": "Sunil Narine", "RR Pant": "Rishabh Pant" };
 
 export default function HallOfFame({ scale }: { scale: PointsScale }) {
   const cards: { title: string; perf: Performance; icon: React.ReactNode; accent: string }[] = [
-    { title: "Best batting day", perf: scale.records.batter, icon: <BatIcon className="h-5 w-5" />, accent: "from-gold/90 to-amber-600" },
-    { title: "Best bowling day", perf: scale.records.bowler, icon: <BallIcon className="h-5 w-5" />, accent: "from-sky-500 to-brand" },
-    { title: "Best all-round day", perf: scale.records.allRounder, icon: <StumpsIcon className="h-5 w-5" />, accent: "from-emerald-500 to-pitch" },
-    { title: "Best keeper day", perf: scale.records.keeper, icon: <GlovesIcon className="h-5 w-5" />, accent: "from-fuchsia-500 to-purple-700" },
+    { title: "Best batting day", perf: scale.stars.batter, icon: <BatIcon className="h-5 w-5" />, accent: "from-gold/90 to-amber-600" },
+    { title: "Best bowling day", perf: scale.stars.bowler, icon: <BallIcon className="h-5 w-5" />, accent: "from-sky-500 to-brand" },
+    { title: "Best all-round day", perf: scale.stars.allRounder, icon: <StumpsIcon className="h-5 w-5" />, accent: "from-emerald-500 to-pitch" },
+    { title: "Best keeper day", perf: scale.stars.keeper, icon: <GlovesIcon className="h-5 w-5" />, accent: "from-fuchsia-500 to-purple-700" },
   ];
   return (
     <section>
       <div className="mb-3 flex flex-wrap items-end justify-between gap-2">
         <div>
-          <h2 className="text-lg font-semibold tracking-tight">IPL record scores by kind of player</h2>
-          <p className="text-sm text-muted">The best single-match Dream11 scores in IPL history. Real points are far higher than a prediction, and that is why predictions are averages, not peaks.</p>
+          <h2 className="text-lg font-semibold tracking-tight">Stars of IPL {scale.stars.season}</h2>
+          <p className="text-sm text-muted">The best single-match Dream11 scores of the {scale.stars.season} season, by kind of player. Real match days score far higher than a prediction, which is why predictions are averages, not peaks. The all-time record is {scale.max.points}.</p>
         </div>
       </div>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

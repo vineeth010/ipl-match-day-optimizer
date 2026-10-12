@@ -68,8 +68,8 @@ export default async function PointsGuide() {
 
       <section className="grid gap-4 md:grid-cols-3">
         <Explain n="1" title="Actual points: no cap, but a practical limit" body={`Dream11 does not cap runs, wickets or catches, so there is no formal maximum. In ${scale.rows.toLocaleString()} IPL player-matches the best was ${scale.max.points}, and half scored ${scale.median} or less. A captain doubles that, which is how contests are won.`} />
-        <Explain n="2" title="Predicted points: an average, so far below the peaks" body={`A prediction is a weighted average of a player's past points (form, career, this ground, this opponent, role) with small capped multipliers. It cannot reach peak scores. Across the 74-match replay the agent's predictions ran ${Math.round(range.poolMin)} to ${Math.round(range.poolMax)} per player.`} />
-        <Explain n="3" title="A whole team: about 440 to 620 points" body={`11 predictions plus the captain's extra 1x and the vice-captain's extra 0.5x came to ${Math.round(range.teamMin)} to ${Math.round(range.teamMax)} across the replay, averaging ${Math.round(range.teamMean)}. The agent is judged by how its error behaves match after match, not by predicting peaks.`} />
+        <Explain n="2" title="Predicted points: an average, so far below the peaks" body={`A prediction is a weighted average of a player's past points (form, career, this ground, this opponent, role) with small capped multipliers. It cannot reach peak scores. In back-testing, the agent's predictions ran ${Math.round(range.poolMin)} to ${Math.round(range.poolMax)} per player.`} />
+        <Explain n="3" title="A whole team: about 440 to 620 points" body={`11 predictions plus the captain's extra 1x and the vice-captain's extra 0.5x came to ${Math.round(range.teamMin)} to ${Math.round(range.teamMax)} in back-testing, averaging ${Math.round(range.teamMean)}. The agent is judged by how its error behaves match after match, not by predicting peaks.`} />
       </section>
 
       <HallOfFame scale={scale} />
