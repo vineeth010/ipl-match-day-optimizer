@@ -34,7 +34,7 @@ Gemini does **not** learn. What changes between matches is the small set of stor
 - **Player roles** are inferred from IPL history before 2026, plus a short list of known wicketkeepers; debutants are classified by Gemini Flash when it recognises them, otherwise default to batter.
 - **Prediction error is large** (about 26 Dream11 points per player in an offline replay of all 74 matches) and close to a simple career-average baseline. T20 fantasy points are very noisy. What the loop reliably does is keep over/under-prediction small; the learning page shows the agent's gap next to the baseline so improvement can be judged honestly.
 - **Replay.** IPL 2026 is already over, so the season is replayed match by match from real, scraped data. The date gate is what stops the replay from leaking results.
-- The Dream11 scoring table in `src/lib/dream11.ts` follows Dream11's published T20 points as closely as we know them and is easy to correct in one place.
+- The Dream11 scoring table in `src/lib/dream11.ts` was checked against two published guides (Sportskeeda, psainath.org) and matches them; Dream11's own points page could not be reached, so it is not confirmed against Dream11 itself. Unconfirmed: the stumping value (+12 assumed) and whether the 30/50/100-run bonuses stack (highest only assumed). It lives in one place, so a correction is a one-file change.
 
 ## Run it
 

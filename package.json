@@ -9,7 +9,8 @@
     "ingest": "tsx scripts/ingest.ts",
     "points-doc": "tsx scripts/points-doc.ts",
     "test:engine": "tsx scripts/test-engine.ts",
-    "classify-roles": "tsx scripts/classify-roles.ts"
+    "classify-roles": "tsx scripts/classify-roles.ts",
+    "entry-sheets": "tsx scripts/entry-xlsx.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",
@@ -26,6 +27,7 @@
     "@types/react-dom": "^19",
     "adm-zip": "^0.5.16",
     "dotenv": "^18.0.4",
+    "exceljs": "^4.4.0",
     "tailwindcss": "^4",
     "tsx": "^4.19.0",
     "typescript": "^5"

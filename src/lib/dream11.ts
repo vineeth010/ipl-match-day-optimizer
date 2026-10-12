@@ -50,9 +50,10 @@ export function dream11Points(s: S, role: Role): PointsBreakdown {
     if (sr > 170) add("Strike rate", 6);
     else if (sr > 150) add("Strike rate", 4);
     else if (sr >= 130) add("Strike rate", 2);
-    else if (sr >= 70 && sr <= 100) add("Strike rate", -2);
-    else if (sr >= 60 && sr < 70) add("Strike rate", -4);
-    else if (sr < 60) add("Strike rate", -6);
+    // slow-batting penalties per the published T20 table (Sportskeeda, psainath.org): nothing between 70 and 130
+    else if (sr >= 60 && sr <= 70) add("Strike rate", -2);
+    else if (sr >= 50 && sr < 60) add("Strike rate", -4);
+    else if (sr < 50) add("Strike rate", -6);
   }
 
   // bowling

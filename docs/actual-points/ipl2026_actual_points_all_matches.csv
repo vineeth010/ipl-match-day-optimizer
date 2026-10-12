@@ -54,8 +54,8 @@
 3,2026-03-30,Chennai Super Kings v Rajasthan Royals,S Dube,Chennai Super Kings,BAT,12,6,4,0,0,Playing XI +4; Runs +6; Six bonus +2
 3,2026-03-30,Chennai Super Kings v Rajasthan Royals,SV Samson,Chennai Super Kings,WK,11,6,7,0,0,Playing XI +4; Runs +6; Boundary bonus +1
 3,2026-03-30,Chennai Super Kings v Rajasthan Royals,KK Ahmed,Chennai Super Kings,BOWL,8,0,0,0,0,Playing XI +4; Economy +4
+3,2026-03-30,Chennai Super Kings v Rajasthan Royals,RD Gaikwad,Chennai Super Kings,BAT,7,6,11,0,0,Playing XI +4; Runs +6; Boundary bonus +1; Strike rate -4
 3,2026-03-30,Chennai Super Kings v Rajasthan Royals,MW Short,Chennai Super Kings,AR,6,2,7,0,0,Playing XI +4; Runs +2
-3,2026-03-30,Chennai Super Kings v Rajasthan Royals,RD Gaikwad,Chennai Super Kings,BAT,5,6,11,0,0,Playing XI +4; Runs +6; Boundary bonus +1; Strike rate -6
 3,2026-03-30,Chennai Super Kings v Rajasthan Royals,MJ Henry,Chennai Super Kings,BOWL,4,5,7,0,0,Playing XI +4; Runs +5; Boundary bonus +1; Economy -6
 3,2026-03-30,Chennai Super Kings v Rajasthan Royals,A Mhatre,Chennai Super Kings,BAT,2,0,1,0,0,Playing XI +4; Duck -2
 3,2026-03-30,Chennai Super Kings v Rajasthan Royals,Noor Ahmad,Chennai Super Kings,BOWL,1,1,9,0,0,Playing XI +4; Runs +1; Economy -4
@@ -100,7 +100,7 @@
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,Kuldeep Yadav,Delhi Capitals,BOWL,70,0,0,2,2,Playing XI +4; Wickets +50; Catches +16
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,T Stubbs,Delhi Capitals,BAT,68,39,32,0,2,Playing XI +4; Runs +39; Boundary bonus +3; Six bonus +2; 30-run bonus +4; Catches +16
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,AR Patel,Delhi Capitals,AR,39,0,1,1,0,Playing XI +4; Duck -2; Wickets +25; LBW/Bowled bonus +8; Economy +4
-5,2026-04-01,Lucknow Super Giants v Delhi Capitals,N Rana,Delhi Capitals,BAT,21,15,17,0,0,Playing XI +4; Runs +15; Boundary bonus +2; Six bonus +2; Strike rate -2
+5,2026-04-01,Lucknow Super Giants v Delhi Capitals,N Rana,Delhi Capitals,BAT,23,15,17,0,0,Playing XI +4; Runs +15; Boundary bonus +2; Six bonus +2
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,Mukesh Kumar,Delhi Capitals,BOWL,16,0,0,0,1,Playing XI +4; Economy +4; Catches +8
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,DA Miller,Delhi Capitals,BAT,12,0,0,0,1,Playing XI +4; Catches +8
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,KL Rahul,Delhi Capitals,WK,10,0,1,0,1,Playing XI +4; Duck -2; Catches +8
@@ -113,8 +113,8 @@
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,Mohammed Shami,Lucknow Super Giants,BOWL,32,1,2,1,0,Playing XI +4; Runs +1; Wickets +25; Economy +2
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,RR Pant,Lucknow Super Giants,WK,20,7,9,0,1,Playing XI +4; Runs +7; Boundary bonus +1; Catches +8
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,MD Choudhary,Lucknow Super Giants,BAT,20,14,11,0,0,Playing XI +4; Runs +14; Boundary bonus +2
+5,2026-04-01,Lucknow Super Giants v Delhi Capitals,Shahbaz Ahmed,Lucknow Super Giants,AR,20,15,16,0,0,Playing XI +4; Runs +15; Boundary bonus +1
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,AK Markram,Lucknow Super Giants,AR,18,11,8,0,0,Playing XI +4; Runs +11; Boundary bonus +1; Six bonus +2
-5,2026-04-01,Lucknow Super Giants v Delhi Capitals,Shahbaz Ahmed,Lucknow Super Giants,AR,18,15,16,0,0,Playing XI +4; Runs +15; Boundary bonus +1; Strike rate -2
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,N Pooran,Lucknow Super Giants,WK,13,8,8,0,0,Playing XI +4; Runs +8; Boundary bonus +1
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,A Nortje,Lucknow Super Giants,BOWL,4,0,1,0,0,Playing XI +4
 5,2026-04-01,Lucknow Super Giants v Delhi Capitals,A Badoni,Lucknow Super Giants,BAT,2,0,3,0,0,Playing XI +4; Duck -2
@@ -126,8 +126,8 @@
 6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,Kartik Tyagi,Kolkata Knight Riders,BOWL,31,5,5,1,0,Playing XI +4; Runs +5; Boundary bonus +1; Wickets +25; Economy -4
 6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,AS Roy,Kolkata Knight Riders,BOWL,29,0,2,1,0,Playing XI +4; Wickets +25
 6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,Ramandeep Singh,Kolkata Knight Riders,BAT,23,10,9,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Catches +8
+6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,AM Rahane,Kolkata Knight Riders,BAT,20,8,10,0,1,Playing XI +4; Runs +8; Catches +8
 6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,SP Narine,Kolkata Knight Riders,AR,20,12,4,0,0,Playing XI +4; Runs +12; Six bonus +4
-6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,AM Rahane,Kolkata Knight Riders,BAT,18,8,10,0,1,Playing XI +4; Runs +8; Strike rate -2; Catches +8
 6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,C Green,Kolkata Knight Riders,AR,14,2,2,0,1,Playing XI +4; Runs +2; Catches +8
 6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,CV Varun,Kolkata Knight Riders,BOWL,14,0,1,0,2,Playing XI +4; Economy -6; Catches +16
 6,2026-04-02,Sunrisers Hyderabad v Kolkata Knight Riders,Nithish Kumar Reddy,Sunrisers Hyderabad,AR,115,39,24,2,1,Playing XI +4; Runs +39; Boundary bonus +4; Six bonus +2; 30-run bonus +4; Strike rate +4; Wickets +50; Catches +8
@@ -184,7 +184,7 @@
 8,2026-04-04,Mumbai Indians v Delhi Capitals,Naman Dhir,Mumbai Indians,BAT,38,28,21,0,0,Playing XI +4; Runs +28; Boundary bonus +2; Six bonus +2; Strike rate +2
 8,2026-04-04,Mumbai Indians v Delhi Capitals,C Bosch,Mumbai Indians,BOWL,36,11,4,1,0,Playing XI +4; Runs +11; Boundary bonus +2; Wickets +25; Economy -6
 8,2026-04-04,Mumbai Indians v Delhi Capitals,DL Chahar,Mumbai Indians,BOWL,31,0,0,1,0,Playing XI +4; Wickets +25; Economy +2
-8,2026-04-04,Mumbai Indians v Delhi Capitals,RD Rickelton,Mumbai Indians,WK,21,9,11,0,1,Playing XI +4; Runs +9; Boundary bonus +2; Strike rate -2; Catches +8
+8,2026-04-04,Mumbai Indians v Delhi Capitals,RD Rickelton,Mumbai Indians,WK,23,9,11,0,1,Playing XI +4; Runs +9; Boundary bonus +2; Catches +8
 8,2026-04-04,Mumbai Indians v Delhi Capitals,JJ Bumrah,Mumbai Indians,BOWL,20,0,0,0,0,Playing XI +4; Economy +4; Run out (direct) +12
 8,2026-04-04,Mumbai Indians v Delhi Capitals,M Markande,Mumbai Indians,BOWL,10,0,0,0,1,Playing XI +4; Economy -2; Catches +8
 8,2026-04-04,Mumbai Indians v Delhi Capitals,Tilak Varma,Mumbai Indians,BAT,10,0,2,0,1,Playing XI +4; Duck -2; Catches +8
@@ -352,7 +352,7 @@
 15,2026-04-09,Kolkata Knight Riders v Lucknow Super Giants,M Siddharth,Lucknow Super Giants,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
 15,2026-04-09,Kolkata Knight Riders v Lucknow Super Giants,Prince Yadav,Lucknow Super Giants,BOWL,25,0,0,1,0,Playing XI +4; Wickets +25; Economy -4
 15,2026-04-09,Kolkata Knight Riders v Lucknow Super Giants,MR Marsh,Lucknow Super Giants,AR,24,15,11,0,0,Playing XI +4; Runs +15; Boundary bonus +1; Six bonus +2; Strike rate +2
-15,2026-04-09,Kolkata Knight Riders v Lucknow Super Giants,N Pooran,Lucknow Super Giants,WK,17,13,15,0,0,Playing XI +4; Runs +13; Six bonus +2; Strike rate -2
+15,2026-04-09,Kolkata Knight Riders v Lucknow Super Giants,N Pooran,Lucknow Super Giants,WK,19,13,15,0,0,Playing XI +4; Runs +13; Six bonus +2
 15,2026-04-09,Kolkata Knight Riders v Lucknow Super Giants,RR Pant,Lucknow Super Giants,WK,15,10,9,0,0,Playing XI +4; Runs +10; Boundary bonus +1
 15,2026-04-09,Kolkata Knight Riders v Lucknow Super Giants,Mohammed Shami,Lucknow Super Giants,BOWL,15,1,3,0,1,Playing XI +4; Runs +1; Economy +2; Catches +8
 15,2026-04-09,Kolkata Knight Riders v Lucknow Super Giants,Abdul Samad,Lucknow Super Giants,BAT,6,2,4,0,0,Playing XI +4; Runs +2
@@ -360,7 +360,7 @@
 16,2026-04-10,Royal Challengers Bengaluru v Rajasthan Royals,V Suryavanshi,Rajasthan Royals,BAT,118,78,26,0,0,Playing XI +4; Runs +78; Boundary bonus +8; Six bonus +14; Half-century bonus +8; Strike rate +6
 16,2026-04-10,Royal Challengers Bengaluru v Rajasthan Royals,Brijesh Sharma,Rajasthan Royals,BAT,70,0,0,2,1,Playing XI +4; Wickets +50; LBW/Bowled bonus +8; Catches +8
 16,2026-04-10,Royal Challengers Bengaluru v Rajasthan Royals,Ravi Bishnoi,Rajasthan Royals,BOWL,62,0,0,2,0,Playing XI +4; Wickets +50; LBW/Bowled bonus +8
-16,2026-04-10,Royal Challengers Bengaluru v Rajasthan Royals,RA Jadeja,Rajasthan Royals,AR,54,24,25,1,0,Playing XI +4; Runs +24; Boundary bonus +1; Strike rate -2; Wickets +25; Economy +2
+16,2026-04-10,Royal Challengers Bengaluru v Rajasthan Royals,RA Jadeja,Rajasthan Royals,AR,56,24,25,1,0,Playing XI +4; Runs +24; Boundary bonus +1; Wickets +25; Economy +2
 16,2026-04-10,Royal Challengers Bengaluru v Rajasthan Royals,JC Archer,Rajasthan Royals,BOWL,52,0,0,2,0,Playing XI +4; Wickets +50; Economy -2
 16,2026-04-10,Royal Challengers Bengaluru v Rajasthan Royals,SO Hetmyer,Rajasthan Royals,BAT,30,0,1,0,3,Playing XI +4; Duck -2; Catches +24; 3-catch bonus +4
 16,2026-04-10,Royal Challengers Bengaluru v Rajasthan Royals,Sandeep Sharma,Rajasthan Royals,BOWL,25,0,0,1,0,Playing XI +4; Wickets +25; Economy -4
@@ -386,8 +386,8 @@
 17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,Shashank Singh,Punjab Kings,BAT,75,16,9,2,0,Playing XI +4; Runs +16; Boundary bonus +1; Six bonus +2; Wickets +50; Economy +2
 17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,Arshdeep Singh,Punjab Kings,BOWL,56,0,0,2,1,Playing XI +4; Wickets +50; Economy -6; Catches +8
 17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,XC Bartlett,Punjab Kings,BOWL,43,0,0,1,2,Playing XI +4; Wickets +25; Economy -2; Catches +16
-17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,C Connolly,Punjab Kings,BAT,22,11,12,0,1,Playing XI +4; Runs +11; Boundary bonus +1; Strike rate -2; Catches +8
-17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,N Wadhera,Punjab Kings,BAT,18,14,14,0,0,Playing XI +4; Runs +14; Six bonus +2; Strike rate -2
+17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,C Connolly,Punjab Kings,BAT,24,11,12,0,1,Playing XI +4; Runs +11; Boundary bonus +1; Catches +8
+17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,N Wadhera,Punjab Kings,BAT,20,14,14,0,0,Playing XI +4; Runs +14; Six bonus +2
 17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,MP Stoinis,Punjab Kings,AR,10,0,0,0,0,Playing XI +4; Run out (shared) +6
 17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,M Jansen,Punjab Kings,BOWL,10,0,0,0,1,Playing XI +4; Economy -2; Catches +8
 17,2026-04-11,Sunrisers Hyderabad v Punjab Kings,YS Chahal,Punjab Kings,BOWL,2,0,0,0,0,Playing XI +4; Economy -2
@@ -413,7 +413,7 @@
 18,2026-04-11,Chennai Super Kings v Delhi Capitals,Noor Ahmad,Chennai Super Kings,BOWL,33,0,0,1,1,Playing XI +4; Wickets +25; Economy -4; Catches +8
 18,2026-04-11,Chennai Super Kings v Delhi Capitals,D Brevis,Chennai Super Kings,BAT,32,0,0,0,3,Playing XI +4; Catches +24; 3-catch bonus +4
 18,2026-04-11,Chennai Super Kings v Delhi Capitals,KK Ahmed,Chennai Super Kings,BOWL,23,0,0,1,0,Playing XI +4; Wickets +25; Economy -6
-18,2026-04-11,Chennai Super Kings v Delhi Capitals,RD Gaikwad,Chennai Super Kings,BAT,18,15,18,0,0,Playing XI +4; Runs +15; Boundary bonus +1; Strike rate -2
+18,2026-04-11,Chennai Super Kings v Delhi Capitals,RD Gaikwad,Chennai Super Kings,BAT,20,15,18,0,0,Playing XI +4; Runs +15; Boundary bonus +1
 18,2026-04-11,Chennai Super Kings v Delhi Capitals,SN Khan,Chennai Super Kings,BAT,12,0,0,0,1,Playing XI +4; Catches +8
 18,2026-04-11,Chennai Super Kings v Delhi Capitals,AJ Hosein,Chennai Super Kings,BOWL,10,0,0,0,1,Playing XI +4; Economy -2; Catches +8
 18,2026-04-11,Chennai Super Kings v Delhi Capitals,T Stubbs,Delhi Capitals,BAT,86,60,38,0,0,Playing XI +4; Runs +60; Boundary bonus +4; Six bonus +6; Half-century bonus +8; Strike rate +4
@@ -445,13 +445,13 @@
 19,2026-04-12,Lucknow Super Giants v Gujarat Titans,RR Pant,Lucknow Super Giants,WK,38,18,11,0,1,Playing XI +4; Runs +18; Boundary bonus +2; Six bonus +2; Strike rate +4; Catches +8
 19,2026-04-12,Lucknow Super Giants v Gujarat Titans,DS Rathi,Lucknow Super Giants,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
 19,2026-04-12,Lucknow Super Giants v Gujarat Titans,Prince Yadav,Lucknow Super Giants,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
+19,2026-04-12,Lucknow Super Giants v Gujarat Titans,N Pooran,Lucknow Super Giants,WK,27,19,21,0,0,Playing XI +4; Runs +19; Six bonus +4
 19,2026-04-12,Lucknow Super Giants v Gujarat Titans,GF Linde,Lucknow Super Giants,BAT,27,16,10,0,0,Playing XI +4; Runs +16; Boundary bonus +3; Strike rate +4
-19,2026-04-12,Lucknow Super Giants v Gujarat Titans,N Pooran,Lucknow Super Giants,WK,25,19,21,0,0,Playing XI +4; Runs +19; Six bonus +4; Strike rate -2
 19,2026-04-12,Lucknow Super Giants v Gujarat Titans,MD Choudhary,Lucknow Super Giants,BAT,25,18,14,0,0,Playing XI +4; Runs +18; Boundary bonus +1; Six bonus +2
-19,2026-04-12,Lucknow Super Giants v Gujarat Titans,Abdul Samad,Lucknow Super Giants,BAT,22,18,22,0,0,Playing XI +4; Runs +18; Boundary bonus +2; Strike rate -2
+19,2026-04-12,Lucknow Super Giants v Gujarat Titans,Abdul Samad,Lucknow Super Giants,BAT,24,18,22,0,0,Playing XI +4; Runs +18; Boundary bonus +2
 19,2026-04-12,Lucknow Super Giants v Gujarat Titans,MR Marsh,Lucknow Super Giants,AR,18,11,4,0,0,Playing XI +4; Runs +11; Boundary bonus +1; Six bonus +2
+19,2026-04-12,Lucknow Super Giants v Gujarat Titans,A Badoni,Lucknow Super Giants,BAT,14,9,11,0,0,Playing XI +4; Runs +9; Boundary bonus +1
 19,2026-04-12,Lucknow Super Giants v Gujarat Titans,Avesh Khan,Lucknow Super Giants,BOWL,13,4,1,0,1,Playing XI +4; Runs +4; Boundary bonus +1; Economy -4; Catches +8
-19,2026-04-12,Lucknow Super Giants v Gujarat Titans,A Badoni,Lucknow Super Giants,BAT,12,9,11,0,0,Playing XI +4; Runs +9; Boundary bonus +1; Strike rate -2
 20,2026-04-12,Royal Challengers Bengaluru v Mumbai Indians,SE Rutherford,Mumbai Indians,BAT,108,71,31,0,0,Playing XI +4; Runs +71; Boundary bonus +1; Six bonus +18; Half-century bonus +8; Strike rate +6
 20,2026-04-12,Royal Challengers Bengaluru v Mumbai Indians,HH Pandya,Mumbai Indians,AR,95,40,22,1,1,Playing XI +4; Runs +40; Boundary bonus +6; Six bonus +2; 30-run bonus +4; Strike rate +6; Wickets +25; Catches +8
 20,2026-04-12,Royal Challengers Bengaluru v Mumbai Indians,RD Rickelton,Mumbai Indians,WK,58,37,22,0,0,Playing XI +4; Runs +37; Boundary bonus +3; Six bonus +6; 30-run bonus +4; Strike rate +4
@@ -495,7 +495,7 @@
 21,2026-04-13,Sunrisers Hyderabad v Rajasthan Royals,H Klaasen,Sunrisers Hyderabad,WK,59,40,26,0,0,Playing XI +4; Runs +40; Boundary bonus +1; Six bonus +6; 30-run bonus +4; Strike rate +4
 21,2026-04-13,Sunrisers Hyderabad v Rajasthan Royals,S Arora,Sunrisers Hyderabad,BAT,56,24,13,0,2,Playing XI +4; Runs +24; Boundary bonus +2; Six bonus +4; Strike rate +6; Catches +16
 21,2026-04-13,Sunrisers Hyderabad v Rajasthan Royals,E Malinga,Sunrisers Hyderabad,BOWL,54,0,0,2,0,Playing XI +4; Wickets +50
-21,2026-04-13,Sunrisers Hyderabad v Rajasthan Royals,TM Head,Sunrisers Hyderabad,BAT,23,18,18,0,0,Playing XI +4; Runs +18; Boundary bonus +3; Strike rate -2
+21,2026-04-13,Sunrisers Hyderabad v Rajasthan Royals,TM Head,Sunrisers Hyderabad,BAT,25,18,18,0,0,Playing XI +4; Runs +18; Boundary bonus +3
 21,2026-04-13,Sunrisers Hyderabad v Rajasthan Royals,Aniket Verma,Sunrisers Hyderabad,BAT,11,6,5,0,0,Playing XI +4; Runs +6; Boundary bonus +1
 21,2026-04-13,Sunrisers Hyderabad v Rajasthan Royals,Abhishek Sharma,Sunrisers Hyderabad,AR,10,0,1,0,1,Playing XI +4; Duck -2; Catches +8
 21,2026-04-13,Sunrisers Hyderabad v Rajasthan Royals,Shivang Kumar,Sunrisers Hyderabad,BAT,4,0,0,0,0,Playing XI +4
@@ -520,9 +520,9 @@
 22,2026-04-14,Chennai Super Kings v Kolkata Knight Riders,AM Rahane,Kolkata Knight Riders,BAT,36,28,22,0,0,Playing XI +4; Runs +28; Six bonus +4
 22,2026-04-14,Chennai Super Kings v Kolkata Knight Riders,AS Roy,Kolkata Knight Riders,BOWL,32,1,1,1,0,Playing XI +4; Runs +1; Wickets +25; Economy +2
 22,2026-04-14,Chennai Super Kings v Kolkata Knight Riders,VG Arora,Kolkata Knight Riders,BOWL,31,0,0,1,1,Playing XI +4; Wickets +25; Economy -6; Catches +8
+22,2026-04-14,Chennai Super Kings v Kolkata Knight Riders,RK Singh,Kolkata Knight Riders,BAT,6,6,12,0,0,Playing XI +4; Runs +6; Strike rate -4
 22,2026-04-14,Chennai Super Kings v Kolkata Knight Riders,FH Allen,Kolkata Knight Riders,WK,5,1,3,0,0,Playing XI +4; Runs +1
 22,2026-04-14,Chennai Super Kings v Kolkata Knight Riders,CV Varun,Kolkata Knight Riders,BOWL,4,0,0,0,0,Playing XI +4
-22,2026-04-14,Chennai Super Kings v Kolkata Knight Riders,RK Singh,Kolkata Knight Riders,BAT,4,6,12,0,0,Playing XI +4; Runs +6; Strike rate -6
 22,2026-04-14,Chennai Super Kings v Kolkata Knight Riders,C Green,Kolkata Knight Riders,AR,-4,0,1,0,0,Playing XI +4; Duck -2; Economy -6
 23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,Prince Yadav,Lucknow Super Giants,BOWL,89,0,0,3,0,Playing XI +4; Wickets +75; LBW/Bowled bonus +8; 3-wicket bonus +4; Economy -2
 23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,MD Choudhary,Lucknow Super Giants,BAT,64,39,28,0,1,Playing XI +4; Runs +39; Boundary bonus +3; Six bonus +4; 30-run bonus +4; Strike rate +2; Catches +8
@@ -544,7 +544,7 @@
 23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,JM Sharma,Royal Challengers Bengaluru,WK,41,23,9,0,1,Playing XI +4; Runs +23; Boundary bonus +2; Six bonus +4; Catches +8
 23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,JR Hazlewood,Royal Challengers Bengaluru,BOWL,41,0,0,1,0,Playing XI +4; Wickets +25; LBW/Bowled bonus +8; Economy +4
 23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,TH David,Royal Challengers Bengaluru,BAT,29,14,8,0,1,Playing XI +4; Runs +14; Boundary bonus +1; Six bonus +2; Catches +8
-23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,D Padikkal,Royal Challengers Bengaluru,BAT,21,10,11,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Strike rate -2; Catches +8
+23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,D Padikkal,Royal Challengers Bengaluru,BAT,23,10,11,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Catches +8
 23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,R Shepherd,Royal Challengers Bengaluru,BOWL,21,14,8,0,0,Playing XI +4; Runs +14; Boundary bonus +1; Six bonus +2
 23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,PD Salt,Royal Challengers Bengaluru,WK,20,7,8,0,1,Playing XI +4; Runs +7; Boundary bonus +1; Catches +8
 23,2026-04-15,Lucknow Super Giants v Royal Challengers Bengaluru,Suyash Sharma,Royal Challengers Bengaluru,BOWL,4,0,0,0,0,Playing XI +4
@@ -580,7 +580,7 @@
 25,2026-04-17,Kolkata Knight Riders v Gujarat Titans,M Prasidh Krishna,Gujarat Titans,BOWL,35,0,0,1,0,Playing XI +4; Wickets +25; Run out (shared) +6
 25,2026-04-17,Kolkata Knight Riders v Gujarat Titans,B Sai Sudharsan,Gujarat Titans,BAT,33,22,16,0,0,Playing XI +4; Runs +22; Boundary bonus +1; Six bonus +4; Strike rate +2
 25,2026-04-17,Kolkata Knight Riders v Gujarat Titans,Rashid Khan,Gujarat Titans,BOWL,27,0,0,1,0,Playing XI +4; Wickets +25; Economy -2
-25,2026-04-17,Kolkata Knight Riders v Gujarat Titans,Washington Sundar,Gujarat Titans,AR,16,13,13,0,0,Playing XI +4; Runs +13; Boundary bonus +1; Strike rate -2
+25,2026-04-17,Kolkata Knight Riders v Gujarat Titans,Washington Sundar,Gujarat Titans,AR,18,13,13,0,0,Playing XI +4; Runs +13; Boundary bonus +1
 25,2026-04-17,Kolkata Knight Riders v Gujarat Titans,R Tewatia,Gujarat Titans,AR,11,7,6,0,0,Playing XI +4; Runs +7
 25,2026-04-17,Kolkata Knight Riders v Gujarat Titans,M Shahrukh Khan,Gujarat Titans,BAT,7,3,2,0,0,Playing XI +4; Runs +3
 25,2026-04-17,Kolkata Knight Riders v Gujarat Titans,C Green,Kolkata Knight Riders,AR,124,79,55,0,2,Playing XI +4; Runs +79; Boundary bonus +7; Six bonus +8; Half-century bonus +8; Strike rate +2; Catches +16
@@ -651,8 +651,8 @@
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,AS Roy,Kolkata Knight Riders,BOWL,38,29,16,0,0,Playing XI +4; Runs +29; Boundary bonus +1; Six bonus +4
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,R Powell,Kolkata Knight Riders,BAT,31,23,20,0,0,Playing XI +4; Runs +23; Boundary bonus +2; Six bonus +2
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,TL Seifert,Kolkata Knight Riders,WK,28,0,1,0,1,Playing XI +4; Duck -2; Catches +8; Stumpings +12; Run out (shared) +6
-28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,A Raghuvanshi,Kolkata Knight Riders,BAT,17,10,19,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Strike rate -6; Catches +8
-28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,Ramandeep Singh,Kolkata Knight Riders,BAT,15,10,13,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Strike rate -2; Economy -6; Catches +8
+28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,A Raghuvanshi,Kolkata Knight Riders,BAT,19,10,19,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Strike rate -4; Catches +8
+28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,Ramandeep Singh,Kolkata Knight Riders,BAT,17,10,13,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Economy -6; Catches +8
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,AM Rahane,Kolkata Knight Riders,BAT,10,0,2,0,1,Playing XI +4; Duck -2; Catches +8
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,VG Arora,Kolkata Knight Riders,BOWL,10,0,0,0,0,Playing XI +4; Run out (shared) +6
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,RA Jadeja,Rajasthan Royals,AR,78,9,7,2,0,Playing XI +4; Runs +9; Boundary bonus +1; Wickets +50; LBW/Bowled bonus +8; Economy +6
@@ -664,8 +664,8 @@
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,Ravi Bishnoi,Rajasthan Royals,BOWL,27,0,2,1,0,Playing XI +4; Wickets +25; Economy -2
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,N Burger,Rajasthan Royals,BOWL,27,0,0,1,0,Playing XI +4; Wickets +25; Economy -2
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,D Ferreira,Rajasthan Royals,BAT,21,7,7,0,1,Playing XI +4; Runs +7; Six bonus +2; Catches +8
-28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,SO Hetmyer,Rajasthan Royals,BAT,17,15,18,0,0,Playing XI +4; Runs +15; Strike rate -2
-28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,R Parag,Rajasthan Royals,AR,15,12,14,0,0,Playing XI +4; Runs +12; Boundary bonus +1; Strike rate -2
+28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,SO Hetmyer,Rajasthan Royals,BAT,19,15,18,0,0,Playing XI +4; Runs +15
+28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,R Parag,Rajasthan Royals,AR,17,12,14,0,0,Playing XI +4; Runs +12; Boundary bonus +1
 28,2026-04-19,Rajasthan Royals v Kolkata Knight Riders,Brijesh Sharma,Rajasthan Royals,BAT,5,1,3,0,0,Playing XI +4; Runs +1
 29,2026-04-19,Punjab Kings v Lucknow Super Giants,MR Marsh,Lucknow Super Giants,AR,73,40,28,0,2,Playing XI +4; Runs +40; Boundary bonus +3; Six bonus +4; 30-run bonus +4; Strike rate +2; Catches +16
 29,2026-04-19,Punjab Kings v Lucknow Super Giants,AK Markram,Lucknow Super Giants,AR,73,42,22,0,1,Playing XI +4; Runs +42; Boundary bonus +3; Six bonus +6; 30-run bonus +4; Strike rate +6; Catches +8
@@ -698,7 +698,7 @@
 30,2026-04-20,Mumbai Indians v Gujarat Titans,M Prasidh Krishna,Gujarat Titans,BOWL,23,0,0,1,0,Playing XI +4; Wickets +25; Economy -6
 30,2026-04-20,Mumbai Indians v Gujarat Titans,Shubman Gill,Gujarat Titans,BAT,21,14,13,0,0,Playing XI +4; Runs +14; Boundary bonus +3
 30,2026-04-20,Mumbai Indians v Gujarat Titans,GD Phillips,Gujarat Titans,BAT,18,6,8,0,1,Playing XI +4; Runs +6; Catches +8
-30,2026-04-20,Mumbai Indians v Gujarat Titans,R Tewatia,Gujarat Titans,AR,11,8,11,0,0,Playing XI +4; Runs +8; Boundary bonus +1; Strike rate -2
+30,2026-04-20,Mumbai Indians v Gujarat Titans,R Tewatia,Gujarat Titans,AR,13,8,11,0,0,Playing XI +4; Runs +8; Boundary bonus +1
 30,2026-04-20,Mumbai Indians v Gujarat Titans,JC Buttler,Gujarat Titans,WK,10,5,6,0,0,Playing XI +4; Runs +5; Boundary bonus +1
 30,2026-04-20,Mumbai Indians v Gujarat Titans,Rashid Khan,Gujarat Titans,BOWL,8,4,6,0,0,Playing XI +4; Runs +4
 30,2026-04-20,Mumbai Indians v Gujarat Titans,B Sai Sudharsan,Gujarat Titans,BAT,2,0,1,0,0,Playing XI +4; Duck -2
@@ -708,7 +708,7 @@
 30,2026-04-20,Mumbai Indians v Gujarat Titans,Naman Dhir,Mumbai Indians,BAT,91,45,32,0,3,Playing XI +4; Runs +45; Boundary bonus +6; Six bonus +2; 30-run bonus +4; Strike rate +2; Catches +24; 3-catch bonus +4
 30,2026-04-20,Mumbai Indians v Gujarat Titans,MJ Santner,Mumbai Indians,BOWL,66,0,0,2,1,Playing XI +4; Wickets +50; Economy +4; Catches +8
 30,2026-04-20,Mumbai Indians v Gujarat Titans,AM Ghazanfar,Mumbai Indians,BAT,64,0,0,2,0,Playing XI +4; Wickets +50; LBW/Bowled bonus +8; Economy +2
-30,2026-04-20,Mumbai Indians v Gujarat Titans,HH Pandya,Mumbai Indians,AR,51,15,16,1,0,Playing XI +4; Runs +15; Boundary bonus +1; Strike rate -2; Wickets +25; LBW/Bowled bonus +8
+30,2026-04-20,Mumbai Indians v Gujarat Titans,HH Pandya,Mumbai Indians,AR,53,15,16,1,0,Playing XI +4; Runs +15; Boundary bonus +1; Wickets +25; LBW/Bowled bonus +8
 30,2026-04-20,Mumbai Indians v Gujarat Titans,Q de Kock,Mumbai Indians,WK,40,13,11,0,1,Playing XI +4; Runs +13; Boundary bonus +1; Six bonus +2; Catches +8; Stumpings +12
 30,2026-04-20,Mumbai Indians v Gujarat Titans,JJ Bumrah,Mumbai Indians,BOWL,33,0,0,1,0,Playing XI +4; Wickets +25; Economy +4
 30,2026-04-20,Mumbai Indians v Gujarat Titans,SA Yadav,Mumbai Indians,BAT,24,15,10,0,0,Playing XI +4; Runs +15; Boundary bonus +1; Six bonus +2; Strike rate +2
@@ -743,8 +743,8 @@
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,MR Marsh,Lucknow Super Giants,AR,79,55,41,0,0,Playing XI +4; Runs +55; Boundary bonus +6; Six bonus +4; Half-century bonus +8; Strike rate +2
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,Prince Yadav,Lucknow Super Giants,BOWL,62,0,0,2,1,Playing XI +4; Wickets +50; Catches +8
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,Mohammed Shami,Lucknow Super Giants,BOWL,62,6,4,2,0,Playing XI +4; Runs +6; Six bonus +2; Wickets +50
-32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,N Pooran,Lucknow Super Giants,WK,35,22,25,0,1,Playing XI +4; Runs +22; Boundary bonus +3; Strike rate -2; Catches +8
-32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,Himmat Singh,Lucknow Super Giants,BAT,19,15,15,0,0,Playing XI +4; Runs +15; Six bonus +2; Strike rate -2
+32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,N Pooran,Lucknow Super Giants,WK,37,22,25,0,1,Playing XI +4; Runs +22; Boundary bonus +3; Catches +8
+32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,Himmat Singh,Lucknow Super Giants,BAT,21,15,15,0,0,Playing XI +4; Runs +15; Six bonus +2
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,RR Pant,Lucknow Super Giants,WK,18,0,3,0,2,Playing XI +4; Duck -2; Catches +16
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,DS Rathi,Lucknow Super Giants,BOWL,16,2,2,0,1,Playing XI +4; Runs +2; Economy +2; Catches +8
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,MD Choudhary,Lucknow Super Giants,BAT,13,7,3,0,0,Playing XI +4; Runs +7; Six bonus +2
@@ -762,7 +762,7 @@
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,SB Dubey,Rajasthan Royals,BAT,32,19,11,0,0,Playing XI +4; Runs +19; Boundary bonus +3; Strike rate +6
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,Dhruv Jurel,Rajasthan Royals,WK,30,0,1,0,3,Playing XI +4; Duck -2; Catches +24; 3-catch bonus +4
 32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,SO Hetmyer,Rajasthan Royals,BAT,30,22,18,0,0,Playing XI +4; Runs +22; Boundary bonus +2; Six bonus +2
-32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,V Suryavanshi,Rajasthan Royals,BAT,12,8,11,0,0,Playing XI +4; Runs +8; Boundary bonus +2; Strike rate -2
+32,2026-04-22,Rajasthan Royals v Lucknow Super Giants,V Suryavanshi,Rajasthan Royals,BAT,14,8,11,0,0,Playing XI +4; Runs +8; Boundary bonus +2
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,SV Samson,Chennai Super Kings,WK,165,101,54,0,2,Playing XI +4; Runs +101; Boundary bonus +10; Six bonus +12; Century bonus +16; Strike rate +6; Catches +16
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,AJ Hosein,Chennai Super Kings,BOWL,148,2,2,4,0,Playing XI +4; Runs +2; Wickets +100; LBW/Bowled bonus +16; 4-wicket bonus +8; Maidens +12; Economy +6
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,Noor Ahmad,Chennai Super Kings,BOWL,56,0,0,2,0,Playing XI +4; Wickets +50; Economy +2
@@ -773,7 +773,7 @@
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,Gurjapneet Singh,Chennai Super Kings,BAT,43,0,0,1,1,Playing XI +4; Wickets +25; Economy +6; Catches +8
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,RD Gaikwad,Chennai Super Kings,BAT,35,22,14,0,0,Playing XI +4; Runs +22; Boundary bonus +3; Six bonus +2; Strike rate +4
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,SN Khan,Chennai Super Kings,BAT,29,14,8,0,1,Playing XI +4; Runs +14; Boundary bonus +3; Catches +8
-33,2026-04-23,Chennai Super Kings v Mumbai Indians,Kartik Sharma,Chennai Super Kings,BAT,24,18,19,0,0,Playing XI +4; Runs +18; Six bonus +4; Strike rate -2
+33,2026-04-23,Chennai Super Kings v Mumbai Indians,Kartik Sharma,Chennai Super Kings,BAT,26,18,19,0,0,Playing XI +4; Runs +18; Six bonus +4
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,S Dube,Chennai Super Kings,BAT,9,5,8,0,0,Playing XI +4; Runs +5
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,AM Ghazanfar,Mumbai Indians,BAT,64,0,0,2,0,Playing XI +4; Wickets +50; LBW/Bowled bonus +8; Economy +2
 33,2026-04-23,Chennai Super Kings v Mumbai Indians,Tilak Varma,Mumbai Indians,BAT,58,37,29,0,1,Playing XI +4; Runs +37; Boundary bonus +5; 30-run bonus +4; Catches +8
@@ -863,8 +863,8 @@
 36,2026-04-25,Rajasthan Royals v Sunrisers Hyderabad,Shivang Kumar,Sunrisers Hyderabad,BAT,-2,0,0,0,0,Playing XI +4; Economy -6
 37,2026-04-26,Chennai Super Kings v Gujarat Titans,RD Gaikwad,Chennai Super Kings,BAT,100,74,60,0,0,Playing XI +4; Runs +74; Boundary bonus +6; Six bonus +8; Half-century bonus +8
 37,2026-04-26,Chennai Super Kings v Gujarat Titans,S Dube,Chennai Super Kings,BAT,31,22,17,0,0,Playing XI +4; Runs +22; Boundary bonus +3; Six bonus +2
+37,2026-04-26,Chennai Super Kings v Gujarat Titans,SV Samson,Chennai Super Kings,WK,29,11,15,0,0,Playing XI +4; Runs +11; Boundary bonus +2; Stumpings +12
 37,2026-04-26,Chennai Super Kings v Gujarat Titans,Noor Ahmad,Chennai Super Kings,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
-37,2026-04-26,Chennai Super Kings v Gujarat Titans,SV Samson,Chennai Super Kings,WK,27,11,15,0,0,Playing XI +4; Runs +11; Boundary bonus +2; Strike rate -2; Stumpings +12
 37,2026-04-26,Chennai Super Kings v Gujarat Titans,AJ Hosein,Chennai Super Kings,BOWL,23,0,0,1,0,Playing XI +4; Wickets +25; Economy -6
 37,2026-04-26,Chennai Super Kings v Gujarat Titans,Kartik Sharma,Chennai Super Kings,BAT,22,15,9,0,0,Playing XI +4; Runs +15; Boundary bonus +3
 37,2026-04-26,Chennai Super Kings v Gujarat Titans,J Overton,Chennai Super Kings,BOWL,21,18,6,0,0,Playing XI +4; Runs +18; Boundary bonus +3; Six bonus +2; Economy -6
@@ -891,11 +891,11 @@
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,SP Narine,Kolkata Knight Riders,AR,45,4,6,1,1,Playing XI +4; Runs +4; Wickets +25; Economy +4; Catches +8
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,AS Roy,Kolkata Knight Riders,BOWL,37,0,1,1,1,Playing XI +4; Wickets +25; Catches +8
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,Kartik Tyagi,Kolkata Knight Riders,BOWL,27,0,0,1,0,Playing XI +4; Wickets +25; Economy -2
+38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,AM Rahane,Kolkata Knight Riders,BAT,14,10,15,0,0,Playing XI +4; Runs +10; Six bonus +2; Strike rate -2
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,A Raghuvanshi,Kolkata Knight Riders,BAT,14,9,8,0,0,Playing XI +4; Runs +9; Boundary bonus +1
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,R Powell,Kolkata Knight Riders,BAT,13,1,4,0,1,Playing XI +4; Runs +1; Catches +8
-38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,AM Rahane,Kolkata Knight Riders,BAT,12,10,15,0,0,Playing XI +4; Runs +10; Six bonus +2; Strike rate -4
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,TL Seifert,Kolkata Knight Riders,WK,10,0,3,0,1,Playing XI +4; Duck -2; Catches +8
-38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,Ramandeep Singh,Kolkata Knight Riders,BAT,4,6,11,0,0,Playing XI +4; Runs +6; Strike rate -6
+38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,Ramandeep Singh,Kolkata Knight Riders,BAT,6,6,11,0,0,Playing XI +4; Runs +6; Strike rate -4
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,Mohsin Khan,Lucknow Super Giants,BOWL,161,0,0,5,0,Playing XI +4; Wickets +125; 5-wicket bonus +16; Maidens +12; Economy +4
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,RR Pant,Lucknow Super Giants,WK,72,42,38,0,2,Playing XI +4; Runs +42; Boundary bonus +4; Six bonus +2; 30-run bonus +4; Catches +16
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,AK Markram,Lucknow Super Giants,AR,57,31,27,0,1,Playing XI +4; Runs +31; Boundary bonus +2; Six bonus +2; 30-run bonus +4; Economy +6; Catches +8
@@ -903,12 +903,12 @@
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,GF Linde,Lucknow Super Giants,BAT,39,8,4,1,0,Playing XI +4; Runs +8; Boundary bonus +2; Wickets +25
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,Himmat Singh,Lucknow Super Giants,BAT,33,19,10,0,0,Playing XI +4; Runs +19; Boundary bonus +2; Six bonus +2; Strike rate +6
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,Mohammed Shami,Lucknow Super Giants,BOWL,18,11,6,0,0,Playing XI +4; Runs +11; Boundary bonus +1; Six bonus +2
+38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,N Pooran,Lucknow Super Giants,WK,15,9,12,0,0,Playing XI +4; Runs +9; Six bonus +2
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,MR Marsh,Lucknow Super Giants,AR,14,2,3,0,1,Playing XI +4; Runs +2; Catches +8
-38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,N Pooran,Lucknow Super Giants,WK,13,9,12,0,0,Playing XI +4; Runs +9; Six bonus +2; Strike rate -2
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,MD Choudhary,Lucknow Super Giants,BAT,13,1,2,0,1,Playing XI +4; Runs +1; Catches +8
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,Prince Yadav,Lucknow Super Giants,BOWL,6,0,1,0,0,Playing XI +4; Economy +2
 38,2026-04-26,Kolkata Knight Riders v Lucknow Super Giants,DS Rathi,Lucknow Super Giants,BOWL,0,0,0,0,0,Playing XI +4; Economy -4
-39,2026-04-27,Delhi Capitals v Royal Challengers Bengaluru,Abishek Porel,Delhi Capitals,WK,39,30,33,0,0,Playing XI +4; Runs +30; Boundary bonus +3; 30-run bonus +4; Strike rate -2
+39,2026-04-27,Delhi Capitals v Royal Challengers Bengaluru,Abishek Porel,Delhi Capitals,WK,41,30,33,0,0,Playing XI +4; Runs +30; Boundary bonus +3; 30-run bonus +4
 39,2026-04-27,Delhi Capitals v Royal Challengers Bengaluru,KA Jamieson,Delhi Capitals,BOWL,38,12,13,1,0,Playing XI +4; Runs +12; Boundary bonus +1; Six bonus +2; Wickets +25; Economy -6
 39,2026-04-27,Delhi Capitals v Royal Challengers Bengaluru,DA Miller,Delhi Capitals,BAT,26,19,18,0,0,Playing XI +4; Runs +19; Boundary bonus +3
 39,2026-04-27,Delhi Capitals v Royal Challengers Bengaluru,T Natarajan,Delhi Capitals,BOWL,12,0,0,0,1,Playing XI +4; Catches +8
@@ -951,7 +951,7 @@
 40,2026-04-28,Punjab Kings v Rajasthan Royals,Yash Raj Punja,Rajasthan Royals,BAT,52,0,0,2,0,Playing XI +4; Wickets +50; Economy -2
 40,2026-04-28,Punjab Kings v Rajasthan Royals,SB Dubey,Rajasthan Royals,BAT,52,31,12,0,0,Playing XI +4; Runs +31; Boundary bonus +3; Six bonus +4; 30-run bonus +4; Strike rate +6
 40,2026-04-28,Punjab Kings v Rajasthan Royals,N Burger,Rajasthan Royals,BOWL,31,0,0,1,1,Playing XI +4; Wickets +25; Economy -6; Catches +8
-40,2026-04-28,Punjab Kings v Rajasthan Royals,Dhruv Jurel,Rajasthan Royals,WK,28,16,20,0,1,Playing XI +4; Runs +16; Six bonus +2; Strike rate -2; Catches +8
+40,2026-04-28,Punjab Kings v Rajasthan Royals,Dhruv Jurel,Rajasthan Royals,WK,30,16,20,0,1,Playing XI +4; Runs +16; Six bonus +2; Catches +8
 40,2026-04-28,Punjab Kings v Rajasthan Royals,JC Archer,Rajasthan Royals,BOWL,27,0,0,1,0,Playing XI +4; Wickets +25; Economy -2
 40,2026-04-28,Punjab Kings v Rajasthan Royals,RA Jadeja,Rajasthan Royals,AR,4,0,0,0,0,Playing XI +4
 40,2026-04-28,Punjab Kings v Rajasthan Royals,MD Shanaka,Rajasthan Royals,BAT,4,0,0,0,0,Playing XI +4
@@ -989,7 +989,7 @@
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,Mohammed Siraj,Gujarat Titans,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,B Sai Sudharsan,Gujarat Titans,BAT,27,6,5,0,2,Playing XI +4; Runs +6; Boundary bonus +1; Catches +16
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,K Rabada,Gujarat Titans,BOWL,27,0,0,1,0,Playing XI +4; Wickets +25; Economy -2
-42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,Washington Sundar,Gujarat Titans,AR,16,12,12,0,0,Playing XI +4; Runs +12; Six bonus +2; Strike rate -2
+42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,Washington Sundar,Gujarat Titans,AR,18,12,12,0,0,Playing XI +4; Runs +12; Six bonus +2
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,M Shahrukh Khan,Gujarat Titans,BAT,13,8,8,0,0,Playing XI +4; Runs +8; Boundary bonus +1
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,MJ Suthar,Gujarat Titans,BOWL,4,0,0,0,0,Playing XI +4
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,B Kumar,Royal Challengers Bengaluru,BOWL,110,15,15,3,0,Playing XI +4; Runs +15; Boundary bonus +2; Wickets +75; LBW/Bowled bonus +8; 3-wicket bonus +4; Economy +2
@@ -998,8 +998,8 @@
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,V Kohli,Royal Challengers Bengaluru,BAT,53,28,13,0,1,Playing XI +4; Runs +28; Boundary bonus +5; Six bonus +2; Strike rate +6; Catches +8
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,RM Patidar,Royal Challengers Bengaluru,BAT,27,19,15,0,0,Playing XI +4; Runs +19; Boundary bonus +2; Six bonus +2
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,Suyash Sharma,Royal Challengers Bengaluru,BOWL,25,0,0,1,0,Playing XI +4; Wickets +25; Economy -4
+42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,VR Iyer,Royal Challengers Bengaluru,BAT,17,12,15,0,0,Playing XI +4; Runs +12; Boundary bonus +1
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,TH David,Royal Challengers Bengaluru,BAT,15,9,6,0,0,Playing XI +4; Runs +9; Six bonus +2
-42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,VR Iyer,Royal Challengers Bengaluru,BAT,15,12,15,0,0,Playing XI +4; Runs +12; Boundary bonus +1; Strike rate -2
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,JM Sharma,Royal Challengers Bengaluru,WK,13,1,3,0,1,Playing XI +4; Runs +1; Catches +8
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,JG Bethell,Royal Challengers Bengaluru,BAT,10,5,5,0,0,Playing XI +4; Runs +5; Boundary bonus +1
 42,2026-04-30,Royal Challengers Bengaluru v Gujarat Titans,KH Pandya,Royal Challengers Bengaluru,AR,9,4,4,0,0,Playing XI +4; Runs +4; Boundary bonus +1
@@ -1044,7 +1044,7 @@
 44,2026-05-02,Mumbai Indians v Chennai Super Kings,SA Yadav,Mumbai Indians,BAT,36,21,12,0,0,Playing XI +4; Runs +21; Boundary bonus +3; Six bonus +2; Strike rate +6
 44,2026-05-02,Mumbai Indians v Chennai Super Kings,AM Ghazanfar,Mumbai Indians,BAT,35,0,0,1,0,Playing XI +4; Wickets +25; LBW/Bowled bonus +8; Economy -2
 44,2026-05-02,Mumbai Indians v Chennai Super Kings,JJ Bumrah,Mumbai Indians,BOWL,31,0,0,1,0,Playing XI +4; Wickets +25; Economy +2
-44,2026-05-02,Mumbai Indians v Chennai Super Kings,HH Pandya,Mumbai Indians,AR,22,18,23,0,0,Playing XI +4; Runs +18; Boundary bonus +2; Strike rate -2
+44,2026-05-02,Mumbai Indians v Chennai Super Kings,HH Pandya,Mumbai Indians,AR,24,18,23,0,0,Playing XI +4; Runs +18; Boundary bonus +2
 44,2026-05-02,Mumbai Indians v Chennai Super Kings,R Minz,Mumbai Indians,BAT,10,5,3,0,0,Playing XI +4; Runs +5; Boundary bonus +1
 44,2026-05-02,Mumbai Indians v Chennai Super Kings,Tilak Varma,Mumbai Indians,BAT,9,5,8,0,0,Playing XI +4; Runs +5
 44,2026-05-02,Mumbai Indians v Chennai Super Kings,TA Boult,Mumbai Indians,BOWL,9,7,2,0,0,Playing XI +4; Runs +7; Six bonus +2; Economy -4
@@ -1092,7 +1092,7 @@
 46,2026-05-03,Punjab Kings v Gujarat Titans,Vijaykumar Vyshak,Punjab Kings,BOWL,63,1,3,2,1,Playing XI +4; Runs +1; Wickets +50; Catches +8
 46,2026-05-03,Punjab Kings v Gujarat Titans,Arshdeep Singh,Punjab Kings,BOWL,57,1,1,2,0,Playing XI +4; Runs +1; Wickets +50; Economy +2
 46,2026-05-03,Punjab Kings v Gujarat Titans,M Jansen,Punjab Kings,BOWL,52,20,11,1,0,Playing XI +4; Runs +20; Boundary bonus +1; Six bonus +2; Wickets +25
-46,2026-05-03,Punjab Kings v Gujarat Titans,SS Iyer,Punjab Kings,BAT,32,19,21,0,1,Playing XI +4; Runs +19; Boundary bonus +3; Strike rate -2; Catches +8
+46,2026-05-03,Punjab Kings v Gujarat Titans,SS Iyer,Punjab Kings,BAT,34,19,21,0,1,Playing XI +4; Runs +19; Boundary bonus +3; Catches +8
 46,2026-05-03,Punjab Kings v Gujarat Titans,P Simran Singh,Punjab Kings,WK,21,15,14,0,0,Playing XI +4; Runs +15; Boundary bonus +2
 46,2026-05-03,Punjab Kings v Gujarat Titans,XC Bartlett,Punjab Kings,BOWL,20,0,1,0,2,Playing XI +4; Catches +16
 46,2026-05-03,Punjab Kings v Gujarat Titans,C Connolly,Punjab Kings,BAT,18,0,1,0,2,Playing XI +4; Duck -2; Catches +16
@@ -1119,7 +1119,7 @@
 47,2026-05-04,Lucknow Super Giants v Mumbai Indians,WG Jacks,Mumbai Indians,AR,35,10,4,1,0,Playing XI +4; Runs +10; Six bonus +2; Wickets +25; Economy -6
 47,2026-05-04,Lucknow Super Giants v Mumbai Indians,SA Yadav,Mumbai Indians,BAT,26,12,7,0,1,Playing XI +4; Runs +12; Boundary bonus +2; Catches +8
 47,2026-05-04,Lucknow Super Giants v Mumbai Indians,AM Ghazanfar,Mumbai Indians,BAT,23,0,0,1,0,Playing XI +4; Wickets +25; Economy -6
-47,2026-05-04,Lucknow Super Giants v Mumbai Indians,Tilak Varma,Mumbai Indians,BAT,13,11,13,0,0,Playing XI +4; Runs +11; Strike rate -2
+47,2026-05-04,Lucknow Super Giants v Mumbai Indians,Tilak Varma,Mumbai Indians,BAT,15,11,13,0,0,Playing XI +4; Runs +11
 47,2026-05-04,Lucknow Super Giants v Mumbai Indians,RA Bawa,Mumbai Indians,BAT,4,0,0,0,0,Playing XI +4
 47,2026-05-04,Lucknow Super Giants v Mumbai Indians,DL Chahar,Mumbai Indians,BOWL,2,0,0,0,0,Playing XI +4; Economy -2
 47,2026-05-04,Lucknow Super Giants v Mumbai Indians,JJ Bumrah,Mumbai Indians,BOWL,0,0,0,0,0,Playing XI +4; Economy -4
@@ -1137,12 +1137,12 @@
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,Sameer Rizvi,Delhi Capitals,BAT,68,40,24,0,1,Playing XI +4; Runs +40; Six bonus +8; 30-run bonus +4; Strike rate +4; Catches +8
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,T Stubbs,Delhi Capitals,BAT,51,38,31,0,0,Playing XI +4; Runs +38; Boundary bonus +1; Six bonus +4; 30-run bonus +4
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,AR Patel,Delhi Capitals,AR,33,2,6,1,0,Playing XI +4; Runs +2; Wickets +25; Economy +2
+48,2026-05-05,Delhi Capitals v Chennai Super Kings,KL Rahul,Delhi Capitals,WK,30,12,13,0,0,Playing XI +4; Runs +12; Boundary bonus +2; Stumpings +12
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,L Ngidi,Delhi Capitals,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,P Nissanka,Delhi Capitals,BAT,28,19,15,0,0,Playing XI +4; Runs +19; Boundary bonus +3; Six bonus +2
-48,2026-05-05,Delhi Capitals v Chennai Super Kings,KL Rahul,Delhi Capitals,WK,28,12,13,0,0,Playing XI +4; Runs +12; Boundary bonus +2; Strike rate -2; Stumpings +12
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,Ashutosh Sharma,Delhi Capitals,BAT,22,14,5,0,0,Playing XI +4; Runs +14; Six bonus +4
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,N Rana,Delhi Capitals,BAT,21,15,13,0,0,Playing XI +4; Runs +15; Boundary bonus +2
-48,2026-05-05,Delhi Capitals v Chennai Super Kings,KK Nair,Delhi Capitals,BAT,17,13,13,0,0,Playing XI +4; Runs +13; Boundary bonus +2; Strike rate -2
+48,2026-05-05,Delhi Capitals v Chennai Super Kings,KK Nair,Delhi Capitals,BAT,19,13,13,0,0,Playing XI +4; Runs +13; Boundary bonus +2
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,MA Starc,Delhi Capitals,BOWL,4,0,0,0,0,Playing XI +4
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,Kuldeep Yadav,Delhi Capitals,BOWL,0,0,0,0,0,Playing XI +4; Economy -4
 48,2026-05-05,Delhi Capitals v Chennai Super Kings,T Natarajan,Delhi Capitals,BOWL,-2,0,0,0,0,Playing XI +4; Economy -6
@@ -1176,7 +1176,7 @@
 50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,N Pooran,Lucknow Super Giants,WK,56,38,23,0,0,Playing XI +4; Runs +38; Boundary bonus +4; Six bonus +2; 30-run bonus +4; Strike rate +4
 50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,Shahbaz Ahmed,Lucknow Super Giants,AR,52,0,0,2,0,Playing XI +4; Wickets +50; Economy -2
 50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,Mohammed Shami,Lucknow Super Giants,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
-50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,AA Kulkarni,Lucknow Super Giants,BAT,20,17,24,0,0,Playing XI +4; Runs +17; Boundary bonus +1; Strike rate -2
+50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,AA Kulkarni,Lucknow Super Giants,BAT,22,17,24,0,0,Playing XI +4; Runs +17; Boundary bonus +1
 50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,AK Markram,Lucknow Super Giants,AR,13,1,1,0,1,Playing XI +4; Runs +1; Catches +8
 50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,DS Rathi,Lucknow Super Giants,BOWL,6,0,0,0,1,Playing XI +4; Economy -6; Catches +8
 50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,Akshat Raghuwanshi,Lucknow Super Giants,BAT,4,0,0,0,0,Playing XI +4
@@ -1196,10 +1196,10 @@
 50,2026-05-07,Lucknow Super Giants v Royal Challengers Bengaluru,V Kohli,Royal Challengers Bengaluru,BAT,2,0,2,0,0,Playing XI +4; Duck -2
 51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,P Nissanka,Delhi Capitals,BAT,79,50,29,0,0,Playing XI +4; Runs +50; Boundary bonus +5; Six bonus +6; Half-century bonus +8; Strike rate +6
 51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,Ashutosh Sharma,Delhi Capitals,BAT,58,39,28,0,0,Playing XI +4; Runs +39; Boundary bonus +3; Six bonus +6; 30-run bonus +4; Strike rate +2
-51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,AR Patel,Delhi Capitals,AR,44,11,22,1,0,Playing XI +4; Runs +11; Strike rate -6; Wickets +25; LBW/Bowled bonus +8; Economy +2
+51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,AR Patel,Delhi Capitals,AR,46,11,22,1,0,Playing XI +4; Runs +11; Strike rate -4; Wickets +25; LBW/Bowled bonus +8; Economy +2
 51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,KL Rahul,Delhi Capitals,WK,35,23,14,0,0,Playing XI +4; Runs +23; Boundary bonus +4; Strike rate +4
 51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,MA Starc,Delhi Capitals,BOWL,14,0,2,0,0,Playing XI +4; Economy -2; Run out (direct) +12
-51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,N Rana,Delhi Capitals,BAT,11,8,10,0,0,Playing XI +4; Runs +8; Boundary bonus +1; Strike rate -2
+51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,N Rana,Delhi Capitals,BAT,13,8,10,0,0,Playing XI +4; Runs +8; Boundary bonus +1
 51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,L Ngidi,Delhi Capitals,BOWL,11,1,1,0,0,Playing XI +4; Runs +1; Economy +6
 51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,Sameer Rizvi,Delhi Capitals,BAT,7,3,7,0,0,Playing XI +4; Runs +3
 51,2026-05-08,Delhi Capitals v Kolkata Knight Riders,T Stubbs,Delhi Capitals,BAT,6,2,4,0,0,Playing XI +4; Runs +2
@@ -1247,10 +1247,10 @@
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,A Kamboj,Chennai Super Kings,BOWL,64,0,0,2,0,Playing XI +4; Wickets +50; LBW/Bowled bonus +8; Economy -4; Run out (shared) +6
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,SV Samson,Chennai Super Kings,WK,59,28,14,0,1,Playing XI +4; Runs +28; Boundary bonus +3; Six bonus +4; Strike rate +6; Catches +8; Run out (shared) +6
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,RD Gaikwad,Chennai Super Kings,BAT,59,42,28,0,0,Playing XI +4; Runs +42; Boundary bonus +3; Six bonus +4; 30-run bonus +4; Strike rate +2
-53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,D Brevis,Chennai Super Kings,BAT,33,10,12,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Strike rate -2; Catches +8; Run out (direct) +12
+53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,D Brevis,Chennai Super Kings,BAT,35,10,12,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Catches +8; Run out (direct) +12
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Noor Ahmad,Chennai Super Kings,BOWL,31,0,0,1,0,Playing XI +4; Wickets +25; Economy +2
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,PR Veer,Chennai Super Kings,BAT,27,17,12,0,0,Playing XI +4; Runs +17; Six bonus +4; Strike rate +2
-53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Kartik Sharma,Chennai Super Kings,BAT,23,20,20,0,0,Playing XI +4; Runs +20; Boundary bonus +1; Strike rate -2
+53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Kartik Sharma,Chennai Super Kings,BAT,25,20,20,0,0,Playing XI +4; Runs +20; Boundary bonus +1
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,S Dube,Chennai Super Kings,BAT,23,15,7,0,0,Playing XI +4; Runs +15; Six bonus +4
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Mukesh Choudhary,Chennai Super Kings,BOWL,0,0,0,0,0,Playing XI +4; Economy -4
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,AJ Hosein,Chennai Super Kings,BOWL,-2,0,0,0,0,Playing XI +4; Economy -6
@@ -1258,10 +1258,10 @@
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Shahbaz Ahmed,Lucknow Super Giants,AR,122,43,25,2,0,Playing XI +4; Runs +43; Boundary bonus +3; Six bonus +6; 30-run bonus +4; Strike rate +6; Wickets +50; LBW/Bowled bonus +8; Economy -2
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,DS Rathi,Lucknow Super Giants,BOWL,66,0,0,2,0,Playing XI +4; Wickets +50; LBW/Bowled bonus +16; Economy -4
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Avesh Khan,Lucknow Super Giants,BOWL,35,0,0,1,1,Playing XI +4; Wickets +25; Economy -2; Catches +8
-53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Akshat Raghuwanshi,Lucknow Super Giants,BAT,29,18,18,0,1,Playing XI +4; Runs +18; Boundary bonus +1; Strike rate -2; Catches +8
+53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Akshat Raghuwanshi,Lucknow Super Giants,BAT,31,18,18,0,1,Playing XI +4; Runs +18; Boundary bonus +1; Catches +8
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Himmat Singh,Lucknow Super Giants,BAT,26,17,12,0,0,Playing XI +4; Runs +17; Boundary bonus +1; Six bonus +2; Strike rate +2
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,RR Pant,Lucknow Super Giants,WK,21,15,12,0,0,Playing XI +4; Runs +15; Boundary bonus +2
-53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,MR Marsh,Lucknow Super Giants,AR,14,10,10,0,0,Playing XI +4; Runs +10; Six bonus +2; Strike rate -2
+53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,MR Marsh,Lucknow Super Giants,AR,16,10,10,0,0,Playing XI +4; Runs +10; Six bonus +2
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,AK Markram,Lucknow Super Giants,AR,10,6,7,0,0,Playing XI +4; Runs +6
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,N Pooran,Lucknow Super Giants,WK,5,1,3,0,0,Playing XI +4; Runs +1
 53,2026-05-10,Lucknow Super Giants v Chennai Super Kings,Mohammed Shami,Lucknow Super Giants,BOWL,4,0,1,0,0,Playing XI +4
@@ -1274,13 +1274,13 @@
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,RG Sharma,Mumbai Indians,BAT,38,22,10,0,0,Playing XI +4; Runs +22; Boundary bonus +2; Six bonus +4; Strike rate +6
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,RD Rickelton,Mumbai Indians,WK,34,2,4,0,3,Playing XI +4; Runs +2; Catches +24; 3-catch bonus +4
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,AM Ghazanfar,Mumbai Indians,BAT,27,0,0,1,0,Playing XI +4; Wickets +25; Economy -2
-54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,WG Jacks,Mumbai Indians,AR,15,10,10,0,0,Playing XI +4; Runs +10; Boundary bonus +1; Strike rate -2; Economy +2
+54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,WG Jacks,Mumbai Indians,AR,17,10,10,0,0,Playing XI +4; Runs +10; Boundary bonus +1; Economy +2
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,JJ Bumrah,Mumbai Indians,BOWL,8,0,0,0,0,Playing XI +4; Economy +4
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,Raghu Sharma,Mumbai Indians,BAT,4,0,0,0,0,Playing XI +4
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,SA Yadav,Mumbai Indians,BAT,2,0,1,0,0,Playing XI +4; Duck -2
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,B Kumar,Royal Challengers Bengaluru,BOWL,133,7,2,4,0,Playing XI +4; Runs +7; Six bonus +2; Wickets +100; LBW/Bowled bonus +8; 4-wicket bonus +8; Economy +4
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,KH Pandya,Royal Challengers Bengaluru,AR,103,73,46,0,0,Playing XI +4; Runs +73; Boundary bonus +4; Six bonus +10; Half-century bonus +8; Strike rate +4
-54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,JG Bethell,Royal Challengers Bengaluru,BAT,39,27,27,0,1,Playing XI +4; Runs +27; Boundary bonus +2; Strike rate -2; Catches +8
+54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,JG Bethell,Royal Challengers Bengaluru,BAT,41,27,27,0,1,Playing XI +4; Runs +27; Boundary bonus +2; Catches +8
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,Rasikh Salam,Royal Challengers Bengaluru,BOWL,38,3,2,1,0,Playing XI +4; Runs +3; Wickets +25; LBW/Bowled bonus +8; Economy -2
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,JM Sharma,Royal Challengers Bengaluru,WK,37,18,12,0,1,Playing XI +4; Runs +18; Boundary bonus +1; Six bonus +4; Strike rate +2; Catches +8
 54,2026-05-10,Mumbai Indians v Royal Challengers Bengaluru,R Shepherd,Royal Challengers Bengaluru,BOWL,35,4,11,1,0,Playing XI +4; Runs +4; Wickets +25; Economy +2
@@ -1298,8 +1298,8 @@
 55,2026-05-11,Punjab Kings v Delhi Capitals,Mukesh Kumar,Delhi Capitals,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
 55,2026-05-11,Punjab Kings v Delhi Capitals,SU Parakh,Delhi Capitals,BAT,28,13,6,0,1,Playing XI +4; Runs +13; Boundary bonus +1; Six bonus +2; Catches +8
 55,2026-05-11,Punjab Kings v Delhi Capitals,Auqib Nabi,Delhi Capitals,BAT,25,10,2,0,1,Playing XI +4; Runs +10; Boundary bonus +1; Six bonus +2; Catches +8
+55,2026-05-11,Punjab Kings v Delhi Capitals,T Stubbs,Delhi Capitals,BAT,17,12,17,0,0,Playing XI +4; Runs +12; Boundary bonus +1
 55,2026-05-11,Punjab Kings v Delhi Capitals,KL Rahul,Delhi Capitals,WK,15,9,8,0,0,Playing XI +4; Runs +9; Boundary bonus +2
-55,2026-05-11,Punjab Kings v Delhi Capitals,T Stubbs,Delhi Capitals,BAT,15,12,17,0,0,Playing XI +4; Runs +12; Boundary bonus +1; Strike rate -2
 55,2026-05-11,Punjab Kings v Delhi Capitals,Abishek Porel,Delhi Capitals,WK,10,5,6,0,0,Playing XI +4; Runs +5; Boundary bonus +1
 55,2026-05-11,Punjab Kings v Delhi Capitals,L Ngidi,Delhi Capitals,BOWL,0,0,0,0,0,Playing XI +4; Economy -4
 55,2026-05-11,Punjab Kings v Delhi Capitals,Priyansh Arya,Punjab Kings,BAT,86,56,33,0,0,Playing XI +4; Runs +56; Boundary bonus +2; Six bonus +12; Half-century bonus +8; Strike rate +4
@@ -1318,7 +1318,7 @@
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,K Rabada,Gujarat Titans,BOWL,93,0,0,3,0,Playing XI +4; Wickets +75; LBW/Bowled bonus +8; 3-wicket bonus +4; Economy +2
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,B Sai Sudharsan,Gujarat Titans,BAT,84,61,44,0,0,Playing XI +4; Runs +61; Boundary bonus +5; Six bonus +4; Half-century bonus +8; Strike rate +2
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,Washington Sundar,Gujarat Titans,AR,83,50,33,0,1,Playing XI +4; Runs +50; Boundary bonus +7; Six bonus +2; Half-century bonus +8; Strike rate +4; Catches +8
-56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,JC Buttler,Gujarat Titans,WK,56,7,11,0,4,Playing XI +4; Runs +7; Boundary bonus +1; Strike rate -4; Catches +32; 3-catch bonus +4; Stumpings +12
+56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,JC Buttler,Gujarat Titans,WK,58,7,11,0,4,Playing XI +4; Runs +7; Boundary bonus +1; Strike rate -2; Catches +32; 3-catch bonus +4; Stumpings +12
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,Mohammed Siraj,Gujarat Titans,BOWL,55,0,0,1,1,Playing XI +4; Wickets +25; Maidens +12; Economy +6; Catches +8
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,M Prasidh Krishna,Gujarat Titans,BOWL,54,0,0,2,0,Playing XI +4; Wickets +50
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,N Sindhu,Gujarat Titans,BAT,43,22,14,0,1,Playing XI +4; Runs +22; Boundary bonus +3; Six bonus +2; Strike rate +4; Catches +8
@@ -1329,11 +1329,11 @@
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,PP Hinge,Sunrisers Hyderabad,BAT,69,3,8,2,1,Playing XI +4; Runs +3; Wickets +50; Economy +4; Catches +8
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,PJ Cummins,Sunrisers Hyderabad,BOWL,57,19,9,1,0,Playing XI +4; Runs +19; Boundary bonus +1; Six bonus +4; Wickets +25; Economy +4
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,Sakib Hussain,Sunrisers Hyderabad,BAT,54,0,0,2,0,Playing XI +4; Wickets +50
+56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,H Klaasen,Sunrisers Hyderabad,WK,36,14,16,0,2,Playing XI +4; Runs +14; Boundary bonus +2; Catches +16
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,Ishan Kishan,Sunrisers Hyderabad,WK,34,11,7,0,2,Playing XI +4; Runs +11; Boundary bonus +1; Six bonus +2; Catches +16
-56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,H Klaasen,Sunrisers Hyderabad,WK,34,14,16,0,2,Playing XI +4; Runs +14; Boundary bonus +2; Strike rate -2; Catches +16
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,S Arora,Sunrisers Hyderabad,BAT,23,16,13,0,0,Playing XI +4; Runs +16; Boundary bonus +3
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,Abhishek Sharma,Sunrisers Hyderabad,AR,12,6,4,0,0,Playing XI +4; Runs +6; Six bonus +2
-56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,R Smaran,Sunrisers Hyderabad,BAT,10,9,15,0,0,Playing XI +4; Runs +9; Boundary bonus +1; Strike rate -4
+56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,R Smaran,Sunrisers Hyderabad,BAT,12,9,15,0,0,Playing XI +4; Runs +9; Boundary bonus +1; Strike rate -2
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,Shivang Kumar,Sunrisers Hyderabad,BAT,8,4,6,0,0,Playing XI +4; Runs +4
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,Nithish Kumar Reddy,Sunrisers Hyderabad,AR,6,2,4,0,0,Playing XI +4; Runs +2
 56,2026-05-12,Gujarat Titans v Sunrisers Hyderabad,TM Head,Sunrisers Hyderabad,BAT,2,0,4,0,0,Playing XI +4; Duck -2
@@ -1369,8 +1369,8 @@
 58,2026-05-14,Punjab Kings v Mumbai Indians,WG Jacks,Mumbai Indians,AR,49,25,10,0,1,Playing XI +4; Runs +25; Boundary bonus +2; Six bonus +4; Strike rate +6; Catches +8
 58,2026-05-14,Punjab Kings v Mumbai Indians,RA Bawa,Mumbai Indians,BAT,45,0,0,1,1,Playing XI +4; Wickets +25; LBW/Bowled bonus +8; Catches +8
 58,2026-05-14,Punjab Kings v Mumbai Indians,C Bosch,Mumbai Indians,BOWL,43,0,0,1,1,Playing XI +4; Wickets +25; LBW/Bowled bonus +8; Economy -2; Catches +8
-58,2026-05-14,Punjab Kings v Mumbai Indians,RG Sharma,Mumbai Indians,BAT,31,25,26,0,0,Playing XI +4; Runs +25; Six bonus +4; Strike rate -2
-58,2026-05-14,Punjab Kings v Mumbai Indians,SE Rutherford,Mumbai Indians,BAT,25,20,21,0,0,Playing XI +4; Runs +20; Boundary bonus +1; Six bonus +2; Strike rate -2
+58,2026-05-14,Punjab Kings v Mumbai Indians,RG Sharma,Mumbai Indians,BAT,33,25,26,0,0,Playing XI +4; Runs +25; Six bonus +4
+58,2026-05-14,Punjab Kings v Mumbai Indians,SE Rutherford,Mumbai Indians,BAT,27,20,21,0,0,Playing XI +4; Runs +20; Boundary bonus +1; Six bonus +2
 58,2026-05-14,Punjab Kings v Mumbai Indians,Naman Dhir,Mumbai Indians,BAT,15,9,6,0,0,Playing XI +4; Runs +9; Six bonus +2
 58,2026-05-14,Punjab Kings v Mumbai Indians,JJ Bumrah,Mumbai Indians,BOWL,4,0,0,0,0,Playing XI +4
 58,2026-05-14,Punjab Kings v Mumbai Indians,Raghu Sharma,Mumbai Indians,BAT,2,0,0,0,0,Playing XI +4; Economy -2
@@ -1378,8 +1378,8 @@
 58,2026-05-14,Punjab Kings v Mumbai Indians,P Simran Singh,Punjab Kings,WK,89,57,32,0,0,Playing XI +4; Runs +57; Boundary bonus +6; Six bonus +8; Half-century bonus +8; Strike rate +6
 58,2026-05-14,Punjab Kings v Mumbai Indians,Priyansh Arya,Punjab Kings,BAT,38,22,17,0,1,Playing XI +4; Runs +22; Boundary bonus +4; Catches +8
 58,2026-05-14,Punjab Kings v Mumbai Indians,YS Chahal,Punjab Kings,BOWL,37,0,0,1,0,Playing XI +4; Wickets +25; LBW/Bowled bonus +8
+58,2026-05-14,Punjab Kings v Mumbai Indians,C Connolly,Punjab Kings,BAT,29,21,22,0,0,Playing XI +4; Runs +21; Boundary bonus +2; Six bonus +2
 58,2026-05-14,Punjab Kings v Mumbai Indians,XC Bartlett,Punjab Kings,BOWL,28,18,7,0,1,Playing XI +4; Runs +18; Boundary bonus +2; Six bonus +2; Economy -6; Catches +8
-58,2026-05-14,Punjab Kings v Mumbai Indians,C Connolly,Punjab Kings,BAT,27,21,22,0,0,Playing XI +4; Runs +21; Boundary bonus +2; Six bonus +2; Strike rate -2
 58,2026-05-14,Punjab Kings v Mumbai Indians,M Jansen,Punjab Kings,BOWL,25,2,7,1,0,Playing XI +4; Runs +2; Wickets +25; Economy -6
 58,2026-05-14,Punjab Kings v Mumbai Indians,Vishnu Vinod,Punjab Kings,WK,22,15,8,0,0,Playing XI +4; Runs +15; Boundary bonus +1; Six bonus +2
 58,2026-05-14,Punjab Kings v Mumbai Indians,Suryansh Shedge,Punjab Kings,BOWL,14,8,5,0,0,Playing XI +4; Runs +8; Six bonus +2
@@ -1391,7 +1391,7 @@
 59,2026-05-15,Chennai Super Kings v Lucknow Super Giants,Mukesh Choudhary,Chennai Super Kings,BOWL,41,0,0,1,0,Playing XI +4; Wickets +25; Run out (direct) +12
 59,2026-05-15,Chennai Super Kings v Lucknow Super Giants,D Brevis,Chennai Super Kings,BAT,37,25,16,0,0,Playing XI +4; Runs +25; Six bonus +4; Strike rate +4
 59,2026-05-15,Chennai Super Kings v Lucknow Super Giants,SH Johnson,Chennai Super Kings,BOWL,37,0,0,1,0,Playing XI +4; Wickets +25; LBW/Bowled bonus +8
-59,2026-05-15,Chennai Super Kings v Lucknow Super Giants,SV Samson,Chennai Super Kings,WK,25,20,20,0,0,Playing XI +4; Runs +20; Boundary bonus +3; Strike rate -2
+59,2026-05-15,Chennai Super Kings v Lucknow Super Giants,SV Samson,Chennai Super Kings,WK,27,20,20,0,0,Playing XI +4; Runs +20; Boundary bonus +3
 59,2026-05-15,Chennai Super Kings v Lucknow Super Giants,PR Veer,Chennai Super Kings,BAT,20,13,10,0,0,Playing XI +4; Runs +13; Boundary bonus +1; Strike rate +2
 59,2026-05-15,Chennai Super Kings v Lucknow Super Giants,RD Gaikwad,Chennai Super Kings,BAT,19,13,9,0,0,Playing XI +4; Runs +13; Boundary bonus +2
 59,2026-05-15,Chennai Super Kings v Lucknow Super Giants,Urvil Patel,Chennai Super Kings,BAT,19,6,7,0,1,Playing XI +4; Runs +6; Boundary bonus +1; Catches +8
@@ -1427,7 +1427,7 @@
 60,2026-05-16,Kolkata Knight Riders v Gujarat Titans,C Green,Kolkata Knight Riders,AR,106,52,28,1,0,Playing XI +4; Runs +52; Boundary bonus +3; Six bonus +8; Half-century bonus +8; Strike rate +6; Wickets +25
 60,2026-05-16,Kolkata Knight Riders v Gujarat Titans,SP Narine,Kolkata Knight Riders,AR,54,0,0,2,0,Playing XI +4; Wickets +50
 60,2026-05-16,Kolkata Knight Riders v Gujarat Titans,SR Dubey,Kolkata Knight Riders,BAT,29,0,0,1,0,Playing XI +4; Wickets +25
-60,2026-05-16,Kolkata Knight Riders v Gujarat Titans,AM Rahane,Kolkata Knight Riders,BAT,19,14,14,0,0,Playing XI +4; Runs +14; Boundary bonus +1; Six bonus +2; Strike rate -2
+60,2026-05-16,Kolkata Knight Riders v Gujarat Titans,AM Rahane,Kolkata Knight Riders,BAT,21,14,14,0,0,Playing XI +4; Runs +14; Boundary bonus +1; Six bonus +2
 60,2026-05-16,Kolkata Knight Riders v Gujarat Titans,MK Pandey,Kolkata Knight Riders,BAT,12,0,0,0,1,Playing XI +4; Catches +8
 60,2026-05-16,Kolkata Knight Riders v Gujarat Titans,AS Roy,Kolkata Knight Riders,BOWL,12,0,0,0,1,Playing XI +4; Catches +8
 60,2026-05-16,Kolkata Knight Riders v Gujarat Titans,M Pathirana,Kolkata Knight Riders,BOWL,4,0,0,0,0,Playing XI +4
@@ -1491,7 +1491,7 @@
 63,2026-05-18,Chennai Super Kings v Sunrisers Hyderabad,AJ Hosein,Chennai Super Kings,BOWL,34,3,1,1,0,Playing XI +4; Runs +3; Wickets +25; Economy +2
 63,2026-05-18,Chennai Super Kings v Sunrisers Hyderabad,Noor Ahmad,Chennai Super Kings,BOWL,27,0,0,1,0,Playing XI +4; Wickets +25; Economy -2
 63,2026-05-18,Chennai Super Kings v Sunrisers Hyderabad,A Kamboj,Chennai Super Kings,BOWL,25,0,0,1,0,Playing XI +4; Wickets +25; Economy -4
-63,2026-05-18,Chennai Super Kings v Sunrisers Hyderabad,RD Gaikwad,Chennai Super Kings,BAT,17,15,21,0,0,Playing XI +4; Runs +15; Strike rate -2
+63,2026-05-18,Chennai Super Kings v Sunrisers Hyderabad,RD Gaikwad,Chennai Super Kings,BAT,19,15,21,0,0,Playing XI +4; Runs +15
 63,2026-05-18,Chennai Super Kings v Sunrisers Hyderabad,PR Veer,Chennai Super Kings,BAT,17,11,9,0,0,Playing XI +4; Runs +11; Boundary bonus +2
 63,2026-05-18,Chennai Super Kings v Sunrisers Hyderabad,SH Johnson,Chennai Super Kings,BOWL,12,0,0,0,1,Playing XI +4; Catches +8
 63,2026-05-18,Chennai Super Kings v Sunrisers Hyderabad,Ishan Kishan,Sunrisers Hyderabad,WK,105,70,47,0,1,Playing XI +4; Runs +70; Boundary bonus +7; Six bonus +6; Half-century bonus +8; Strike rate +2; Catches +8
@@ -1539,7 +1539,7 @@
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,AM Rahane,Kolkata Knight Riders,BAT,29,21,17,0,0,Playing XI +4; Runs +21; Boundary bonus +4
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,AS Roy,Kolkata Knight Riders,BOWL,24,4,4,0,2,Playing XI +4; Runs +4; Catches +16
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,RK Singh,Kolkata Knight Riders,BAT,21,9,5,0,0,Playing XI +4; Runs +9; Boundary bonus +2; Run out (shared) +6
-65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,T Dahiya,Kolkata Knight Riders,BAT,15,11,12,0,0,Playing XI +4; Runs +11; Boundary bonus +2; Strike rate -2
+65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,T Dahiya,Kolkata Knight Riders,BAT,17,11,12,0,0,Playing XI +4; Runs +11; Boundary bonus +2
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,FH Allen,Kolkata Knight Riders,WK,14,8,5,0,0,Playing XI +4; Runs +8; Boundary bonus +2
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,CV Varun,Kolkata Knight Riders,BOWL,12,0,0,0,0,Playing XI +4; Economy +2; Run out (shared) +6
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,A Raghuvanshi,Kolkata Knight Riders,BAT,12,0,0,0,1,Playing XI +4; Catches +8
@@ -1547,11 +1547,11 @@
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,DL Chahar,Mumbai Indians,BOWL,49,10,7,1,0,Playing XI +4; Runs +10; Boundary bonus +2; Wickets +25; LBW/Bowled bonus +8
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,AM Ghazanfar,Mumbai Indians,BAT,39,0,0,1,1,Playing XI +4; Wickets +25; Economy +2; Catches +8
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,JJ Bumrah,Mumbai Indians,BOWL,39,0,0,1,0,Playing XI +4; Wickets +25; LBW/Bowled bonus +8; Economy +2
-65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,HH Pandya,Mumbai Indians,AR,34,26,27,0,0,Playing XI +4; Runs +26; Boundary bonus +2; Six bonus +2; Strike rate -2; Economy +2
+65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,HH Pandya,Mumbai Indians,AR,36,26,27,0,0,Playing XI +4; Runs +26; Boundary bonus +2; Six bonus +2; Economy +2
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,RD Rickelton,Mumbai Indians,WK,27,6,7,0,2,Playing XI +4; Runs +6; Boundary bonus +1; Catches +16
+65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,Tilak Varma,Mumbai Indians,BAT,24,20,32,0,0,Playing XI +4; Runs +20; Six bonus +2; Strike rate -2
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,RG Sharma,Mumbai Indians,BAT,23,15,13,0,0,Playing XI +4; Runs +15; Six bonus +4
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,SA Yadav,Mumbai Indians,BAT,23,15,6,0,0,Playing XI +4; Runs +15; Boundary bonus +2; Six bonus +2
-65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,Tilak Varma,Mumbai Indians,BAT,22,20,32,0,0,Playing XI +4; Runs +20; Six bonus +2; Strike rate -4
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,WG Jacks,Mumbai Indians,AR,21,14,7,0,0,Playing XI +4; Runs +14; Boundary bonus +1; Six bonus +2
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,Naman Dhir,Mumbai Indians,BAT,2,0,3,0,0,Playing XI +4; Duck -2
 65,2026-05-20,Mumbai Indians v Kolkata Knight Riders,Raghu Sharma,Mumbai Indians,BAT,0,0,0,0,0,Playing XI +4; Economy -4
@@ -1562,8 +1562,8 @@
 66,2026-05-21,Gujarat Titans v Chennai Super Kings,Mukesh Choudhary,Chennai Super Kings,BOWL,31,2,2,1,0,Playing XI +4; Runs +2; Wickets +25
 66,2026-05-21,Gujarat Titans v Chennai Super Kings,Kartik Sharma,Chennai Super Kings,BAT,26,19,15,0,0,Playing XI +4; Runs +19; Boundary bonus +3
 66,2026-05-21,Gujarat Titans v Chennai Super Kings,SH Johnson,Chennai Super Kings,BOWL,25,0,1,1,0,Playing XI +4; Wickets +25; Economy -4
+66,2026-05-21,Gujarat Titans v Chennai Super Kings,D Brevis,Chennai Super Kings,BAT,12,8,10,0,0,Playing XI +4; Runs +8
 66,2026-05-21,Gujarat Titans v Chennai Super Kings,Urvil Patel,Chennai Super Kings,BAT,10,0,2,0,1,Playing XI +4; Duck -2; Catches +8
-66,2026-05-21,Gujarat Titans v Chennai Super Kings,D Brevis,Chennai Super Kings,BAT,10,8,10,0,0,Playing XI +4; Runs +8; Strike rate -2
 66,2026-05-21,Gujarat Titans v Chennai Super Kings,Gurjapneet Singh,Chennai Super Kings,BAT,4,0,0,0,0,Playing XI +4
 66,2026-05-21,Gujarat Titans v Chennai Super Kings,SV Samson,Chennai Super Kings,WK,2,0,1,0,0,Playing XI +4; Duck -2
 66,2026-05-21,Gujarat Titans v Chennai Super Kings,Noor Ahmad,Chennai Super Kings,BOWL,-1,1,5,0,0,Playing XI +4; Runs +1; Economy -6
@@ -1706,8 +1706,8 @@
 ,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,N Burger,Rajasthan Royals,BOWL,63,1,1,2,1,Playing XI +4; Runs +1; Wickets +50; Catches +8
 ,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,SS Mishra,Rajasthan Royals,BAT,55,1,3,2,0,Playing XI +4; Runs +1; Wickets +50
 ,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,R Parag,Rajasthan Royals,AR,42,26,12,0,0,Playing XI +4; Runs +26; Boundary bonus +2; Six bonus +4; Strike rate +6
+,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,YBK Jaiswal,Rajasthan Royals,BAT,37,29,29,0,0,Playing XI +4; Runs +29; Boundary bonus +4
 ,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,Yash Raj Punja,Rajasthan Royals,BAT,37,0,0,1,0,Playing XI +4; Wickets +25; LBW/Bowled bonus +8
-,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,YBK Jaiswal,Rajasthan Royals,BAT,35,29,29,0,0,Playing XI +4; Runs +29; Boundary bonus +4; Strike rate -2
 ,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,D Ferreira,Rajasthan Royals,BAT,25,12,9,0,1,Playing XI +4; Runs +12; Boundary bonus +1; Catches +8
 ,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,MD Shanaka,Rajasthan Royals,BAT,18,5,3,0,1,Playing XI +4; Runs +5; Boundary bonus +1; Catches +8
 ,2026-05-27,Rajasthan Royals v Sunrisers Hyderabad,Brijesh Sharma,Rajasthan Royals,BAT,2,0,0,0,0,Playing XI +4; Economy -2
@@ -1751,10 +1751,10 @@
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,Washington Sundar,Gujarat Titans,AR,69,50,37,0,0,Playing XI +4; Runs +50; Boundary bonus +5; Half-century bonus +8; Strike rate +2
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,Arshad Khan,Gujarat Titans,BOWL,56,15,6,1,1,Playing XI +4; Runs +15; Six bonus +4; Wickets +25; Catches +8
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,K Rabada,Gujarat Titans,BOWL,42,3,3,1,2,Playing XI +4; Runs +3; Wickets +25; Economy -6; Catches +16
-,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,JC Buttler,Gujarat Titans,WK,30,19,23,0,1,Playing XI +4; Runs +19; Boundary bonus +1; Strike rate -2; Catches +8
+,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,JC Buttler,Gujarat Titans,WK,32,19,23,0,1,Playing XI +4; Runs +19; Boundary bonus +1; Catches +8
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,Mohammed Siraj,Gujarat Titans,BOWL,29,0,0,1,0,Playing XI +4; Wickets +25
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,N Sindhu,Gujarat Titans,BAT,27,20,18,0,0,Playing XI +4; Runs +20; Boundary bonus +3
-,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,B Sai Sudharsan,Gujarat Titans,BAT,16,12,12,0,0,Playing XI +4; Runs +12; Boundary bonus +2; Strike rate -2
+,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,B Sai Sudharsan,Gujarat Titans,BAT,18,12,12,0,0,Playing XI +4; Runs +12; Boundary bonus +2
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,Shubman Gill,Gujarat Titans,BAT,16,10,8,0,0,Playing XI +4; Runs +10; Boundary bonus +2
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,R Tewatia,Gujarat Titans,AR,12,7,5,0,0,Playing XI +4; Runs +7; Boundary bonus +1
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,JO Holder,Gujarat Titans,BOWL,12,7,5,0,0,Playing XI +4; Runs +7; Boundary bonus +1
@@ -1765,9 +1765,9 @@
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,VR Iyer,Royal Challengers Bengaluru,BAT,54,32,16,0,0,Playing XI +4; Runs +32; Boundary bonus +4; Six bonus +4; 30-run bonus +4; Strike rate +6
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,B Kumar,Royal Challengers Bengaluru,BOWL,54,0,0,2,0,Playing XI +4; Wickets +50
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,RM Patidar,Royal Challengers Bengaluru,BAT,38,15,13,0,2,Playing XI +4; Runs +15; Boundary bonus +1; Six bonus +2; Catches +16
+,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,JM Sharma,Royal Challengers Bengaluru,WK,36,11,14,0,1,Playing XI +4; Runs +11; Boundary bonus +1; Catches +8; Stumpings +12
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,TH David,Royal Challengers Bengaluru,BAT,35,24,17,0,0,Playing XI +4; Runs +24; Boundary bonus +3; Six bonus +2; Strike rate +2
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,KH Pandya,Royal Challengers Bengaluru,AR,34,1,2,1,0,Playing XI +4; Runs +1; Wickets +25; Economy +4
-,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,JM Sharma,Royal Challengers Bengaluru,WK,34,11,14,0,1,Playing XI +4; Runs +11; Boundary bonus +1; Strike rate -2; Catches +8; Stumpings +12
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,D Padikkal,Royal Challengers Bengaluru,BAT,13,1,4,0,1,Playing XI +4; Runs +1; Catches +8
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,R Shepherd,Royal Challengers Bengaluru,BOWL,12,0,0,0,1,Playing XI +4; Catches +8
 ,2026-05-31,Gujarat Titans v Royal Challengers Bengaluru,JA Duffy,Royal Challengers Bengaluru,BAT,4,0,0,0,0,Playing XI +4
