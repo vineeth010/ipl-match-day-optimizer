@@ -1,0 +1,20 @@
+{
+  "teams": {
+    "csk": "CSK.png",
+    "dc": "DC.jpg",
+    "gt": "GT.jpg",
+    "kkr": "KKR.jpg",
+    "lsg": "LSG.jpeg",
+    "mi": "MI.jpg",
+    "pbks": "PBKS.jpg",
+    "rcb": "RCB.jpg",
+    "rr": "RR.jpeg",
+    "srh": "SRH.jpeg"
+  },
+  "players": {
+    "abhishek-sharma": "abhishek-sharma.png",
+    "narine": "narine.png",
+    "pant": "pant.png",
+    "starc": "starc.png"
+  }
+}

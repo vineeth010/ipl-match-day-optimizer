@@ -1,16 +1,28 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
+import assets from "@/lib/assets.json";
 
-/* eslint-disable @next/next/no-img-element */
-const EXTENSIONS = ["jpg", "png", "jpeg", "webp"];
+const PHOTOS = assets.players as Record<string, string>;
 
 /**
- * Shows /players/<slug>.<ext> for the first extension that exists (jpg, png, jpeg, webp);
- * otherwise the placeholder, so the page never shows a broken image.
+ * Shows the photo dropped into public/players/ for this player (png, jpg, jpeg, webp or svg; the build scans the
+ * folder), otherwise the placeholder, so the page never shows a broken image. Served through the Next.js image
+ * optimizer, so large originals are resized and compressed automatically. The parent must be `relative` with a height.
  */
 export default function PlayerPhoto({ slug, alt, fallback }: { slug?: string; alt: string; fallback: React.ReactNode }) {
-  const [attempt, setAttempt] = useState(0);
-  if (!slug || attempt >= EXTENSIONS.length) return <div className="grid h-full w-full place-items-center text-white/85">{fallback}</div>;
-  return <img key={attempt} src={`/players/${slug}.${EXTENSIONS[attempt]}`} alt={alt} loading="lazy" onError={() => setAttempt((a) => a + 1)} className="h-full w-full object-cover object-top" />;
+  const file = slug ? PHOTOS[slug.toLowerCase()] : undefined;
+  const [broken, setBroken] = useState(false);
+  if (!file || broken) return <div className="grid h-full w-full place-items-center text-white/85">{fallback}</div>;
+  return (
+    <Image
+      src={`/players/${file}`}
+      alt={alt}
+      fill
+      sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+      onError={() => setBroken(true)}
+      className="object-cover object-top"
+    />
+  );
 }

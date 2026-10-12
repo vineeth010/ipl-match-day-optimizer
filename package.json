@@ -11,7 +11,9 @@
     "test:engine": "tsx scripts/test-engine.ts",
     "classify-roles": "tsx scripts/classify-roles.ts",
     "entry-sheets": "tsx scripts/entry-xlsx.ts",
-    "points-scale": "tsx scripts/points-scale.ts"
+    "points-scale": "tsx scripts/points-scale.ts",
+    "predev": "node scripts/scan-assets.mjs",
+    "prebuild": "node scripts/scan-assets.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.0",

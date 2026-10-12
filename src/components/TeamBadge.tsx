@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import assets from "@/lib/assets.json";
 import { teamStyle } from "@/lib/teams";
 
 /* eslint-disable @next/next/no-img-element */
@@ -11,17 +12,20 @@ const DIM = {
   xl: "h-28 w-28 text-3xl",
 } as const;
 
+const LOGOS = assets.teams as Record<string, string>;
+
 /**
- * The team's official logo if public/teams/<CODE>.png exists, otherwise a large colour crest.
- * Logos are shown contained on a white disc so any official artwork stays legible.
+ * The team's official logo if one was dropped into public/teams/ (png, jpg, jpeg, webp or svg; the build scans the
+ * folder), otherwise a large colour crest. Logos sit contained on a white disc so any artwork stays legible.
  */
 export default function TeamBadge({ name, size = "md" }: { name: string; size?: keyof typeof DIM }) {
   const t = teamStyle(name);
-  const [missing, setMissing] = useState(!t.logo);
-  if (!missing) {
+  const file = LOGOS[t.code.toLowerCase()];
+  const [broken, setBroken] = useState(false);
+  if (file && !broken) {
     return (
       <span title={name} className={`grid shrink-0 place-items-center overflow-hidden rounded-full bg-white shadow-md ring-2 ring-white/80 ${DIM[size].split(" ").slice(0, 2).join(" ")}`}>
-        <img src={t.logo} alt={`${name} logo`} loading="lazy" onError={() => setMissing(true)} className="h-full w-full object-contain p-[7%]" />
+        <img src={`/teams/${file}`} alt={`${name} logo`} loading="lazy" onError={() => setBroken(true)} className="h-full w-full object-contain p-[7%]" />
       </span>
     );
   }
