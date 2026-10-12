@@ -45,8 +45,8 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
       </section>
 
       <section className="rounded-xl border border-warn/30 bg-warn-soft px-4 py-3 text-sm text-warn">
-        <strong>Early-season model: not yet proven.</strong> Its picks come from past IPL data and weights that have learned from {previousLearning ? previousLearning.observations : 0} entered
-        result{previousLearning?.observations === 1 ? "" : "s"} so far (weights v{currentWeights.version}). Expect errors until the gap between predicted and actual points shrinks over several matches.
+        <strong>Early-season model: not yet proven.</strong> Its picks come from past IPL data and weights that had seen {previousLearning ? previousLearning.observations : 0} entered
+        result{previousLearning?.observations === 1 ? "" : "s"} when this was generated (weights v{rec ? rec.weights_version : currentWeights.version}). Expect errors until the gap between predicted and actual points shrinks over several matches.
         Credits are estimated, not Dream11&apos;s own, so check the 100-credit total in the Dream11 app. Teams assume the post-toss playing group.
       </section>
 
@@ -85,24 +85,24 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
               </div>
             </div>
             <div className="overflow-x-auto">
-              <table className="w-full min-w-[34rem] text-sm">
+              <table className="w-full text-xs sm:text-sm">
                 <thead className="text-left text-xs text-muted">
-                  <tr><th className="px-5 py-2 font-medium">Player</th><th className="px-2 py-2 font-medium">Role</th><th className="px-2 py-2 text-right font-medium">Credits (est.)</th><th className="px-2 py-2 text-right font-medium">Predicted</th>{hasActuals && <th className="px-2 py-2 text-right font-medium">Actual</th>}{hasActuals && <th className="px-5 py-2 text-right font-medium">Gap</th>}</tr>
+                  <tr><th className="px-3 py-2 font-medium sm:px-5">Player</th><th className="hidden px-2 py-2 font-medium sm:table-cell">Role</th><th className="px-1 py-2 text-right font-medium sm:px-2">Cr<span className="hidden sm:inline">edits</span> (est.)</th><th className="px-1 py-2 text-right font-medium sm:px-2">Pred.</th>{hasActuals && <th className="px-1 py-2 text-right font-medium sm:px-2">Actual</th>}{hasActuals && <th className="px-3 py-2 text-right font-medium sm:px-5">Gap</th>}</tr>
                 </thead>
                 <tbody className="divide-y divide-line">
                   {xi.map((p) => (
                     <tr key={p.player_id}>
-                      <td className="px-5 py-2"><span className="font-medium">{p.name}</span>{p.is_captain && <Tag>C</Tag>}{p.is_vice && <Tag>VC</Tag>}<div className="text-xs text-muted">{p.team}</div></td>
-                      <td className="px-2 py-2 text-muted">{p.role}</td>
-                      <td className="px-2 py-2 text-right">{Number(p.credit).toFixed(1)}</td>
-                      <td className="px-2 py-2 text-right font-medium">{Number(p.predicted).toFixed(1)}</td>
-                      {hasActuals && <td className="px-2 py-2 text-right font-medium">{p.actual?.toFixed(1)}</td>}
-                      {hasActuals && <td className={`px-5 py-2 text-right ${(p.actual ?? 0) - Number(p.predicted) >= 0 ? "text-brand" : "text-bad"}`}>{(((p.actual ?? 0) - Number(p.predicted)) >= 0 ? "+" : "") + ((p.actual ?? 0) - Number(p.predicted)).toFixed(1)}</td>}
+                      <td className="px-3 py-2 sm:px-5"><span className="font-medium">{p.name}</span>{p.is_captain && <Tag>C</Tag>}{p.is_vice && <Tag>VC</Tag>}<div className="text-[11px] text-muted sm:text-xs">{p.role} · {p.team}</div></td>
+                      <td className="hidden px-2 py-2 text-muted sm:table-cell">{p.role}</td>
+                      <td className="px-1 py-2 text-right sm:px-2">{Number(p.credit).toFixed(1)}</td>
+                      <td className="px-1 py-2 text-right font-medium sm:px-2">{Number(p.predicted).toFixed(1)}</td>
+                      {hasActuals && <td className="px-1 py-2 text-right font-medium sm:px-2">{p.actual?.toFixed(1)}</td>}
+                      {hasActuals && <td className={`px-3 py-2 sm:px-5 text-right ${(p.actual ?? 0) - Number(p.predicted) >= 0 ? "text-brand" : "text-bad"}`}>{(((p.actual ?? 0) - Number(p.predicted)) >= 0 ? "+" : "") + ((p.actual ?? 0) - Number(p.predicted)).toFixed(1)}</td>}
                     </tr>
                   ))}
                 </tbody>
                 {hasActuals && actualTotal !== null && (
-                  <tfoot><tr className="border-t border-line bg-bg font-medium"><td className="px-5 py-2" colSpan={3}>Team total with captain bonuses</td><td className="px-2 py-2 text-right">{expectedTotal.toFixed(1)}</td><td className="px-2 py-2 text-right">{actualTotal.toFixed(1)}</td><td className="px-5 py-2 text-right">{(actualTotal - expectedTotal >= 0 ? "+" : "") + (actualTotal - expectedTotal).toFixed(1)}</td></tr></tfoot>
+                  <tfoot><tr className="border-t border-line bg-bg font-medium"><td className="px-3 py-2 sm:px-5" colSpan={2}>Team total (with C / VC bonus)</td><td className="hidden sm:table-cell"></td><td className="px-1 py-2 text-right sm:px-2">{expectedTotal.toFixed(1)}</td><td className="px-1 py-2 text-right sm:px-2">{actualTotal.toFixed(1)}</td><td className="px-3 py-2 text-right sm:px-5">{(actualTotal - expectedTotal >= 0 ? "+" : "") + (actualTotal - expectedTotal).toFixed(1)}</td></tr></tfoot>
                 )}
               </table>
             </div>
