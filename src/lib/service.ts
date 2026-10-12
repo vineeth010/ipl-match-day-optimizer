@@ -126,13 +126,37 @@ export async function saveActualsAndLearn(matchId: string, points: Record<string
     if (typeof v !== "number" || !Number.isFinite(v) || v < -50 || v > 400) throw new HttpError(400, "Enter a points value between -50 and 400 for all 11 players.");
     rows.push({ match_id: matchId, player_id: id, actual_points: v });
   }
+  const existing = await getActuals(matchId);
+  const current = await getLatestWeights();
+  const unchanged = existing.length === 11 && rows.every((r) => Number(existing.find((e) => e.player_id === r.player_id)?.actual_points) === r.actual_points);
+  if (unchanged) {
+    // identical points arrived again: there is no new information, so nothing is re-learned and nothing drifts
+    const obs = await loadObservations();
+    const same = learnFromObservations(current, obs);
+    return { ...same, changed: false, after: current, notes: ["These are the same points already saved for this match, so nothing was re-learned and the weights are unchanged."] };
+  }
+
   const up = await db().from("md_actuals").upsert(rows, { onConflict: "match_id,player_id" });
   if (up.error) throw new Error(`save actuals: ${up.error.message}`);
 
   const observations = await loadObservations();
-  const current = await getLatestWeights();
-  const result = learnFromObservations(current, observations);
-  if (result.changed) await saveWeights(result.after);
+  // Correcting the match that was learned from most recently: re-learn from the weights that existed BEFORE it,
+  // not on top of its own earlier learning, so a correction cannot compound.
+  const latestLog = (await listLearningLog(1))[0];
+  const isCorrection = latestLog?.after_match_id === matchId;
+  let base = current;
+  if (isCorrection) {
+    const w = (await db().from("md_weights").select("*").eq("version", latestLog.weights_before).maybeSingle()).data as any;
+    if (w) base = { version: w.version, factors: w.factors, roleMult: w.role_mult, venueMult: w.venue_mult, note: w.note ?? undefined };
+  }
+  const result = learnFromObservations(base, observations);
+  const needsNewVersion = result.changed || base.version !== current.version;
+  if (needsNewVersion) {
+    result.after = { ...result.after, version: current.version + 1, note: isCorrection ? "Re-learned after a correction to the latest match" : result.after.note };
+    result.changed = true;
+    await saveWeights(result.after);
+  }
+  if (isCorrection) result.notes.unshift("Points for this match were corrected, so the agent re-learned from the weights it had before this match.");
   const log = await db().from("md_learning_log").insert({
     after_match_id: matchId,
     weights_before: current.version,

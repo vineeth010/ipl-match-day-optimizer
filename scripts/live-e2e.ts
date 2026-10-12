@@ -126,15 +126,24 @@ async function main() {
   check("multipliers stay within 0.8–1.2", [...Object.values(w.role_mult as Record<string, number>), ...Object.values(w.venue_mult as Record<string, number>)].every((v) => v >= 0.8 && v <= 1.2));
 
   // ---------- idempotency + concurrency ----------
-  await post(`/api/matches/${m2.id}/actuals`, { points: pts2 });
+  const again = await post(`/api/matches/${m2.id}/actuals`, { points: pts2 });
   check("re-submitting the same points creates no duplicates", ((await db().from("md_actuals").select("*").eq("match_id", m2.id)).data ?? []).length === 11);
+  check("re-submitting identical points changes nothing (no weight drift)", again.json?.changed === false && again.json?.weightsVersion === 2, `v${again.json?.weightsVersion}`);
+  const vAfterSame = ((await db().from("md_weights").select("version").order("version", { ascending: false }).limit(1)).data ?? [])[0]?.version;
+  check("no extra weights version was created by the repeat", vAfterSame === 2, `latest v${vAfterSame}`);
+  const fixed = { ...pts2, [sel2[0].player_id]: pts2[sel2[0].player_id] + 10 };
+  const corr = await post(`/api/matches/${m2.id}/actuals`, { points: fixed });
+  check("correcting the latest match re-learns once (one new version)", corr.json?.ok && corr.json?.weightsVersion === 3 && /corrected/.test((corr.json?.notes ?? []).join(" ")), `v${corr.json?.weightsVersion}`);
+  const corr2 = await post(`/api/matches/${m2.id}/actuals`, { points: fixed });
+  check("repeating the correction changes nothing", corr2.json?.changed === false && corr2.json?.weightsVersion === 3, `v${corr2.json?.weightsVersion}`);
+  await post(`/api/matches/${m2.id}/actuals`, { points: pts2 }); // put the original points back for the later page checks
   const [a, b] = await Promise.all([post(`/api/matches/${m3.id}/generate`), post(`/api/matches/${m3.id}/generate`)]);
   const m3rows = ((await db().from("md_predictions").select("*").eq("match_id", m3.id).eq("selected", true)).data ?? []).length;
   check("double-click generate (2 simultaneous requests) leaves a consistent result", (a.status === 200 || b.status === 200) && m3rows === 11, `statuses ${a.status}/${b.status}, ${m3rows} selected rows`);
 
   // ---------- pages after learning ----------
   const learn = await page("/learning");
-  check("learning page shows trend, weights and log", learn.status === 200 && /Learning log/.test(learn.text) && /version 2/.test(learn.text) && /Current scoring weights/.test(learn.text));
+  check("learning page shows trend, weights and log", learn.status === 200 && /Learning log/.test(learn.text) && /version [0-9]+/.test(learn.text) && /Current scoring weights/.test(learn.text), `status ${learn.status}, log:${/Learning log/.test(learn.text)}, version:${/version [0-9]+/.test(learn.text)}, weights:${/Current scoring weights/.test(learn.text)}, len ${learn.text.length} | ${learn.text.slice(Math.max(0, learn.text.indexOf("Current scoring")), Math.max(0, learn.text.indexOf("Current scoring")) + 90)}`);
   const home2 = await page("/");
   check("home shows 2 of 74 played", /2 of 74/.test(home2.text));
 
