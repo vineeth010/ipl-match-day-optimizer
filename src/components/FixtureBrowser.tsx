@@ -157,12 +157,12 @@ function FixtureCard({ m, delay }: { m: FixtureItem; delay: number }) {
       <div className="mt-4 grid grid-cols-[1fr_auto_1fr] items-center gap-2 pl-2">
         <div className="flex flex-col items-center gap-2 text-center">
           <TeamBadge name={m.team1} size="lg" />
-          <span className="text-sm font-bold leading-tight">{teamStyle(m.team1).short}</span>
+          <span className="text-sm font-bold leading-tight">{m.team1}</span>
         </div>
         <span className="rounded-full bg-bg px-2 py-1 text-[11px] font-extrabold tracking-widest text-muted ring-1 ring-line">VS</span>
         <div className="flex flex-col items-center gap-2 text-center">
           <TeamBadge name={m.team2} size="lg" />
-          <span className="text-sm font-bold leading-tight">{teamStyle(m.team2).short}</span>
+          <span className="text-sm font-bold leading-tight">{m.team2}</span>
         </div>
       </div>
       <p className="mt-4 truncate pl-2 text-center text-xs text-muted">{locked ? `Opens after Match ${(m.number ?? 0) - 1} is played through the app` : m.venue}</p>

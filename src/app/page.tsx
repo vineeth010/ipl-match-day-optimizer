@@ -7,7 +7,6 @@ import ScaleStrip from "@/components/ScaleStrip";
 import TeamBadge from "@/components/TeamBadge";
 import { getPointsScale, getPredictionRange, listIplMatches, matchStatusMap } from "@/lib/db";
 import { learningOverview } from "@/lib/service";
-import { teamStyle } from "@/lib/teams";
 
 export const dynamic = "force-dynamic";
 
@@ -65,7 +64,7 @@ export default async function Home() {
             {next && (
               <Link href={`/match/${next.id}`} className="btn-gold inline-flex items-center gap-3 px-5 py-3.5 text-sm">
                 <TeamBadge name={next.team1} size="sm" /> <span className="opacity-60">v</span> <TeamBadge name={next.team2} size="sm" />
-                <span>Next up: {teamStyle(next.team1).code} v {teamStyle(next.team2).code} →</span>
+                <span className="text-left leading-tight"><span className="block text-[11px] font-bold uppercase tracking-wide opacity-70">Next up · Match {next.matchNumber ?? ""}</span>{next.team1} v {next.team2} →</span>
               </Link>
             )}
             <Link href="/points" className="glass rounded-xl px-5 py-3.5 text-sm font-semibold transition hover:bg-white/20">How points work</Link>
