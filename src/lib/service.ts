@@ -11,6 +11,7 @@ import {
   listLearningLog,
   loadEvidence,
   loadObservations,
+  loadPickRows,
   playerNames,
   saveWeights,
 } from "./db";
@@ -217,4 +218,52 @@ export async function learningOverview() {
   const info = new Map((ms as any[]).map((m) => [m.id, m]));
   const trend = raw.map((t) => ({ ...t, matchNumber: info.get(t.matchId)?.match_number ?? null, label: info.get(t.matchId) ? `${info.get(t.matchId).team1} v ${info.get(t.matchId).team2}` : t.matchId }));
   return { trend, logs, weights: await getLatestWeights(), defaults: DEFAULT_WEIGHTS };
+}
+
+export interface PickQualityMatch {
+  matchId: string;
+  matchNumber: number | null;
+  label: string;
+  expected: number; // predicted XI total with captain 2x and vice-captain 1.5x
+  actual: number; // real XI total with the same multipliers
+  captain: string;
+  captainPoints: number;
+  captainRank: number; // 1 = he was the best scorer of the 11
+  captainBeatAverage: boolean;
+  viceBeatAverage: boolean;
+  xiAverage: number; // average raw points of the 11
+  hits: number; // how many of the 11 scored at least the typical player-match (the all-time median)
+}
+
+/** Did the captain choice pay off? Judged only with what Aryan entered: the 11 players he picked each match. */
+export async function pickQuality(typical: number): Promise<PickQualityMatch[]> {
+  const rows = await loadPickRows();
+  if (!rows.length) return [];
+  const ids = [...new Set(rows.map((r) => r.matchId))];
+  const ms = ((await db().from("md_matches").select("id, seq, match_number, team1, team2").in("id", ids)).data ?? []) as any[];
+  const out: (PickQualityMatch & { seq: number })[] = [];
+  for (const m of ms) {
+    const xi = rows.filter((r) => r.matchId === m.id);
+    const cap = xi.find((r) => r.isCaptain);
+    const vc = xi.find((r) => r.isVice);
+    if (!xi.length || !cap) continue;
+    const mult = (r: (typeof xi)[number]) => (r.isCaptain ? 2 : r.isVice ? 1.5 : 1);
+    const avg = xi.reduce((s, r) => s + r.actual, 0) / xi.length;
+    out.push({
+      seq: m.seq,
+      matchId: m.id,
+      matchNumber: m.match_number ?? null,
+      label: `${m.team1} v ${m.team2}`,
+      expected: xi.reduce((s, r) => s + r.predicted * mult(r), 0),
+      actual: xi.reduce((s, r) => s + r.actual * mult(r), 0),
+      captain: cap.name,
+      captainPoints: cap.actual,
+      captainRank: 1 + xi.filter((r) => r.actual > cap.actual).length,
+      captainBeatAverage: cap.actual > avg,
+      viceBeatAverage: !!vc && vc.actual > avg,
+      xiAverage: avg,
+      hits: xi.filter((r) => r.actual >= typical).length,
+    });
+  }
+  return out.sort((a, b) => a.seq - b.seq);
 }

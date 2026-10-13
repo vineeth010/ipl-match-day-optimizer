@@ -233,3 +233,17 @@ export async function getPredictionRange(): Promise<PredictionRange> {
   const { data } = await db().from("md_meta").select("value").eq("key", "prediction_range").maybeSingle();
   return ((data as any)?.value as PredictionRange) ?? FALLBACK_RANGE;
 }
+
+/** The 11 picked players of every match with points entered, with captain flags: feeds the "pick quality" panel. */
+export async function loadPickRows(): Promise<{ matchId: string; playerId: string; name: string; predicted: number; actual: number; isCaptain: boolean; isVice: boolean }[]> {
+  const actuals = await fetchAll<any>((f, t) => db().from("md_actuals").select("*").range(f, t), "all actuals");
+  if (!actuals.length) return [];
+  const matchIds = [...new Set(actuals.map((a) => a.match_id))];
+  const preds = await fetchAll<any>((f, t) => db().from("md_predictions").select("*").in("match_id", matchIds).eq("selected", true).range(f, t), "selected predictions");
+  const names = await playerNames([...new Set(preds.map((p) => p.player_id))]);
+  const actualKey = new Map(actuals.map((a) => [a.match_id + "|" + a.player_id, Number(a.actual_points)]));
+  return preds.flatMap((p) => {
+    const actual = actualKey.get(p.match_id + "|" + p.player_id);
+    return actual === undefined ? [] : [{ matchId: p.match_id, playerId: p.player_id, name: names.get(p.player_id) ?? p.player_id, predicted: Number(p.predicted), actual, isCaptain: !!p.is_captain, isVice: !!p.is_vice }];
+  });
+}

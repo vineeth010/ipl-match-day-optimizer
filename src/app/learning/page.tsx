@@ -2,15 +2,18 @@ import Link from "next/link";
 import Collapsible from "@/components/Collapsible";
 import CountUp from "@/components/CountUp";
 import { BallIcon } from "@/components/Icons";
+import PickQuality from "@/components/PickQuality";
 import TrendChart from "@/components/TrendChart";
-import { learningOverview } from "@/lib/service";
+import { getPointsScale } from "@/lib/db";
+import { learningOverview, pickQuality } from "@/lib/service";
 
 export const dynamic = "force-dynamic";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 export default async function LearningPage() {
-  const { trend, logs, weights, defaults } = await learningOverview();
+  const [{ trend, logs, weights, defaults }, scale] = await Promise.all([learningOverview(), getPointsScale()]);
+  const picks = await pickQuality(scale.median);
   const f = weights.factors;
   const d = defaults.factors;
   const labels: Record<string, string> = { form: "Recent form", career: "Career average", venue: "Record at this ground", opp: "Record vs this opponent", role: "Role baseline" };
@@ -71,6 +74,8 @@ export default async function LearningPage() {
           <Mult title="By ground type" entries={weights.venueMult} names={{ high: "High-scoring grounds", mid: "Mid-scoring grounds", low: "Low-scoring grounds" }} />
         </div>
       </section>
+
+      <PickQuality matches={picks} typical={scale.median} />
 
       <section className="card anim-up p-5 sm:p-6">
         <h2 className="text-lg font-extrabold tracking-tight">Average gap between predicted and actual points, by match</h2>
