@@ -6,6 +6,8 @@ Built for the Mesa C4 AI Final (Hard). Live: https://ipl-match-day-optimizer.ver
 
 ![Components Map](docs/components_map.png)
 
+**Data source:** all match data comes from [Cricsheet](https://cricsheet.org) (public ball-by-ball IPL archive, `ipl_male_json.zip`, CC BY 3.0), downloaded once by `scripts/ingest.ts` and loaded into Supabase with match dates; the app never calls Cricsheet while in use. Player roles are inferred from that history (plus a short list of known keepers), with Gemini Flash classifying first-time players. Credits are estimated by the prediction engine. Dream11 itself is never accessed or scraped. The map is regenerated with `scripts/make-components-map.ps1`.
+
 ## How it works
 
 | Step | What happens | Where |
