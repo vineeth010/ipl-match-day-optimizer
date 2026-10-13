@@ -12,9 +12,9 @@ export default function PickQuality({ matches, typical }: { matches: PickQuality
 
   return (
     <section className="card anim-up p-5 sm:p-6">
-      <h2 className="text-lg font-extrabold tracking-tight">Pick quality: were the choices any good?</h2>
+      <h2 className="text-lg font-extrabold tracking-tight">Were the captain picks any good?</h2>
       <p className="mt-1 text-sm text-muted">
-        This looks at the 11 players the agent picked, not the prediction error. Picking a captain at random from the 11 would beat the team average about half the time, so that is the line to clear. One match proves nothing; the answer only means something over many matches.
+        The agent cannot guess exact points, so this checks its decisions instead. After each match: did the captain score more than the average player of the same 11? Choosing a captain blindly would manage that in about 4 of every 10 matches (the agent did it in 57% of the 2025 season when replayed). Over more matches, you want to stay above that.
       </p>
       {n === 0 ? (
         <div className="mt-5 rounded-2xl border border-dashed border-line p-6 text-center text-sm text-muted">Enter the real points for a match and this fills in.</div>
@@ -22,10 +22,10 @@ export default function PickQuality({ matches, typical }: { matches: PickQuality
         <>
           <dl className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[
-              ["Captain beat his XI's average", <><CountUp value={capWins} /> of {n}</>, "chance alone: about half"],
-              ["Vice-captain beat it", <><CountUp value={vcWins} /> of {n}</>, "chance alone: about half"],
-              ["Players at or above a typical score", <><CountUp value={hits} /> of {n * 11}</>, `typical = ${Math.round(typical)} pts`],
-              ["Team total: real vs expected", <><CountUp value={meanActual} /> / <CountUp value={meanExpected} /></>, "average per match"],
+              ["Captain did better than the team average", <><CountUp value={capWins} /> of {n}</>, "blind pick: about 4 in 10"],
+              ["Vice-captain did better than it", <><CountUp value={vcWins} /> of {n}</>, "blind pick: about 4 in 10"],
+              ["Players who scored a normal amount or more", <><CountUp value={hits} /> of {n * 11}</>, `typical = ${Math.round(typical)} pts`],
+              ["Team total: real / expected", <><CountUp value={meanActual} /> / <CountUp value={meanExpected} /></>, "average per match"],
             ].map(([k, v, s], i) => (
               <div key={i} className="rounded-2xl bg-bg p-4 ring-1 ring-line">
                 <dt className="text-xs text-muted">{k as string}</dt>
@@ -36,7 +36,7 @@ export default function PickQuality({ matches, typical }: { matches: PickQuality
           </dl>
           <div className="mt-4 overflow-x-auto">
             <table className="w-full min-w-[34rem] text-sm">
-              <thead className="text-left text-xs text-muted"><tr><th className="py-1.5 font-medium">Match</th><th className="py-1.5 font-medium">Captain</th><th className="py-1.5 text-right font-medium">His rank in the XI</th><th className="py-1.5 text-right font-medium">Team total: real</th><th className="py-1.5 text-right font-medium">Expected</th></tr></thead>
+              <thead className="text-left text-xs text-muted"><tr><th className="py-1.5 font-medium">Match</th><th className="py-1.5 font-medium">Captain</th><th className="py-1.5 text-right font-medium">Captain&apos;s rank (1 = best)</th><th className="py-1.5 text-right font-medium">Team total: real</th><th className="py-1.5 text-right font-medium">Expected</th></tr></thead>
               <tbody className="divide-y divide-line">
                 {matches.map((m) => (
                   <tr key={m.matchId} className="transition-colors hover:bg-surface-2">

@@ -49,6 +49,7 @@ const obs: Observation[] = [];
 interface Row { n: number; lMae: number; fMae: number; bMae: number; lBias: number; bBias: number; lR: number; bR: number; xiMae: number; xiExp: number; xiAct: number; ver: number }
 const rows: Row[] = [];
 const roleOnly: number[] = [];
+const cap = { n: 0, beat: 0, vcBeat: 0, randomBeat: 0 };
 
 games.forEach((m, idx) => {
   const pool = (ds.pools.get(m.id) ?? []).filter((p) => !p.substitute);
@@ -70,6 +71,7 @@ games.forEach((m, idx) => {
   roleOnly.push(abs(L.predictions.map((p) => p.factors.role), act));
   const team = buildBestTeam(L.predictions);
   let xiMae = 0, xiExp = 0, xiAct = 0;
+  const actuals11: number[] = [];
   if (team) {
     for (const p of team.players) {
       const actual = statKey.get(m.id + "|" + p.playerId)?.d11 ?? 0;
@@ -77,9 +79,18 @@ games.forEach((m, idx) => {
       const basePredicted = f.form * p.factors.form + f.career * p.factors.career + f.venue * p.factors.venue + f.opp * p.factors.opp + f.role * p.factors.role;
       obs.push({ matchId: m.id, matchSeq: m.seq, playerId: p.playerId, name: p.name, role: p.role, venueType: L.venue.type, factors: p.factors, basePredicted, predicted: p.predicted, actual });
       xiMae += Math.abs(actual - p.predicted) / team.players.length;
+      actuals11.push(actual);
       xiExp += p.predicted * (p.playerId === team.captain.playerId ? 2 : p.playerId === team.viceCaptain.playerId ? 1.5 : 1);
       xiAct += actual * (p.playerId === team.captain.playerId ? 2 : p.playerId === team.viceCaptain.playerId ? 1.5 : 1);
     }
+  }
+  if (team) {
+    const avg = mean(actuals11);
+    const a = (id: string) => statKey.get(m.id + "|" + id)?.d11 ?? 0;
+    cap.n++;
+    if (a(team.captain.playerId) > avg) cap.beat++;
+    if (a(team.viceCaptain.playerId) > avg) cap.vcBeat++;
+    cap.randomBeat += actuals11.filter((v) => v > avg).length / actuals11.length;
   }
   rows.push({ n: idx + 1, lMae: abs(lp, act), fMae: abs(fp, act), bMae: abs(bp, act), lBias: bias(lp, act), bBias: bias(bp, act), lR: corr(lp, act), bR: corr(bp, act), xiMae, xiExp, xiAct, ver: learned.version });
   const res = learnFromObservations(learned, obs);
@@ -95,6 +106,7 @@ console.log(`Season ${season}: ${rows.length} matches, role priors from ${sums.W
 console.log("matches | pool MAE: learning vs frozen vs baseline | bias | correlation");
 for (let a = 0; a < rows.length; a += 10) console.log(win(a, a + 10));
 console.log("ALL   ", win(0, rows.length));
+console.log(`captain beat his XI average in ${cap.beat} of ${cap.n} matches (${(100 * cap.beat / cap.n).toFixed(0)}%); vice-captain ${cap.vcBeat} (${(100 * cap.vcBeat / cap.n).toFixed(0)}%); a blind pick from the 11 would manage ${(100 * cap.randomBeat / cap.n).toFixed(0)}%`);
 console.log(`role-average-only guess (no player info): pool MAE ${mean(roleOnly).toFixed(2)}`);
 console.log("final weights:", JSON.stringify(learned.factors), "roleMult", JSON.stringify(learned.roleMult), "venueMult", JSON.stringify(learned.venueMult));
 const tot = (k: keyof Row) => rows.reduce((s, r) => s + (r[k] as number), 0);
