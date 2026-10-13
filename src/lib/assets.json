@@ -1,14 +1,14 @@
 {
   "teams": {
     "csk": "CSK.png",
-    "dc": "DC.jpg",
+    "dc": "DC.png",
     "gt": "GT.jpg",
-    "kkr": "KKR.jpg",
+    "kkr": "KKR.png",
     "lsg": "LSG.jpeg",
     "mi": "MI.jpg",
     "pbks": "PBKS.jpg",
-    "rcb": "RCB.jpg",
-    "rr": "RR.jpeg",
+    "rcb": "RCB.png",
+    "rr": "RR.png",
     "srh": "SRH.jpeg"
   },
   "players": {
