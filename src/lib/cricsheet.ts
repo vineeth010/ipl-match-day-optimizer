@@ -22,7 +22,7 @@ export interface ParsedMatch {
   match: Omit<MatchRow, "seq">;
   stats: Omit<PlayerMatchStat, "seq" | "d11">[];
   playerNames: Record<string, string>; // id -> name
-  pool: { playerId: string; team: string }[]; // everyone listed for the match
+  pool: { playerId: string; team: string; substitute: boolean }[]; // everyone listed; substitute = Impact Player / concussion sub who came on
 }
 
 function blank(
@@ -71,7 +71,7 @@ export function parseCricsheetMatch(id: string, j: any): ParsedMatch {
 
   const idOf = (name: string) => people[name] ?? `name:${name}`;
   const playerNames: Record<string, string> = {};
-  const pool: { playerId: string; team: string }[] = [];
+  const pool: { playerId: string; team: string; substitute: boolean }[] = [];
   const stats = new Map<string, Omit<PlayerMatchStat, "seq" | "d11">>();
 
   for (const team of [team1, team2]) {
@@ -79,7 +79,7 @@ export function parseCricsheetMatch(id: string, j: any): ParsedMatch {
     for (const name of info.players?.[team] ?? []) {
       const pid = idOf(name);
       playerNames[pid] = name;
-      pool.push({ playerId: pid, team });
+      pool.push({ playerId: pid, team, substitute: false });
       stats.set(pid, blank(id, pid, name, team, opp, venue, date));
     }
   }
@@ -96,6 +96,8 @@ export function parseCricsheetMatch(id: string, j: any): ParsedMatch {
   };
 
   const inningsTotals: number[] = [];
+  // Impact Players and concussion substitutes are recorded as replacements on the delivery where they come on
+  const subNames = new Set<string>();
   for (const inn of j.innings ?? []) {
     if (inn.super_over) continue; // Dream11 ignores super overs
     let total = 0;
@@ -104,6 +106,9 @@ export function parseCricsheetMatch(id: string, j: any): ParsedMatch {
     for (const over of inn.overs ?? []) {
       bowlerOver.clear();
       for (const d of over.deliveries ?? []) {
+        for (const x of d.replacements?.match ?? []) {
+          if (x.reason === "impact_player" || x.reason === "concussion_substitute") subNames.add(x.in);
+        }
         const wides = d.extras?.wides ?? 0;
         const noballs = d.extras?.noballs ?? 0;
         total += d.runs.total ?? 0;
@@ -158,6 +163,8 @@ export function parseCricsheetMatch(id: string, j: any): ParsedMatch {
     }
     inningsTotals.push(total);
   }
+
+  for (const p of pool) p.substitute = subNames.has(playerNames[p.playerId]);
 
   const outcome = info.outcome ?? {};
   let resultText: string | null = null;

@@ -9,7 +9,7 @@ export interface Dataset {
   matches: MatchRow[]; // sorted by seq
   stats: PlayerMatchStat[]; // with d11 filled
   players: Map<string, PlayerRow>;
-  pools: Map<string, { playerId: string; team: string }[]>;
+  pools: Map<string, { playerId: string; team: string; substitute?: boolean }[]>;
   rolePriors: Record<Role, number>;
 }
 
@@ -29,7 +29,7 @@ export function buildDatasetFromDir(dir: string): Dataset {
   const matches: MatchRow[] = parsed.map((p) => ({ ...p.match, seq: seqOf.get(p.match.id)! }));
   const stats: PlayerMatchStat[] = [];
   const names = new Map<string, string>();
-  const pools = new Map<string, { playerId: string; team: string }[]>();
+  const pools = new Map<string, { playerId: string; team: string; substitute?: boolean }[]>();
   for (const p of parsed) {
     pools.set(p.match.id, p.pool);
     for (const [id, nm] of Object.entries(p.playerNames)) names.set(id, nm);

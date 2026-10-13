@@ -128,7 +128,7 @@ export async function saveWeights(w: WeightsConfig) {
 
 /** The date gate lives here: only rows with seq strictly below the target match are ever fetched. */
 export async function loadEvidence(match: MatchRow, weights: WeightsConfig): Promise<Omit<EvidenceInput, "weights">> {
-  const poolRows = must(await db().from("md_match_players").select("player_id, team").eq("match_id", match.id), "pool");
+  const poolRows = must(await db().from("md_match_players").select("player_id, team").eq("match_id", match.id), "pool"); // starting XIs only: Impact Players are never stored in the pool
   const pool = poolRows.map((r: any) => ({ playerId: r.player_id, team: r.team }));
   const ids = pool.map((p) => p.playerId);
   void weights;

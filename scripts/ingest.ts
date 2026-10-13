@@ -34,9 +34,11 @@ async function main() {
   const ds = buildDatasetFromDir(dir);
   console.log(`parsed ${ds.matches.length} matches, ${ds.stats.length} player-match rows, ${ds.players.size} players`);
 
+  // keep roles that Gemini already classified (re-running the classifier could answer differently and change picks)
+  const aiIds = new Set(((await db().from("md_players").select("id").eq("role_source", "ai")).data ?? []).map((r: { id: string }) => r.id));
   await upsertBatched(
     "md_players",
-    [...ds.players.values()].map((p) => ({ id: p.id, name: p.name, role: p.role, role_source: p.roleSource })),
+    [...ds.players.values()].filter((p) => !aiIds.has(p.id)).map((p) => ({ id: p.id, name: p.name, role: p.role, role_source: p.roleSource })),
     "id",
   );
   console.log("players loaded");
@@ -52,10 +54,27 @@ async function main() {
   );
   console.log("matches loaded");
 
+  // The pool is each side's STARTING XI only. Impact Players / concussion substitutes are out of scope: they are not pool
+  // members, and are recorded in md_meta ('impact_players') so a match page can mention them after the match.
   const pools: object[] = [];
-  for (const [matchId, pool] of ds.pools) for (const p of pool) pools.push({ match_id: matchId, player_id: p.playerId, team: p.team });
+  const impact: Record<string, { playerId: string; team: string }[]> = {};
+  const stale: { match_id: string; player_id: string }[] = [];
+  for (const [matchId, pool] of ds.pools) {
+    for (const p of pool) {
+      if (p.substitute) {
+        (impact[matchId] ??= []).push({ playerId: p.playerId, team: p.team });
+        stale.push({ match_id: matchId, player_id: p.playerId });
+      } else pools.push({ match_id: matchId, player_id: p.playerId, team: p.team });
+    }
+  }
   await upsertBatched("md_match_players", pools, "match_id,player_id");
-  console.log(`match squads loaded (${pools.length})`);
+  for (const x of stale) {
+    const { error: delErr } = await db().from("md_match_players").delete().eq("match_id", x.match_id).eq("player_id", x.player_id);
+    if (delErr) throw new Error(delErr.message);
+  }
+  const { error: impErr } = await db().from("md_meta").upsert({ key: "impact_players", value: impact }, { onConflict: "key" });
+  if (impErr) throw new Error(impErr.message);
+  console.log(`match squads loaded (${pools.length} starting-XI rows; ${stale.length} impact/substitute players left out)`);
 
   await upsertBatched(
     "md_player_stats",

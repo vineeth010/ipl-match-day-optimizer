@@ -26,7 +26,7 @@ const ipl26 = ds.matches.filter((m) => m.isIpl2026).slice(0, maxMatches);
 let invalid = 0, slowest = 0;
 const trend: string[] = [];
 for (const m of ipl26) {
-  const pool = ds.pools.get(m.id)!;
+  const pool = ds.pools.get(m.id)!.filter((p) => !p.substitute);
   const poolIds = new Set(pool.map((p) => p.playerId));
   const history: PlayerMatchStat[] = [];
   for (const id of poolIds) for (const s of byPlayer.get(id) ?? []) if (s.seq < m.seq) history.push(s);

@@ -36,20 +36,28 @@ async function main() {
 
   const header = ["Match #", "Date", "Match", "Player", "Team", "Role", "Dream11 points (plain)", "Runs", "Balls", "Wickets", "Catches", "Breakdown"];
   const lines = [header.join(",")];
+  const subLines = [header.join(",")];
+  const isSub = (matchId: string, playerId: string) => ds.pools.get(matchId)?.some((p) => p.playerId === playerId && p.substitute) ?? false;
   for (const m of matches) {
     const rows = ds.stats.filter((s) => s.matchId === m.id).sort((a, b) => a.team.localeCompare(b.team) || (b.d11 ?? 0) - (a.d11 ?? 0));
     for (const s of rows) {
       const role = ds.players.get(s.playerId)?.role ?? "BAT";
       const { total, parts } = dream11Points(s, role);
       const breakdown = Object.entries(parts).map(([k, v]) => `${k} ${v > 0 ? "+" : ""}${v}`).join("; ");
-      lines.push([m.matchNumber ?? "", m.date, `${m.team1} v ${m.team2}`, s.playerName, s.team, role, total, s.runs, s.balls, s.wickets, s.catches, breakdown].map(esc).join(","));
+      const line = [m.matchNumber ?? "", m.date, `${m.team1} v ${m.team2}`, s.playerName, s.team, role, total, s.runs, s.balls, s.wickets, s.catches, breakdown].map(esc).join(",");
+      (isSub(m.id, s.playerId) ? subLines : lines).push(line);
     }
   }
   const outDir = path.resolve("docs", "actual-points");
   fs.mkdirSync(outDir, { recursive: true });
   const file = path.join(outDir, only === null ? "ipl2026_actual_points_all_matches.csv" : `ipl2026_match_${only}_actual_points.csv`);
   fs.writeFileSync(file, "﻿" + lines.join("\n"), "utf8"); // BOM so Excel opens it with the right encoding
-  console.log(`wrote ${file} (${lines.length - 1} player rows, ${matches.length} match(es))`);
+  console.log(`wrote ${file} (${lines.length - 1} starting-XI rows, ${matches.length} match(es))`);
+  if (only === null) {
+    const subFile = path.join(outDir, "ipl2026_impact_players_not_pickable.csv");
+    fs.writeFileSync(subFile, "\uFEFF" + subLines.join("\n"), "utf8");
+    console.log(`wrote ${subFile} (${subLines.length - 1} impact / substitute rows: out of scope, never in the pool)`);
+  }
 }
 
 main().catch((e) => {

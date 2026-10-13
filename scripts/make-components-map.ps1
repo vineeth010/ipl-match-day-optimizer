@@ -125,7 +125,7 @@ Box 0 4 8 "Copies the team into Dream11 himself and plays (outside our app)"
 Box 0 5 7 "Match page: best XI, captain / VC, bench with reasons, credits, disclaimer, 'what I learned'"
 
 Box 1 1 11 "Learning analyzer: predicted vs actual (and vs a simple baseline) $arrow new weights for the next match"
-Box 1 2 4 'Date gate: only uses data from before this match'
+Box 1 2 4 'Date gate: only data from before this match. Pool = each side starting XI (22); Impact Player out of scope'
 Box 1 3 5 'Prediction engine (latest weights) + team builder: estimated credits, 100 cap, max 7 per team, roles'
 
 Box-At 2 ($colX[4] + 20) 450 224 126 6 'Gemini Flash writes the reasons for picks, bench, captain and VC. At ingestion it also classifies the roles of first-time players'

@@ -69,7 +69,7 @@ export default async function PointsGuide() {
       <section className="grid gap-4 md:grid-cols-3">
         <Explain n="1" title="Actual points: no cap, but a practical limit" body={`Dream11 does not cap runs, wickets or catches, so there is no formal maximum. In ${scale.rows.toLocaleString()} IPL player-matches the best was ${scale.max.points}, and half scored ${scale.median} or less. A captain doubles that, which is how contests are won.`} />
         <Explain n="2" title="Predicted points: an average, so far below the peaks" body={`A prediction is a weighted average of a player's past points (form, career, this ground, this opponent, role) with small capped multipliers. It cannot reach peak scores. In back-testing, the agent's predictions ran ${Math.round(range.poolMin)} to ${Math.round(range.poolMax)} per player.`} />
-        <Explain n="3" title="A whole team: about 440 to 620 points" body={`11 predictions plus the captain's extra 1x and the vice-captain's extra 0.5x came to ${Math.round(range.teamMin)} to ${Math.round(range.teamMax)} in back-testing, averaging ${Math.round(range.teamMean)}. The agent is judged by how its error behaves match after match, not by predicting peaks.`} />
+        <Explain n="3" title="A whole team: about 480 to 610 points" body={`11 predictions plus the captain's extra 1x and the vice-captain's extra 0.5x came to ${Math.round(range.teamMin)} to ${Math.round(range.teamMax)} in back-testing, averaging ${Math.round(range.teamMean)}. The agent is judged by how its error behaves match after match, not by predicting peaks.`} />
       </section>
 
       <HallOfFame scale={scale} />
@@ -83,7 +83,7 @@ export default async function PointsGuide() {
         </div>
         <p className="mt-3 rounded-xl border border-gold/40 bg-gold-soft px-4 py-3 text-xs leading-relaxed text-warn">
           <StumpsIcon className="mr-1 inline h-4 w-4 align-text-bottom" />
-          <strong>What is and is not confirmed.</strong> This table matches two published Dream11 guides (Sportskeeda, psainath.org). Dream11&apos;s own points page could not be reached when we checked, so it is not confirmed against Dream11 itself. Two rules are assumptions: the stumping value (+12) and that the 30, 50 and 100 run bonuses do not stack (only the highest applies).
+          <strong>What is and is not confirmed.</strong> This table matches two published Dream11 guides (Sportskeeda, psainath.org). Dream11&apos;s own points page could not be reached when we checked, so it is not confirmed against Dream11 itself. Two rules are assumptions: the stumping value (+12) and that the 30, 50 and 100 run bonuses do not stack (only the highest applies). <strong>Scope assumption:</strong> each match uses the 11 starters of each side (22 players). The Impact Player rule is out of scope for now, so substitutes who came on are never in the pool; they are shown after the match for context.
         </p>
       </section>
     </div>

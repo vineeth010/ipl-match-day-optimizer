@@ -65,7 +65,7 @@ export const FALLBACK_SCALE: PointsScale = {
   share: { above100: 0.057, above150: 0.0073, above200: 0.0008 },
 };
 
-export const FALLBACK_RANGE: PredictionRange = { poolMin: 14, poolMax: 76, teamMin: 441, teamMax: 623, teamMean: 518 };
+export const FALLBACK_RANGE: PredictionRange = { poolMin: 14, poolMax: 76, teamMin: 477, teamMax: 613, teamMean: 532 };
 
 export function summarise(s: { runs: number; balls: number; wickets: number; catches: number; stumpings: number }): string {
   const parts: string[] = [];

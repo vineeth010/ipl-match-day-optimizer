@@ -18,6 +18,7 @@ import { predictPool } from "./engine";
 import { explainTeam } from "./gemini";
 import { accuracyByMatch, learnFromObservations } from "./learning";
 import { buildBestTeam, explainBench, validateTeam } from "./optimizer";
+import { summarise } from "./scale";
 import type { PlayerPrediction } from "./types";
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -129,7 +130,22 @@ export async function matchView(matchId: string) {
   const actualBy = new Map(actuals.map((a) => [a.player_id, Number(a.actual_points)]));
   const xi = preds.filter((p) => p.selected).map((p) => ({ ...byId.get(p.player_id)!, actual: actualBy.get(p.player_id) ?? null }));
   xi.sort((a, b) => Number(b.predicted) - Number(a.predicted));
-  return { match, rec, xi, byId, previousLearning, currentWeights: weights, hasActuals: actuals.length > 0 };
+  // Impact Players who came on: out of scope for picking, shown only after the match as context
+  const hasActualsNow = actuals.length > 0;
+  let substitutes: { name: string; team: string; points: number; summary: string }[] = [];
+  if (hasActualsNow) {
+    const meta = ((await db().from("md_meta").select("value").eq("key", "impact_players").maybeSingle()).data as any)?.value ?? {};
+    const subRows = ((meta[matchId] ?? []) as { playerId: string; team: string }[]).map((x) => ({ player_id: x.playerId, team: x.team }));
+    if (subRows.length) {
+      const ids = subRows.map((r) => r.player_id);
+      const stats = ((await db().from("md_player_stats").select("player_id,d11,runs,balls,wickets,catches,stumpings").eq("match_id", matchId).in("player_id", ids)).data ?? []) as any[];
+      const subNames = await playerNames(ids);
+      substitutes = stats
+        .map((r) => ({ name: subNames.get(r.player_id) ?? r.player_id, team: subRows.find((x) => x.player_id === r.player_id)?.team ?? "", points: Number(r.d11), summary: summarise(r) }))
+        .sort((a, b) => b.points - a.points);
+    }
+  }
+  return { match, rec, xi, byId, previousLearning, currentWeights: weights, hasActuals: hasActualsNow, substitutes };
 }
 
 /** Aryan has typed in the real points: save them, then run the learning loop. */

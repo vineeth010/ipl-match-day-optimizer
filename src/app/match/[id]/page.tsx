@@ -19,7 +19,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
   const { id } = await params;
   const [v, scale, range, lock] = await Promise.all([matchView(id), getPointsScale(), getPredictionRange(), lockStatus(id)]);
   if (!v) notFound();
-  const { match, rec, xi, byId, previousLearning, currentWeights, hasActuals } = v;
+  const { match, rec, xi, byId, previousLearning, currentWeights, hasActuals, substitutes } = v;
   const record = scale.max.points;
   const reasoning: any = rec?.reasoning;
   const pickReason = new Map<string, string>((reasoning?.picks ?? []).map((p: any) => [p.name, p.reason]));
@@ -77,7 +77,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
         <strong>Early-season model: not yet proven.</strong> Its picks come from past IPL data and weights that had seen {previousLearning ? previousLearning.observations : 0} entered
         result{previousLearning?.observations === 1 ? "" : "s"} when this was generated (weights v{rec ? rec.weights_version : currentWeights.version}).
         Expect errors until the gap between predicted and actual points shrinks over several matches.
-        Credits are estimated, not Dream11&apos;s own, so check the 100-credit total in the Dream11 app. Teams assume the post-toss playing group.
+        Credits are estimated, not Dream11&apos;s own, so check the 100-credit total in the Dream11 app. Teams use each side&apos;s starting XI (11 a side); the Impact Player rule is out of scope for now.
       </section>
 
       <section className="card p-5">
@@ -228,6 +228,23 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
               ))}
             </ul>
           </section>
+
+          {hasActuals && substitutes.length > 0 && (
+            <section className="card">
+              <div className="border-b border-line px-5 py-3">
+                <h2 className="text-sm font-semibold">Impact players who came on (not pickable)</h2>
+                <p className="mt-0.5 text-xs text-muted">The agent only picks from each side&apos;s starting XI, because an Impact Player is not known until he comes on during the match. Shown here for context only; it does not affect learning.</p>
+              </div>
+              <ul className="divide-y divide-line">
+                {substitutes.map((p) => (
+                  <li key={p.name + p.team} className="flex items-center justify-between gap-3 px-5 py-2.5 text-sm">
+                    <span><span className="font-semibold">{p.name}</span> <span className="text-xs text-muted">{p.team}</span><span className="block text-xs text-muted">{p.summary}</span></span>
+                    <span className="text-right text-sm font-bold">{p.points.toFixed(0)} <span className="text-[11px] font-normal text-muted">pts</span></span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <section className="card p-5">
             <h2 className="text-sm font-semibold">{hasActuals ? "Points entered. Update them if you made a mistake" : "After the match: enter the real points"}</h2>

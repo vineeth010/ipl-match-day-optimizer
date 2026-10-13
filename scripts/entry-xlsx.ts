@@ -98,8 +98,12 @@ async function main() {
   // ---------- 3. all IPL 2026 players' points (fallback sheet) ----------
   const seqSet = new Map(matches.map((m) => [m.id, m]));
   const idsOf2026 = new Set(matches.map((m) => m.id));
-  const pts2026 = all.filter((r) => idsOf2026.has(r.match_id));
-  const pids = [...new Set(pts2026.map((r) => r.player_id))];
+  const impactMeta = ((await db().from("md_meta").select("value").eq("key", "impact_players").maybeSingle()).data as any)?.value ?? {};
+  const isImpact = (matchId: string, playerId: string) => ((impactMeta[matchId] ?? []) as { playerId: string }[]).some((x) => x.playerId === playerId);
+  const pts2026Raw = all.filter((r) => idsOf2026.has(r.match_id));
+  const pts2026 = pts2026Raw.filter((r) => !isImpact(r.match_id, r.player_id)); // the 22 starters
+  const impactRows = pts2026Raw.filter((r) => isImpact(r.match_id, r.player_id));
+  const pids = [...new Set(pts2026Raw.map((r) => r.player_id))];
   const nameBy = new Map<string, string>();
   const roleBy = new Map<string, string>();
   for (let i = 0; i < pids.length; i += 200) {
@@ -132,10 +136,11 @@ async function main() {
   put(4, "How to use it", "1) In the app, open match 1 and click Generate team.  2) Find match 1 in the 'Entry sheet' tab and check the XI matches.  3) After 'playing' the match, type each player's yellow 'Points to enter' value into the app (plain points: the app adds the 2x / 1.5x itself).  4) Click Save, then move on to match 2.");
   put(5, "Why the order matters", "The agent learns from what you enter, so its picks for match N depend on matches 1 to N-1. This workbook was built by replaying the app match by match with exactly these numbers, and checked against the live app for matches 1 to 4 (identical XI and captain picks). If you enter different numbers, or skip a match, later XIs can differ: use the 'All players points' tab, which lists everyone.");
   put(6, "Colour legend", "Yellow cells with blue text = the values you type into the app. Everything else is read-only information or a formula.");
-  put(7, "Tabs", "Entry sheet · Match totals (formulas) · Points ceiling (what the scale can and cannot reach) · All players points (fallback).");
+  put(7, "Tabs", "Entry sheet · Match totals (formulas) · Points ceiling (what the scale can and cannot reach) · All players points (the 22 starters, fallback) · Impact subs (not pickable).");
+  put(10, "Scope assumption", "Each match uses the 11 starters of each side (22 players). The Impact Player rule is out of scope for now: substitutes who came on are never in the pool and are listed only in the 'Impact subs (not pickable)' tab, for context.");
   put(8, "Example row (match 1)", "H Klaasen · WK · Captain · Predicted 58.8 · Points to enter 61  (Playing XI +4; Runs +31; Boundary bonus +2; Six bonus +2; 30-run bonus +4; ...)");
   put(9, "Assumptions & sources", "Scoring table: Dream11's T20 points table as implemented in src/lib/dream11.ts, checked against two published guides (Sportskeeda, May 2021; psainath.org). Dream11's own points page was unreachable when checked, so it is not confirmed against Dream11 itself. Unconfirmed: the stumping value (+12 assumed) and whether the 30/50/100-run bonuses stack (highest only assumed). Scorecards: Cricsheet ball-by-ball IPL data (cricsheet.org, CC BY 3.0). Credits are estimated, not Dream11's own. Predicted values are the app's expected points per player (see 'Points ceiling').");
-  for (const r of [3, 4, 5, 6, 7, 8, 9]) rm.getRow(r).height = r === 4 || r === 5 || r === 9 ? 62 : 36;
+  for (const r of [3, 4, 5, 6, 7, 8, 9, 10]) rm.getRow(r).height = r === 4 || r === 5 || r === 9 || r === 10 ? 62 : 36;
 
   // ----- Entry sheet -----
   const es = wb.addWorksheet("Entry sheet", { views: [{ state: "frozen", ySplit: 1 }] });
@@ -234,7 +239,7 @@ async function main() {
   pc.getRow(r).height = 28;
 
   // ----- All players' points -----
-  const ap = wb.addWorksheet("All players points", { views: [{ state: "frozen", ySplit: 1 }] });
+  const ap = wb.addWorksheet("All players points", { views: [{ state: "frozen", ySplit: 1 }] }); // the 22 starters of each match
   ap.columns = [{ header: "Match #", width: 9 }, { header: "Date", width: 12 }, { header: "Match", width: 44 }, { header: "Player", width: 22 }, { header: "Team", width: 30 }, { header: "Role", width: 8 }, { header: "Dream11 points (plain)", width: 14 }, { header: "Runs", width: 8 }, { header: "Balls", width: 8 }, { header: "Wickets", width: 9 }, { header: "Catches", width: 9 }];
   header(ap, 1);
   const sorted = [...pts2026].sort((a, b) => a.seq - b.seq || a.team.localeCompare(b.team) || Number(b.d11) - Number(a.d11));
@@ -246,6 +251,18 @@ async function main() {
   }
   ap.autoFilter = { from: "A1", to: `K${sorted.length + 1}` };
 
+  // ----- Impact players: out of scope, listed for context only -----
+  const ip = wb.addWorksheet("Impact subs (not pickable)", { views: [{ state: "frozen", ySplit: 1 }] });
+  ip.columns = [{ header: "Match #", width: 9 }, { header: "Date", width: 12 }, { header: "Match", width: 44 }, { header: "Player", width: 22 }, { header: "Team", width: 30 }, { header: "Role", width: 8 }, { header: "Dream11 points (plain)", width: 14 }, { header: "Runs", width: 8 }, { header: "Balls", width: 8 }, { header: "Wickets", width: 9 }, { header: "Catches", width: 9 }, { header: "Why this is here", width: 70 }];
+  header(ip, 1);
+  const sortedImpact = [...impactRows].sort((a, b) => a.seq - b.seq || a.team.localeCompare(b.team));
+  for (const x of sortedImpact) {
+    const m: any = seqSet.get(x.match_id);
+    const row = ip.addRow([m.matchNumber, m.date, `${m.team1} v ${m.team2}`, nameBy.get(x.player_id) ?? x.player_id, x.team, roleBy.get(x.player_id) ?? "", Number(x.d11), x.runs, x.balls, x.wickets, x.catches, "Came on as an Impact Player or concussion substitute. Out of scope: never in the pool, not pickable."]);
+    row.eachCell((c) => style(c, { fill: { type: "pattern", pattern: "solid", fgColor: { argb: "FFF4F1EA" } } }));
+  }
+  ip.autoFilter = { from: "A1", to: `L${sortedImpact.length + 1}` };
+
   await db().from("md_meta").upsert({ key: "prediction_range", value: { poolMin: Math.min(...poolPreds), poolMax: Math.max(...poolPreds), teamMin: Math.min(...teamTotals), teamMax: Math.max(...teamTotals), teamMean: teamTotals.reduce((x, y) => x + y, 0) / teamTotals.length } }, { onConflict: "key" });
 
   const outDir = path.resolve("docs", "entry-sheets");
@@ -253,7 +270,7 @@ async function main() {
   const file = path.join(outDir, "IPL2026_entry_workbook.xlsx");
   await wb.xlsx.writeFile(file);
   console.log(`wrote ${file}`);
-  console.log(JSON.stringify({ entryRows: rows.length, allPlayerRows: sorted.length, actualMax: Number(best.d11), p50: q(0.5), p90: q(0.9), p99: q(0.99), predictedPoolMin: Math.min(...poolPreds), predictedPoolMax: Math.max(...poolPreds), pickedMin: Math.min(...rows.map((x) => x.predicted)), pickedMax: Math.max(...rows.map((x) => x.predicted)), teamMin: Math.min(...teamTotals), teamMax: Math.max(...teamTotals), topCareerAvg: topAvg.avg }));
+  console.log(JSON.stringify({ entryRows: rows.length, allPlayerRows: sorted.length, impactRows: sortedImpact.length, actualMax: Number(best.d11), p50: q(0.5), p90: q(0.9), p99: q(0.99), predictedPoolMin: Math.min(...poolPreds), predictedPoolMax: Math.max(...poolPreds), pickedMin: Math.min(...rows.map((x) => x.predicted)), pickedMax: Math.max(...rows.map((x) => x.predicted)), teamMin: Math.min(...teamTotals), teamMax: Math.max(...teamTotals), topCareerAvg: topAvg.avg }));
 }
 
 main().catch((e) => {

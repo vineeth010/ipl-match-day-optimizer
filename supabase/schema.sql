@@ -37,6 +37,8 @@ create table if not exists md_match_players (
   team text not null,
   primary key (match_id, player_id)
 );
+-- Note: md_match_players holds only each side's starting XI. Impact Players / concussion substitutes are out of scope and
+-- are recorded in md_meta under the key 'impact_players' (shown after a match for context, never in the pool).
 
 -- dated evidence: one row per player per match, with the computed Dream11 points
 create table if not exists md_player_stats (

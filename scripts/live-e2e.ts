@@ -75,7 +75,10 @@ async function main() {
 
   const preds1 = (await db().from("md_predictions").select("*").eq("match_id", m1.id)).data ?? [];
   const sel1 = preds1.filter((p: any) => p.selected);
-  check("match 1: predictions stored for the whole pool", preds1.length >= 22, `${preds1.length} rows`);
+  check("match 1: pool is exactly the 22 starters (11 a side)", preds1.length === 22, `${preds1.length} rows`);
+  const impactMeta = ((await db().from("md_meta").select("value").eq("key", "impact_players").maybeSingle()).data as any)?.value ?? {};
+  const impactIds = new Set(((impactMeta[m1.id] ?? []) as { playerId: string }[]).map((x) => x.playerId));
+  check("match 1: no Impact Player is in the pool or the XI", impactIds.size > 0 && !preds1.some((p: any) => impactIds.has(p.player_id)), `${impactIds.size} impact players recorded, none in the pool`);
   check("match 1: exactly 11 selected, 1 captain, 1 vice", sel1.length === 11 && sel1.filter((p: any) => p.is_captain).length === 1 && sel1.filter((p: any) => p.is_vice).length === 1);
   const credits = sel1.reduce((a: number, p: any) => a + Number(p.credit), 0);
   const perTeam: Record<string, number> = {};
@@ -94,6 +97,8 @@ async function main() {
   const page1 = await page(`/match/${m1.id}`);
   check("match 1 page shows XI, bench and disclaimer", /Recommended XI/.test(page1.text) && /Bench: left out/.test(page1.text) && /Early-season model/.test(page1.text));
   check("match 1 page hides the match result before points are entered", !/Result:/.test(page1.text));
+  check("match page states the 11-a-side / Impact Player assumption", /starting XI \(11 a side\)/.test(page1.text) && /Impact Player rule is out of scope/.test(page1.text));
+  check("impact-player note is hidden until points are entered", !/Impact players who came on/.test(page1.text));
 
   // ---------- bad input to actuals ----------
   const partial = { ...pts1 };
@@ -115,6 +120,7 @@ async function main() {
   r = await post(`/api/matches/${m1.id}/generate`);
   check("regenerate after points entered → locked (409)", r.status === 409, `${r.status}`);
   const page1b = await page(`/match/${m1.id}`);
+  check("after points are entered the page shows the impact-player note", /Impact players who came on \(not pickable\)/.test(page1b.text));
   check("match 1 page now reveals the result and the gap column", /Result:/.test(page1b.text) && page1b.text.includes("Team total (with C / VC bonus)"));
 
   const lock3 = await post(`/api/matches/${m3.id}/generate`);

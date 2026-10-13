@@ -38,7 +38,7 @@ Measured over all 26,137 IPL player-matches from 2008 to 2025 (the 2026 season i
 **Is there a ceiling?**
 1. **Actual points: no cap in the rules**, but a practical limit: nobody has passed 306. A captain counts 2x, a vice-captain 1.5x.
 2. **Predicted points: an average, so far below the peaks.** A prediction is a weighted average of a player's past points (form, career, this ground, this opponent, role) times small multipliers capped at 0.8 to 1.2. It cannot reach peak scores. In back-testing, the agent's predictions ran about **14 to 76 per player**.
-3. **A whole XI** (11 predictions plus the captain's extra 1x and the vice-captain's extra 0.5x) came to about **441 to 623**, averaging about 520.
+3. **A whole XI** (11 predictions plus the captain's extra 1x and the vice-captain's extra 0.5x) came to about **477 to 613**, averaging about 530.
 
 The agent is judged by how the gap between predicted and actual points behaves match after match, next to a simple "career average" baseline, not by whether it predicts peak days. Each predicted score in the app is also drawn as a bar against the IPL record.
 
@@ -61,7 +61,7 @@ Gemini does **not** learn. What changes between matches is the small set of stor
 
 ## Honest limitations
 - **Credits are estimated.** Dream11 credit values are not published anywhere we could use legitimately (Dream11's terms prohibit automated access), so each player's credit is estimated from past performance and labelled as an estimate everywhere. The 100-credit rule is guaranteed only against these estimates.
-- **Playing group.** The pool is the players Cricsheet lists for a match (the XI plus any impact substitute used), standing in for the post-toss announced XI.
+- **11 players a side (22 per match); the Impact Player rule is out of scope.** The pool is each side's starting XI. IPL 2026 allows an Impact Player to come on mid-match, and Cricsheet lists him alongside the starters, but he cannot be known at the toss, so he is never in the pool (supporting him would also complicate the scope). Impact Players and concussion substitutes are detected from Cricsheet's `replacements` records, kept out of the pool, and shown after a match in an "Impact players who came on (not pickable)" note, for context only: it never affects learning. Measured on IPL 2026, substitutes scored about 8% of their teams' runs and took about 8% of wickets, and were their side's top run-scorer in about 1 in 12 sides, so this is a real, stated limitation.
 - **Player roles** are inferred from IPL history before 2026, plus a short list of known wicketkeepers; debutants are classified by Gemini Flash when it recognises them, otherwise default to batter.
 - **Prediction error is large** (about 26 Dream11 points per player in an offline replay of all 74 matches) and close to a simple career-average baseline. T20 fantasy points are very noisy. What the loop reliably does is keep over/under-prediction small; the learning page shows the agent's gap next to the baseline so improvement can be judged honestly.
 - **Replay.** IPL 2026 is already over, so the season is replayed match by match from real, scraped data. The date gate is what stops the replay from leaking results.
