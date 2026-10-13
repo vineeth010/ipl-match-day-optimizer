@@ -74,7 +74,7 @@ async function main() {
   const learn = await fetch(BASE + "/learning").then((r) => r.text());
   ok("learning page reflects the run", /Current scoring weights/.test(learn) && /Learning log/.test(learn));
   const home = await fetch(BASE + "/").then((r) => r.text());
-  ok("home shows the matches as played", new RegExp(`${matches.length} of 74`).test(home.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")));
+  ok("home shows the matches as played", new RegExp(`${matches.length}\\s*/\\s*74`).test(home.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ")));
 
   await wipe();
   console.log(`\n${pass} passed, ${fail} failed (app wiped clean)`);
