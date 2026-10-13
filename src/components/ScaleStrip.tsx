@@ -30,20 +30,20 @@ export default function ScaleStrip({ scale, range, compact = false, dark = false
       <div className="relative pb-11">
         {/* the scale bar */}
         <div className="flex h-3 overflow-hidden rounded-full ring-1 ring-black/10">
-          <div style={{ width: w(0, scale.median) }} className="bg-slate-300" />
-          <div style={{ width: w(scale.median, scale.p90) }} className="bg-sky-400" />
-          <div style={{ width: w(scale.p90, scale.p99) }} className="bg-gold" />
-          <div style={{ width: w(scale.p99, top) }} className="bg-bad" />
+          <div style={{ width: w(0, scale.median) }} className="anim-grow bg-slate-300" />
+          <div style={{ width: w(scale.median, scale.p90), ["--d" as string]: "120ms" }} className="anim-grow bg-sky-400" />
+          <div style={{ width: w(scale.p90, scale.p99), ["--d" as string]: "240ms" }} className="anim-grow bg-gold" />
+          <div style={{ width: w(scale.p99, top), ["--d" as string]: "360ms" }} className="anim-grow bg-bad" />
         </div>
         {/* where the agent's predictions live */}
         <div className="relative mt-1.5 h-3">
-          <div className="absolute h-2.5 rounded-full bg-brand ring-2 ring-white/60" style={{ left: pct(Math.max(0, range.poolMin)), width: w(Math.max(0, range.poolMin), range.poolMax) }} title={`The agent's predictions run ${Math.round(range.poolMin)} to ${Math.round(range.poolMax)} per player`} />
+          <div className="anim-grow absolute h-2.5 rounded-full bg-brand ring-2 ring-white/60" style={{ ["--d" as string]: "600ms", left: pct(Math.max(0, range.poolMin)), width: w(Math.max(0, range.poolMin), range.poolMax) }} title={`The agent's predictions run ${Math.round(range.poolMin)} to ${Math.round(range.poolMax)} per player`} />
           <span className={`absolute top-[-1px] whitespace-nowrap text-[11px] font-semibold ${dark ? "text-sky-200" : "text-brand"}`} style={{ left: `calc(${pct(range.poolMax)} + 8px)` }}>
             ← the agent predicts {Math.round(range.poolMin)}–{Math.round(range.poolMax)} per player
           </span>
         </div>
         {marks.map((m) => (
-          <div key={m.small} className={`absolute top-[2.4rem] ${m.align} text-center leading-tight`} style={{ left: pct(m.v) }}>
+          <div key={m.small} className={`anim-in absolute top-[2.4rem] ${m.align} text-center leading-tight`} style={{ left: pct(m.v), ["--d" as string]: "700ms" }}>
             <div className={`text-sm font-bold ${text}`}>{m.big}</div>
             <div className={`text-[10px] uppercase tracking-wide ${sub}`}>{m.small}</div>
           </div>

@@ -165,7 +165,7 @@ async function main() {
   const learn = await page("/learning");
   check("learning page shows trend, weights and log", learn.status === 200 && /Learning log/.test(learn.text) && /version [0-9]+/.test(learn.text) && /Current scoring weights/.test(learn.text), `status ${learn.status}, log:${/Learning log/.test(learn.text)}, version:${/version [0-9]+/.test(learn.text)}, weights:${/Current scoring weights/.test(learn.text)}, len ${learn.text.length} | ${learn.text.slice(Math.max(0, learn.text.indexOf("Current scoring")), Math.max(0, learn.text.indexOf("Current scoring")) + 90)}`);
   const home2 = await page("/");
-  check("home shows 2 of 74 played", /2 of 74/.test(home2.text));
+  check("home shows 2 of 74 played", /2\s*\/\s*74/.test(home2.text));
 
   // ---------- security ----------
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;

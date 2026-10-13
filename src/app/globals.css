@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
+/* ---------- themes: light is the default, dark is applied with data-theme="dark" (set before first paint) ---------- */
 :root {
   --bg: #f4f1ea;
   --surface: #ffffff;
+  --surface-2: #faf8f3;
   --ink: #0f1b33;
   --muted: #5b6678;
   --line: #e4e0d6;
@@ -19,11 +21,42 @@
   --warn-soft: #fff4d6;
   --bad: #b3202a;
   --bad-soft: #fde8e8;
+  --glow: rgba(19, 71, 179, 0.18);
+  --shadow: 0 1px 2px rgba(10, 31, 68, 0.05), 0 8px 24px -12px rgba(10, 31, 68, 0.18);
+  --shadow-hover: 0 14px 34px -10px rgba(10, 31, 68, 0.28);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0a111f;
+  --surface: #121b2e;
+  --surface-2: #17223a;
+  --ink: #e9eefa;
+  --muted: #98a6bf;
+  --line: #25324d;
+  --navy: #14306b;
+  --navy-2: #0c1d44;
+  --brand: #7aa7ff;
+  --brand-soft: #172a52;
+  --gold: #f7b93e;
+  --gold-soft: #2d2311;
+  --good: #4ade80;
+  --good-soft: #112e1e;
+  --pitch: #2f9a63;
+  --warn: #f3c56e;
+  --warn-soft: #2d2311;
+  --bad: #ff7b87;
+  --bad-soft: #3a161c;
+  --glow: rgba(122, 167, 255, 0.22);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 28px -14px rgba(0, 0, 0, 0.7);
+  --shadow-hover: 0 16px 38px -10px rgba(0, 0, 0, 0.85);
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-line: var(--line);
@@ -42,18 +75,77 @@
   --color-bad-soft: var(--bad-soft);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--bg);
   color: var(--ink);
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* stadium-floodlight hero: navy with a faint pitch and crease pattern */
+/* ---------- building blocks ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--navy), var(--navy-2));
+  color: #fff;
+  border-radius: 0.8rem;
+  font-weight: 600;
+  box-shadow: 0 6px 16px -6px var(--glow), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: transform 0.15s ease, filter 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.12);
+}
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #ffc84a, var(--gold));
+  color: #0a1f44;
+  border-radius: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 8px 20px -8px rgba(245, 166, 35, 0.7);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.btn-gold:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* stadium-floodlight hero: deep blue with a pitch grid and a warm light */
 .hero {
   background:
-    radial-gradient(1200px 400px at 85% -10%, rgba(245, 166, 35, 0.22), transparent 60%),
-    radial-gradient(800px 500px at 0% 120%, rgba(31, 122, 77, 0.35), transparent 60%),
+    radial-gradient(1100px 380px at 88% -15%, rgba(245, 166, 35, 0.28), transparent 60%),
+    radial-gradient(800px 460px at -5% 125%, rgba(31, 122, 77, 0.4), transparent 60%),
     linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+  color: #fff;
 }
 
 .pitch-lines {
@@ -61,23 +153,100 @@ body {
     linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
   background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, #000 40%, transparent);
 }
 
-.seam {
-  background-image: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.55) 0 6px, transparent 6px 14px);
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(8px);
 }
 
-.card {
+.text-gradient {
+  background: linear-gradient(90deg, #ffd36b, #ff9f1c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- motion ---------- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes floaty {
+  0%, 100% { transform: translateY(0) rotate(12deg); }
+  50% { transform: translateY(-14px) rotate(18deg); }
+}
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to { background-position: 200% 0; }
+}
+@keyframes pulseRing {
+  0% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0.55); }
+  70% { box-shadow: 0 0 0 10px rgba(245, 166, 35, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 166, 35, 0); }
+}
+@keyframes drawLine {
+  from { stroke-dashoffset: var(--len, 1000); }
+  to { stroke-dashoffset: 0; }
+}
+
+.anim-up { animation: fadeUp 0.65s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.anim-in { animation: fadeIn 0.6s ease both; animation-delay: var(--d, 0ms); }
+.anim-grow { transform-origin: left; animation: grow 1s cubic-bezier(0.2, 0.7, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+.anim-float { animation: floaty 7s ease-in-out infinite; }
+.anim-pulse { animation: pulseRing 1.8s ease-out infinite; }
+.anim-draw { stroke-dasharray: var(--len, 1000); animation: drawLine 1.4s ease-out both; }
+.skeleton {
+  background: linear-gradient(90deg, var(--line) 25%, var(--surface-2) 50%, var(--line) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* range slider that follows the theme */
+input[type="range"].slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #cbd5e1, #38bdf8 30%, #f5a623 60%, #b3202a);
+  outline: none;
+}
+input[type="range"].slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
   background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 1rem;
-  box-shadow: 0 1px 2px rgba(10, 31, 68, 0.04);
+  border: 4px solid var(--navy);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  cursor: grab;
 }
-
-.lift {
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(10, 31, 68, 0.12);
+input[type="range"].slider::-moz-range-thumb {
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 4px solid var(--navy);
+  cursor: grab;
 }
