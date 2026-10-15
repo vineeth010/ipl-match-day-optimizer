@@ -47,7 +47,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
     <Collapsible
       tone="info"
       defaultOpen={!!previousLearning}
-      title="What the agent carries forward from earlier matches"
+      title="What the system carries forward from earlier matches"
       summary={previousLearning ? `From match ${previousLearning.from?.match_number ?? ""}: ${(previousLearning.notes as string[])[0]?.slice(0, 90)}…` : "Nothing yet: it is using its starting weights."}
       icon={<span className="grid h-8 w-8 place-items-center rounded-full bg-brand text-sm font-black text-surface">↻</span>}
     >
@@ -59,7 +59,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
           <ul className="mt-2 list-disc space-y-1 pl-5">{(previousLearning.notes as string[]).map((n, i) => <li key={i}>{n}</li>)}</ul>
         </div>
       ) : (
-        <p className="text-muted">Nothing yet. No earlier match has had its real points entered, so the agent is using its starting weights.</p>
+        <p className="text-muted">Nothing yet. No earlier match has had its real points entered, so the system is using its starting weights.</p>
       )}
     </Collapsible>
   );
@@ -128,7 +128,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
                     ))}
                   </div>
                   <div className="mt-4">
-                    <Collapsible title="How to read these scores" summary={`Typical player-match: ${scale.median}. IPL record: ${record}. The agent predicts about ${Math.round(range.poolMin)}–${Math.round(range.poolMax)}.`}>
+                    <Collapsible title="How to read these scores" summary={`Typical player-match: ${scale.median}. IPL record: ${record}. The model predicts about ${Math.round(range.poolMin)}–${Math.round(range.poolMax)}.`}>
                       <ScaleStrip scale={scale} range={range} compact />
                     </Collapsible>
                   </div>
@@ -203,7 +203,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
                 <section className="card overflow-hidden">
                   <div className="border-b border-line px-5 py-3">
                     <h2 className="text-sm font-bold">Impact players who came on (not pickable)</h2>
-                    <p className="mt-0.5 text-xs text-muted">The agent only picks from each side&apos;s starting XI, because an Impact Player is not known until he comes on during the match. Shown here for context only; it does not affect learning.</p>
+                    <p className="mt-0.5 text-xs text-muted">The system only picks from each side&apos;s starting XI, because an Impact Player is not known until he comes on during the match. Shown here for context only; it does not affect learning.</p>
                   </div>
                   <ul className="divide-y divide-line">
                     {substitutes.map((p) => (
@@ -276,7 +276,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
               <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-bg ring-1 ring-line"><LockIcon className="h-8 w-8" /></div>
               <h2 className="mt-3 text-lg font-bold">This match is locked</h2>
               <p className="mx-auto mt-1 max-w-lg text-sm text-muted">
-                The season is played in order. The agent learns from each match before it predicts the next one, so Match {match.matchNumber} opens once Match {lock.blockedBy.matchNumber} ({lock.blockedBy.team1} v {lock.blockedBy.team2}) has been played through the app: generate it, then enter its real points.
+                The season is played in order. The system learns from each match before it predicts the next one, so Match {match.matchNumber} opens once Match {lock.blockedBy.matchNumber} ({lock.blockedBy.team1} v {lock.blockedBy.team2}) has been played through the app: generate it, then enter its real points.
               </p>
               <Link href={`/match/${lock.blockedBy.id}`} className="btn-primary mt-5 inline-block px-5 py-3 text-sm">Go to Match {lock.blockedBy.matchNumber} →</Link>
             </section>
@@ -284,7 +284,7 @@ export default async function MatchPage({ params }: { params: Promise<{ id: stri
             <section className="card anim-up border-dashed p-8 text-center">
               <h2 className="text-xl font-extrabold">Ready when you are</h2>
               <p className="mx-auto mt-1 max-w-lg text-sm text-muted">
-                The agent will use only data dated before this match: player form, the venue&apos;s history and each player&apos;s record against this opponent. Then it builds the highest-scoring legal Dream11 team and explains the captain choices.
+                The system will use only data dated before this match: player form, the venue&apos;s history and each player&apos;s record against this opponent. Then it builds the highest-scoring legal Dream11 team and explains the captain choices.
               </p>
               <div className="mt-6 flex justify-center"><GenerateButton matchId={match.id} /></div>
             </section>

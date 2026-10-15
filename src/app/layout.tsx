@@ -7,7 +7,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Match Day Optimizer",
-  description: "Dream11 match day agent for IPL 2026: a valid XI, captain reasoning, and a loop that learns from real points.",
+  description: "Dream11 match day optimizer for IPL 2026: a valid XI, captain reasoning, and a loop that learns from real points.",
 };
 
 // Applies the saved (or system) theme before the first paint so the page never flashes the wrong colours.

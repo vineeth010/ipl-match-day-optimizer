@@ -13,7 +13,7 @@ export interface TrendPoint {
   bias: number;
 }
 
-/** Prediction gap per match, agent vs baseline. Lines draw in, points glow on hover or keyboard focus and show the numbers. */
+/** Prediction gap per match, model vs baseline. Lines draw in, points glow on hover or keyboard focus and show the numbers. */
 export default function TrendChart({ data }: { data: TrendPoint[] }) {
   const [hover, setHover] = useState<number | null>(null);
   const W = 760;
@@ -27,7 +27,7 @@ export default function TrendChart({ data }: { data: TrendPoint[] }) {
   const h = hover !== null ? data[hover] : null;
   return (
     <div className="relative">
-      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="Average gap between predicted and actual points per match, agent versus baseline">
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full" role="img" aria-label="Average gap between predicted and actual points per match, model versus baseline">
         <defs>
           <linearGradient id="trendFill" x1="0" x2="0" y1="0" y2="1">
             <stop offset="0" stopColor="var(--brand)" stopOpacity="0.28" />
@@ -47,7 +47,7 @@ export default function TrendChart({ data }: { data: TrendPoint[] }) {
           <g key={d.matchId}>
             <circle cx={x(i)} cy={y(d.baseline)} r="3" fill="var(--muted)" opacity={hover === i ? 1 : 0.5} />
             <circle cx={x(i)} cy={y(d.model)} r={hover === i ? 7 : 4.5} fill="var(--brand)" stroke="var(--surface)" strokeWidth="2" style={{ transition: "r 0.15s" }} />
-            <rect x={x(i) - 16} y={pad.t} width="32" height={H - pad.t - pad.b} fill="transparent" tabIndex={0} aria-label={`Match ${d.matchNumber}: agent gap ${d.model.toFixed(1)}, baseline ${d.baseline.toFixed(1)}`} onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)} onFocus={() => setHover(i)} onBlur={() => setHover(null)} style={{ outline: "none", cursor: "pointer" }} />
+            <rect x={x(i) - 16} y={pad.t} width="32" height={H - pad.t - pad.b} fill="transparent" tabIndex={0} aria-label={`Match ${d.matchNumber}: model gap ${d.model.toFixed(1)}, baseline ${d.baseline.toFixed(1)}`} onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)} onFocus={() => setHover(i)} onBlur={() => setHover(null)} style={{ outline: "none", cursor: "pointer" }} />
             {(data.length <= 14 || i % Math.ceil(data.length / 12) === 0) && (
               <text x={x(i)} y={H - 12} textAnchor="middle" fontSize="11" fill="var(--muted)">{d.matchNumber ?? "·"}</text>
             )}
@@ -60,7 +60,7 @@ export default function TrendChart({ data }: { data: TrendPoint[] }) {
           <p className="font-bold">Match {h.matchNumber}</p>
           <p className="truncate text-muted">{h.label}</p>
           <dl className="mt-2 grid grid-cols-2 gap-x-2 gap-y-1">
-            <dt className="text-muted">Agent gap</dt>
+            <dt className="text-muted">Model gap</dt>
             <dd className="text-right font-bold text-brand">{h.model.toFixed(1)} pts</dd>
             <dt className="text-muted">Baseline gap</dt>
             <dd className="text-right font-bold">{h.baseline.toFixed(1)} pts</dd>
@@ -73,7 +73,7 @@ export default function TrendChart({ data }: { data: TrendPoint[] }) {
         </div>
       )}
       <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-muted">
-        <span className="inline-flex items-center gap-1.5"><span className="h-0.5 w-5 rounded bg-brand" /> Agent</span>
+        <span className="inline-flex items-center gap-1.5"><span className="h-0.5 w-5 rounded bg-brand" /> Model</span>
         <span className="inline-flex items-center gap-1.5"><span className="h-0.5 w-5 border-t-2 border-dashed border-muted" /> Baseline (each player scores his career average)</span>
         <span>Lower is better. Hover or tab through the points for numbers.</span>
       </div>

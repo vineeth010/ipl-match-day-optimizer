@@ -61,7 +61,7 @@ export default function ActualsForm({ matchId, rows }: { matchId: string; rows: 
   return (
     <form onSubmit={submit} className="space-y-4">
       <p className="text-sm text-muted">
-        After the match, type each player&apos;s <strong className="text-ink">actual Dream11 points</strong> (the plain points, before the captain or vice-captain bonus). The agent applies the 2x and 1.5x itself. Keep the Excel workbook open beside this page: the yellow cells are what you type.
+        After the match, type each player&apos;s <strong className="text-ink">actual Dream11 points</strong> (the plain points, before the captain or vice-captain bonus). The system applies the 2x and 1.5x itself. Keep the Excel workbook open beside this page: the yellow cells are what you type.
       </p>
 
       <div className="card overflow-hidden">
@@ -110,14 +110,14 @@ export default function ActualsForm({ matchId, rows }: { matchId: string; rows: 
 
       <div className="flex flex-wrap items-center gap-3">
         <button disabled={busy || filled < rows.length} className="btn-primary px-5 py-2.5 text-sm disabled:cursor-not-allowed disabled:opacity-50">
-          {busy ? "Saving and learning…" : "Save points and let the agent learn"}
+          {busy ? "Saving and learning…" : "Save points and let the system learn"}
         </button>
         {filled < rows.length && <span className="text-xs text-muted">Enter all {rows.length} to save</span>}
       </div>
       {error && <p className="rounded-lg bg-bad-soft px-3 py-2 text-sm text-bad">{error}</p>}
       {outcome && (
         <div className="anim-up rounded-2xl border border-good/30 bg-good-soft p-4 text-sm">
-          <p className="font-bold text-good">Saved. Here&apos;s what the agent concluded (weights v{outcome.weightsVersion}):</p>
+          <p className="font-bold text-good">Saved. Here&apos;s what the system concluded (weights v{outcome.weightsVersion}):</p>
           <ul className="mt-2 list-disc space-y-1 pl-5">{outcome.notes.map((n, i) => <li key={i}>{n}</li>)}</ul>
         </div>
       )}

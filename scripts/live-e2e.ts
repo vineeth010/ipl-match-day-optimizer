@@ -116,7 +116,7 @@ async function main() {
   // ---------- enter match 1 (this is what Aryan does) ----------
   r = await post(`/api/matches/${m1.id}/actuals`, { points: pts1 });
   check("match 1 actuals saved → 200", r.status === 200 && r.json?.ok, `${r.ms} ms`);
-  check("after 1 match: agent refuses to change weights (needs ≥ 22 entries)", r.json?.changed === false && /at least 22/.test((r.json?.notes ?? []).join(" ")), `v${r.json?.weightsVersion}`);
+  check("after 1 match: system refuses to change weights (needs ≥ 22 entries)", r.json?.changed === false && /at least 22/.test((r.json?.notes ?? []).join(" ")), `v${r.json?.weightsVersion}`);
   r = await post(`/api/matches/${m1.id}/generate`);
   check("regenerate after points entered → locked (409)", r.status === 409, `${r.status}`);
   const page1b = await page(`/match/${m1.id}`);
@@ -132,7 +132,7 @@ async function main() {
   r = await post(`/api/matches/${m2.id}/generate`);
   check("match 2 generate → 200", r.status === 200 && r.json?.ok, `${r.ms} ms`);
   const page2 = await page(`/match/${m2.id}`);
-  check("match 2 page carries forward what match 1 concluded", /What the agent carries forward/.test(page2.text) && /Only 11 entered/.test(page2.text));
+  check("match 2 page carries forward what match 1 concluded", /What the system carries forward/.test(page2.text) && /Only 11 entered/.test(page2.text));
   const sel2 = ((await db().from("md_predictions").select("*").eq("match_id", m2.id).eq("selected", true)).data ?? []) as any[];
   const stats2 = (await db().from("md_player_stats").select("player_id,d11").eq("match_id", m2.id).in("player_id", sel2.map((p) => p.player_id))).data ?? [];
   const pts2 = Object.fromEntries(stats2.map((s: any) => [s.player_id, Number(s.d11)]));

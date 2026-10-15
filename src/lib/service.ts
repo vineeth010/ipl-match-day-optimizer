@@ -35,7 +35,7 @@ export class HttpError extends Error {
 
 /**
  * The season is played in order. A match opens only once the match before it has been played through the app,
- * meaning its real points were entered, because the agent needs what it learned from that match.
+ * meaning its real points were entered, because the system needs what it learned from that match.
  */
 export async function lockStatus(matchId: string): Promise<{ locked: boolean; blockedBy: { id: string; matchNumber: number | null; team1: string; team2: string } | null }> {
   const matches = await listIplMatches();
@@ -192,7 +192,7 @@ export async function saveActualsAndLearn(matchId: string, points: Record<string
     result.changed = true;
     await saveWeights(result.after);
   }
-  if (isCorrection) result.notes.unshift("Points for this match were corrected, so the agent re-learned from the weights it had before this match.");
+  if (isCorrection) result.notes.unshift("Points for this match were corrected, so the system re-learned from the weights it had before this match.");
   const log = await db().from("md_learning_log").insert({
     after_match_id: matchId,
     weights_before: current.version,

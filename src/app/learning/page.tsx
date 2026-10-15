@@ -27,15 +27,15 @@ export default async function LearningPage() {
         <div className="anim-float absolute -right-10 -top-10 opacity-20"><BallIcon className="h-64 w-64" /></div>
         <div className="relative">
           <p className="anim-up text-xs font-bold uppercase tracking-[0.16em] text-gold">The learning loop</p>
-          <h1 className="anim-up mt-2 text-3xl font-black tracking-tight sm:text-5xl" style={{ ["--d" as string]: "80ms" }}>What the agent has learned</h1>
+          <h1 className="anim-up mt-2 text-3xl font-black tracking-tight sm:text-5xl" style={{ ["--d" as string]: "80ms" }}>What the system has learned</h1>
           <p className="anim-up mt-3 max-w-3xl text-sm text-white/80" style={{ ["--d" as string]: "160ms" }}>
-            After each match, Aryan&apos;s real points are compared with the agent&apos;s predictions. The agent only changes its weights when the evidence is strong enough, and only by small, capped steps.
+            After each match, Aryan&apos;s real points are compared with the system&apos;s predictions. The system only changes its weights when the evidence is strong enough, and only by small, capped steps.
           </p>
           <dl className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {[
               ["Matches learned from", <CountUp key="a" value={trend.length} />],
               ["Weights version", <>v<CountUp key="b" value={weights.version} /></>],
-              ["Latest agent gap", last ? <><CountUp key="c" value={last.modelMae} decimals={1} /> pts</> : "—"],
+              ["Latest model gap", last ? <><CountUp key="c" value={last.modelMae} decimals={1} /> pts</> : "—"],
               ["Latest baseline gap", last ? <><CountUp key="d" value={last.baselineMae} decimals={1} /> pts</> : "—"],
             ].map(([k, v], i) => (
               <div key={String(k)} className="glass anim-up rounded-2xl px-4 py-3" style={{ ["--d" as string]: `${240 + i * 70}ms` }}>
@@ -79,7 +79,7 @@ export default async function LearningPage() {
 
       <section className="card anim-up p-5 sm:p-6">
         <h2 className="text-lg font-extrabold tracking-tight">Average gap between predicted and actual points, by match</h2>
-        <p className="mt-1 text-sm text-muted">Lower is better. The dashed line is a naive baseline: &quot;each player scores his career average.&quot; The agent should beat it over time, but T20 points are very noisy, so expect wobble.</p>
+        <p className="mt-1 text-sm text-muted">Lower is better. The dashed line is a naive baseline: &quot;each player scores his career average.&quot; The system should beat it over time, but T20 points are very noisy, so expect wobble.</p>
         {trend.length === 0 ? (
           <div className="mt-5 rounded-2xl border border-dashed border-line p-8 text-center">
             <p className="font-semibold">No matches entered yet</p>
@@ -91,7 +91,7 @@ export default async function LearningPage() {
             <TrendChart data={trend.map((t) => ({ matchId: t.matchId, matchNumber: t.matchNumber, label: t.label, n: t.n, model: t.modelMae, baseline: t.baselineMae, bias: t.bias }))} />
             <div className="mt-4 overflow-x-auto">
               <table className="w-full min-w-[30rem] text-sm">
-                <thead className="text-left text-xs text-muted"><tr><th className="py-1.5 font-medium">Match</th><th className="py-1.5 text-right font-medium">Entries</th><th className="py-1.5 text-right font-medium">Agent gap</th><th className="py-1.5 text-right font-medium">Baseline gap</th><th className="py-1.5 text-right font-medium">Over/under-prediction</th></tr></thead>
+                <thead className="text-left text-xs text-muted"><tr><th className="py-1.5 font-medium">Match</th><th className="py-1.5 text-right font-medium">Entries</th><th className="py-1.5 text-right font-medium">Model gap</th><th className="py-1.5 text-right font-medium">Baseline gap</th><th className="py-1.5 text-right font-medium">Over/under-prediction</th></tr></thead>
                 <tbody className="divide-y divide-line">
                   {trend.map((t) => (
                     <tr key={t.matchId} className="transition-colors hover:bg-surface-2">

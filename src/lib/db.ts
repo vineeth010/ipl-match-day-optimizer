@@ -211,7 +211,7 @@ export async function listLearningLog(limit = 50) {
   return must(await db().from("md_learning_log").select("*").order("id", { ascending: false }).limit(limit), "learning log") as any[];
 }
 
-/** The most recent learning entry from a match that finished BEFORE this one (what the agent carries forward). */
+/** The most recent learning entry from a match that finished BEFORE this one (what the system carries forward). */
 export async function learningBefore(seq: number) {
   const log = await listLearningLog(200);
   if (!log.length) return null;

@@ -70,7 +70,7 @@ async function main() {
 
   const entered = ((await db().from("md_actuals").select("match_id")).data ?? []) as any[];
   ok(`all ${matches.length} matches were completed in order through the app`, new Set(entered.map((e) => e.match_id)).size === matches.length, `${new Set(entered.map((e) => e.match_id)).size} matches with points saved`);
-  ok("the agent learned along the way (weights moved past v1)", weightsVersion > 1, `final weights v${weightsVersion}`);
+  ok("the system learned along the way (weights moved past v1)", weightsVersion > 1, `final weights v${weightsVersion}`);
   const learn = await fetch(BASE + "/learning").then((r) => r.text());
   ok("learning page reflects the run", /Current scoring weights/.test(learn) && /Learning log/.test(learn));
   const home = await fetch(BASE + "/").then((r) => r.text());

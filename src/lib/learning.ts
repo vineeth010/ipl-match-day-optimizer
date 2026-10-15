@@ -66,7 +66,7 @@ export function learnFromObservations(current: WeightsConfig, obs: Observation[]
   // Not enough evidence yet: report the error, change nothing.
   if (n < LEARNING.minObsForAnyChange) {
     notes.push(
-      `Only ${n} entered result${n === 1 ? "" : "s"} so far (${matches} match${matches === 1 ? "" : "es"}). The agent needs at least ${LEARNING.minObsForAnyChange} before it will change any weight, because one match is mostly luck. Weights stay as they are. For now, its predictions were off by ${r1(modelMae)} points per player on average (a simple career-average guess was off by ${r1(baselineMae)}).`,
+      `Only ${n} entered result${n === 1 ? "" : "s"} so far (${matches} match${matches === 1 ? "" : "es"}). The system needs at least ${LEARNING.minObsForAnyChange} before it will change any weight, because one match is mostly luck. Weights stay as they are. For now, its predictions were off by ${r1(modelMae)} points per player on average (a simple career-average guess was off by ${r1(baselineMae)}).`,
     );
     return {
       changed: false,

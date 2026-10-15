@@ -14,7 +14,7 @@ export default function PickQuality({ matches, typical }: { matches: PickQuality
     <section className="card anim-up p-5 sm:p-6">
       <h2 className="text-lg font-extrabold tracking-tight">Were the captain picks any good?</h2>
       <p className="mt-1 text-sm text-muted">
-        The agent cannot guess exact points, so this checks its decisions instead. After each match: did the captain score more than the average player of the same 11? Choosing a captain blindly would manage that in about 4 of every 10 matches (the agent did it in 57% of the 2025 season when replayed). Over more matches, you want to stay above that.
+        The system cannot guess exact points, so this checks its decisions instead. After each match: did the captain score more than the average player of the same 11? Choosing a captain blindly would manage that in about 4 of every 10 matches (the system did it in 57% of the 2025 season when replayed). Over more matches, you want to stay above that.
       </p>
       {n === 0 ? (
         <div className="mt-5 rounded-2xl border border-dashed border-line p-6 text-center text-sm text-muted">Enter the real points for a match and this fills in.</div>

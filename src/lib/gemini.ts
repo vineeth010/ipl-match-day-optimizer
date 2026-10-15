@@ -53,7 +53,7 @@ export function buildPrompt(i: ExplainInput): string {
     selectedXI: team.players.map(facts),
     benchTop: i.bench.slice(0, 6).map((b) => ({ ...facts(b.player), whyLeftOut: b.reason })),
   };
-  return `You are the reasoning writer for a fantasy cricket (Dream11) match-day agent. A deterministic engine has ALREADY chosen the team and captain from historical data. Your job is only to explain those choices to Aryan in plain, confident language he can repeat to his fantasy league group.
+  return `You are the reasoning writer for a fantasy cricket (Dream11) match-day optimizer. A deterministic engine has ALREADY chosen the team and captain from historical data. Your job is only to explain those choices to Aryan in plain, confident language he can repeat to his fantasy league group.
 
 STRICT RULES
 - Use ONLY the facts in the JSON below. Never invent statistics, injuries, pitch reports, form, or news. If a number is not in the JSON, do not state it.
@@ -127,7 +127,7 @@ export function fallbackReasoning(i: ExplainInput): Reasoning {
   const line = (p: PlayerPrediction) =>
     `${p.name} is expected to score ${p.predicted} points (career average ${p.factors.career}; last ${p.last5.length || 0} matches: ${p.last5.join(", ") || "no earlier data"}; ${p.venueMatches} earlier match(es) at this ground, ${p.oppMatches} against this opponent).`;
   return {
-    summary: `The agent picked the 11 players with the highest expected Dream11 points that also satisfy every team rule (100 credits, at most 7 from one side, role limits).`,
+    summary: `The system picked the 11 players with the highest expected Dream11 points that also satisfy every team rule (100 credits, at most 7 from one side, role limits).`,
     venueNote: `${v}.`,
     captain: line(team.captain),
     viceCaptain: line(team.viceCaptain),

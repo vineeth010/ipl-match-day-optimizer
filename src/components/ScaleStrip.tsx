@@ -1,7 +1,7 @@
 import type { PointsScale, PredictionRange } from "@/lib/scale";
 
 /**
- * The points scale: where a score sits between "typical" and the IPL record, and where the agent's predictions live.
+ * The points scale: where a score sits between "typical" and the IPL record, and where the model's predictions live.
  * Pure markup (no client JS).
  */
 export default function ScaleStrip({ scale, range, compact = false, dark = false }: { scale: PointsScale; range: PredictionRange; compact?: boolean; dark?: boolean }) {
@@ -35,11 +35,11 @@ export default function ScaleStrip({ scale, range, compact = false, dark = false
           <div style={{ width: w(scale.p90, scale.p99), ["--d" as string]: "240ms" }} className="anim-grow bg-gold" />
           <div style={{ width: w(scale.p99, top), ["--d" as string]: "360ms" }} className="anim-grow bg-bad" />
         </div>
-        {/* where the agent's predictions live */}
+        {/* where the model's predictions live */}
         <div className="relative mt-1.5 h-3">
-          <div className="anim-grow absolute h-2.5 rounded-full bg-brand ring-2 ring-white/60" style={{ ["--d" as string]: "600ms", left: pct(Math.max(0, range.poolMin)), width: w(Math.max(0, range.poolMin), range.poolMax) }} title={`The agent's predictions run ${Math.round(range.poolMin)} to ${Math.round(range.poolMax)} per player`} />
+          <div className="anim-grow absolute h-2.5 rounded-full bg-brand ring-2 ring-white/60" style={{ ["--d" as string]: "600ms", left: pct(Math.max(0, range.poolMin)), width: w(Math.max(0, range.poolMin), range.poolMax) }} title={`The model's predictions run ${Math.round(range.poolMin)} to ${Math.round(range.poolMax)} per player`} />
           <span className={`absolute top-[-1px] whitespace-nowrap text-[11px] font-semibold ${dark ? "text-sky-200" : "text-brand"}`} style={{ left: `calc(${pct(range.poolMax)} + 8px)` }}>
-            ← the agent predicts {Math.round(range.poolMin)}–{Math.round(range.poolMax)} per player
+            ← the model predicts {Math.round(range.poolMin)}–{Math.round(range.poolMax)} per player
           </span>
         </div>
         {marks.map((m) => (
@@ -51,7 +51,7 @@ export default function ScaleStrip({ scale, range, compact = false, dark = false
       </div>
       <p className={`mt-1 text-xs leading-relaxed ${sub}`}>
         <strong className={text}>No hard cap in the rules.</strong> The highest score in IPL history is <strong className={text}>{top}</strong> ({recordName}, {scale.max.summary}, {scale.max.date.slice(0, 4)}), and only {(scale.share.above150 * 100).toFixed(1)}% of
-        player-matches ever pass 150. The agent predicts <em>expected</em> points, an average, so its predictions sit in the blue band, far below peak days. A whole XI is expected to score about {Math.round(range.teamMin)}–{Math.round(range.teamMax)} with captain bonuses.
+        player-matches ever pass 150. The model predicts <em>expected</em> points, an average, so its predictions sit in the blue band, far below peak days. A whole XI is expected to score about {Math.round(range.teamMin)}–{Math.round(range.teamMax)} with captain bonuses.
       </p>
     </div>
   );

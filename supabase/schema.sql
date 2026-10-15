@@ -84,7 +84,7 @@ create table if not exists md_weights (
   created_at timestamptz not null default now()
 );
 
--- what the agent recommended for a match (one row per match, replaced on regenerate)
+-- what the system recommended for a match (one row per match, replaced on regenerate)
 create table if not exists md_recommendations (
   match_id text primary key references md_matches(id) on delete cascade,
   weights_version int not null,

@@ -28,7 +28,7 @@ export default function ScoreExplorer({ min, median, p90, p99, record, predMin, 
   const inAgentRange = score >= predMin && score <= predMax;
   const presets = [
     { label: "Typical", v: median },
-    { label: "Agent's best guess", v: Math.round(predMax) },
+    { label: "Model's best guess", v: Math.round(predMax) },
     { label: "Top 10%", v: p90 },
     { label: "Top 1%", v: p99 },
     { label: "Record", v: record },
@@ -60,7 +60,7 @@ export default function ScoreExplorer({ min, median, p90, p99, record, predMin, 
       </div>
       <p className="mt-4 text-sm">
         A score of <strong>{score}</strong> beats about <strong className="tabular-nums">{percentile.toFixed(percentile > 99 ? 1 : 0)}%</strong> of IPL player-matches. {tier.note}{" "}
-        {inAgentRange ? "It is inside the range the agent predicts (a prediction is an average)." : score > predMax ? "It is above anything the agent would predict: the agent predicts expected points, not peak days." : "It is below the agent's usual range."}
+        {inAgentRange ? "It is inside the range the model predicts (a prediction is an average)." : score > predMax ? "It is above anything the model would predict: the model predicts expected points, not peak days." : "It is below the system's usual range."}
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
         {presets.map((p) => (

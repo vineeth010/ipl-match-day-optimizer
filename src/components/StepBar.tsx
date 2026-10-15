@@ -1,9 +1,9 @@
 /** The match-day flow as a progress bar: where this match is right now. Pure markup. */
 const STEPS = [
-  { n: 1, label: "Get the team", hint: "The agent builds the XI" },
+  { n: 1, label: "Get the team", hint: "The system builds the XI" },
   { n: 2, label: "Play it in Dream11", hint: "You submit it yourself" },
   { n: 3, label: "Enter real points", hint: "After the match" },
-  { n: 4, label: "Agent learns", hint: "Weights update" },
+  { n: 4, label: "System learns", hint: "Weights update" },
 ];
 
 export default function StepBar({ current }: { current: 1 | 2 | 3 | 4 | 5 }) {

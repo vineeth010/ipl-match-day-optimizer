@@ -11,10 +11,10 @@ import { learningOverview } from "@/lib/service";
 export const dynamic = "force-dynamic";
 
 const STEPS = [
-  { icon: <BatIcon className="h-7 w-7" />, title: "Generate the team", body: "Pick the open match. The agent reads only data dated before it, builds the highest-scoring legal XI (100 credits, 7 per team, role limits) and explains its captain picks." },
+  { icon: <BatIcon className="h-7 w-7" />, title: "Generate the team", body: "Pick the open match. The system reads only data dated before it, builds the highest-scoring legal XI (100 credits, 7 per team, role limits) and explains its captain picks." },
   { icon: <GlovesIcon className="h-7 w-7" />, title: "Play it in Dream11", body: "You copy the team into Dream11 yourself. The app never submits anything for you." },
   { icon: <StumpsIcon className="h-7 w-7" />, title: "Enter the real points", body: "After the match, type each player's actual points from the Excel workbook. The yellow cells are exactly what you type." },
-  { icon: <TrophyIcon className="h-7 w-7" />, title: "The agent learns", body: "It compares its predictions with reality, nudges its scoring weights in small capped steps, and carries that into the next match." },
+  { icon: <TrophyIcon className="h-7 w-7" />, title: "The system learns", body: "It compares its predictions with reality, nudges its scoring weights in small capped steps, and carries that into the next match." },
 ];
 
 export default async function Home() {
@@ -38,7 +38,7 @@ export default async function Home() {
   });
 
   const tiles: { label: string; node: React.ReactNode; hint: string }[] = [
-    { label: "Matches played with the agent", node: <><CountUp value={entered} /><span className="text-xl font-bold text-white/60"> / {matches.length}</span></>, hint: "points entered" },
+    { label: "Matches played with the app", node: <><CountUp value={entered} /><span className="text-xl font-bold text-white/60"> / {matches.length}</span></>, hint: "points entered" },
     { label: "Scoring weights", node: <>v<CountUp value={overview.weights.version} /></>, hint: "learned from your entries" },
     { label: "Avg gap, latest match", node: last ? <><CountUp value={last.modelMae} decimals={1} /><span className="text-xl font-bold text-white/60"> pts</span></> : <>—</>, hint: last ? `baseline ${last.baselineMae.toFixed(1)}` : "no entries yet" },
     { label: "Learning entries", node: <CountUp value={overview.logs.length} />, hint: "times it has learned" },
@@ -58,7 +58,7 @@ export default async function Home() {
             Your match day, <span className="text-gradient">done in a minute.</span>
           </h1>
           <p className="anim-up mt-4 max-w-2xl text-sm text-white/80 sm:text-base" style={{ ["--d" as string]: "160ms" }}>
-            Pick a match and get a legal Dream11 XI with captain and vice-captain reasoning. After the match, enter the real points and watch the agent compare its predictions with what happened, then adjust its scoring weights.
+            Pick a match and get a legal Dream11 XI with captain and vice-captain reasoning. After the match, enter the real points and watch the system compare its predictions with what happened, then adjust its scoring weights.
           </p>
           <div className="anim-up mt-7 flex flex-wrap items-center gap-3" style={{ ["--d" as string]: "240ms" }}>
             {next && (
