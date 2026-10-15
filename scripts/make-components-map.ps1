@@ -77,7 +77,7 @@ function Cx($col) { $colX[$col] + 132 }
 function Pt($x, $y) { New-Object System.Drawing.Point($x, $y) }
 
 # 1 ingestion -> database
-$g.DrawLine($pen, (Cx 4), 722, (Cx 4), 763)
+$g.DrawLine($pen, (Cx 4), 732, (Cx 4), 763)
 # database -> date gate
 $g.DrawLine($pen, (Cx 2), 763, (Cx 2), 417)
 Lbl ((Cx 2) + 8) 632 'reads only'
@@ -94,8 +94,6 @@ Lbl ((Cx 3) + 8) 650 'reads latest weights'
 $g.DrawLines($pen, [System.Drawing.Point[]]@((Pt 1251 365), (Pt (Cx 4) 365), (Pt (Cx 4) 450)))
 # gemini -> match page
 $g.DrawLines($pen, [System.Drawing.Point[]]@((Pt 1515 515), (Pt (Cx 5) 515), (Pt (Cx 5) 267)))
-# match page -> dream11 step
-$g.DrawLine($pen, 1555, 215, 1517, 215)
 # points document -> entry
 $g.DrawLines($pen, [System.Drawing.Point[]]@((Pt 459 665), (Pt 479 665), (Pt 479 215), (Pt 497 215)))
 # entry -> analyzer
@@ -106,12 +104,12 @@ Lbl ((Cx 1) + 8) 560 'saves actual points'
 Lbl ((Cx 1) + 8) 578 'and new weights'
 
 # ---- boxes ----
-function Box-At($row, $x, $y, $w, $h, $num, $text) {
+function Box-At($row, $x, $y, $w, $h, $num, $text, $fs = 15) {
     $path = RoundRect $x $y $w $h 12
     $g.FillPath((New-Object System.Drawing.SolidBrush (C $boxFill[$row])), $path)
     $g.DrawPath((New-Object System.Drawing.Pen((C $boxLine[$row]), 2.5)), $path)
     $rect = New-Object System.Drawing.RectangleF(($x + 10), ($y + 6), ($w - 20), ($h - 12))
-    $g.DrawString($text, (Font 15 $false), (New-Object System.Drawing.SolidBrush (C '#1B1B1B')), $rect, $center)
+    $g.DrawString($text, (Font $fs $false), (New-Object System.Drawing.SolidBrush (C '#1B1B1B')), $rect, $center)
     $g.FillEllipse($hb, ($x - 12), ($y - 12), 28, 28)
     $g.DrawString("$num", (Font 15 $true), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(($x - 12), ($y - 12), 28, 28)), $center)
 }
@@ -120,18 +118,17 @@ function Box($row, $col, $num, $text) {
 }
 
 Box 0 0 3 'Picks an IPL 2026 match and clicks Generate Team'
-Box 0 1 10 'After the match: reads the Actual Points Document and types the points into the app'
-Box 0 4 8 "Copies the team into Dream11 himself and plays (outside our app)"
-Box 0 5 7 "Match page: best XI, captain / VC, bench with reasons, credits, disclaimer, 'what I learned'"
+Box 0 1 9 'After the match: reads the Actual Points Document and types the points into the app'
+Box-At 0 ($colX[5] + 20) ($rowY[0] + 8) 224 134 7 "Match page: best XI, captain / VC, bench, reasons, 'what I learned'. Aryan copies the team into Dream11 himself (outside our app)" 14
 
-Box 1 1 11 "Learning analyzer: predicted vs actual (and vs a simple baseline) $arrow new weights for the next match"
+Box 1 1 10 "Learning analyzer: predicted vs actual (and vs a simple baseline) $arrow new weights for the next match"
 Box 1 2 4 'Date gate: only data from before this match. Pool = each side starting XI (22); Impact Player out of scope'
 Box 1 3 5 'Prediction engine (latest weights) + team builder: estimated credits, 100 cap, max 7 per team, roles'
 
 Box-At 2 ($colX[4] + 20) 450 224 126 6 'Gemini Flash writes the reasons for picks, bench, captain and VC. At ingestion it also classifies the roles of first-time players'
 
-Box 3 0 9 "Actual Points Document: each player's Dream11 points, made from the scorecard"
-Box-At 3 ($colX[4] + 20) 598 224 124 1 'Cricsheet ball-by-ball IPL archive (public, CC BY 3.0), loaded ahead of time and after each match: fixtures, squads, scorecards'
+Box 3 0 8 "Actual Points Document: each player's Dream11 points, made from the scorecard"
+Box-At 3 ($colX[4] + 20) 596 224 136 1 'Cricsheet ball-by-ball IPL archive (public, CC BY 3.0). Ingestion script turns every ball into Dream11 points per player per match, ahead of time' 14
 
 Box-At 4 235 763 1545 104 2 'Supabase database (tables inside one existing project): matches, players, dated stats, predictions, actual points and outcomes, weights (versioned), learning log'
 
